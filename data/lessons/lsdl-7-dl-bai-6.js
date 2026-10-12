@@ -9,14 +9,14 @@ THCS.registerLesson('lsdl-7/dl-bai-6', {
   ],
   intro: "Cứ khoảng 10 người trên Trái Đất thì có 6 người sống ở châu Á. Châu Á cũng là quê hương của nhiều tôn giáo lớn.",
   steps: [
-    { title: "Quy mô dân số", html: "<p>Năm 2023, châu Á có khoảng <b>4,75 tỉ người</b>, chiếm gần <b>60%</b> dân số thế giới (số liệu làm tròn theo Liên hợp quốc). Hai nước đông dân nhất thế giới là Ấn Độ và Trung Quốc (mỗi nước hơn 1,4 tỉ người).</p>",
+    { title: "Quy mô dân số", html: "<p>Năm 2023, châu Á có khoảng <b>4,78 tỉ người</b>, chiếm gần <b>60%</b> dân số thế giới (số liệu làm tròn theo Liên hợp quốc). Hai nước đông dân nhất thế giới là Ấn Độ và Trung Quốc (mỗi nước hơn 1,4 tỉ người).</p>",
       svg: S.pieChart({ title: "Tỉ lệ dân số châu Á trong thế giới (làm tròn)", parts: [{ v: 59, label: "Châu Á: 59%" }, { v: 41, label: "Các châu lục khác: 41%" }] }), caption: "Số liệu làm tròn, năm 2023." },
     { title: "Thành phần dân cư, tôn giáo", html: "<p>Dân cư thuộc nhiều chủng tộc, chủ yếu là Môn-gô-lô-it và Ơ-rô-pê-ô-it. Châu Á là nơi ra đời của nhiều tôn giáo lớn:</p>",
       svg: S.table({ title: "Nơi ra đời của các tôn giáo lớn", head: ["Tôn giáo", "Nơi ra đời"], rows: [["Ấn Độ giáo", "Ấn Độ"], ["Phật giáo", "Ấn Độ"], ["Ki-tô giáo", "Tây Á (Pa-le-xtin)"], ["Hồi giáo", "Tây Á (A-rập Xê-út)"]], colW: 250 }), caption: "Các tôn giáo lan toả ra nhiều nơi trên thế giới." },
     { title: "Phân bố dân cư", html: "<p>Dân cư phân bố không đều: tập trung đông ở các đồng bằng, ven biển Đông Á, Đông Nam Á, Nam Á; thưa thớt ở vùng núi cao, hoang mạc, vùng lạnh Bắc Á.</p>" },
     { title: "Đô thị", html: "<p>Nhiều đô thị rất lớn: Tô-ki-ô, Thượng Hải, Niu Đê-li, Mum-bai, Gia-các-ta, Băng Cốc. Tốc độ đô thị hoá nhanh.</p>" }
   ],
-  summary: "Châu Á có khoảng 4,75 tỉ dân (2023), gần 60% dân số thế giới; Ấn Độ và Trung Quốc đông dân nhất. Dân cư gồm nhiều chủng tộc; châu Á là nơi ra đời của Ấn Độ giáo, Phật giáo, Ki-tô giáo, Hồi giáo. Dân cư tập trung ở đồng bằng, ven biển; thưa ở núi cao, hoang mạc. Có nhiều đô thị lớn, đô thị hoá nhanh.",
+  summary: "Châu Á có khoảng 4,78 tỉ dân (2023), gần 60% dân số thế giới; Ấn Độ và Trung Quốc đông dân nhất. Dân cư gồm nhiều chủng tộc; châu Á là nơi ra đời của Ấn Độ giáo, Phật giáo, Ki-tô giáo, Hồi giáo. Dân cư tập trung ở đồng bằng, ven biển; thưa ở núi cao, hoang mạc. Có nhiều đô thị lớn, đô thị hoá nhanh.",
   examples: [
     { title: "Tính", problem: "Dân số thế giới khoảng 8 tỉ, châu Á chiếm khoảng 59%. Châu Á có khoảng bao nhiêu tỉ người?", solution: "8 × 59% ≈ 4,72 tỉ người." },
     { title: "Giải thích", problem: "Vì sao dân cư tập trung ở đồng bằng ven biển?", solution: "Đất bằng, màu mỡ, khí hậu thuận lợi, giao thông dễ dàng." },

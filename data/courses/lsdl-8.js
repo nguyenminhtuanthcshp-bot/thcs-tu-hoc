@@ -14,5 +14,24 @@ THCS.registerCourse({
     {"id": "dl-c3", "part": "Phân môn Địa lí", "title": "Chương 3. Đặc điểm thổ nhưỡng và sinh vật Việt Nam", "lessons": [{"id": "dl-bai-9", "title": "Bài 9. Thổ nhưỡng Việt Nam"}, {"id": "dl-bai-10", "title": "Bài 10. Sinh vật Việt Nam"}]},
     {"id": "dl-c4", "part": "Phân môn Địa lí", "title": "Chương 4. Biển đảo Việt Nam", "lessons": [{"id": "dl-bai-11", "title": "Bài 11. Phạm vi Biển Đông. Vùng biển đảo và đặc điểm tự nhiên vùng biển đảo Việt Nam"}, {"id": "dl-bai-12", "title": "Bài 12. Môi trường và tài nguyên thiên nhiên biển đảo Việt Nam"}]},
     {"id": "cdc", "part": "Chủ đề chung", "title": "Các chủ đề chung", "lessons": [{"id": "cdc-1", "title": "Chủ đề chung 1. Văn minh châu thổ sông Hồng và sông Cửu Long"}, {"id": "cdc-2", "title": "Chủ đề chung 2. Bảo vệ chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông"}]}
-  ]
+  ],
+  diagnostic: {
+    questions: [
+      { lesson: 'ls-bai-1', type: 'tf', q: "Khẳng định sau đúng hay sai: Năm 1688, nước Anh lập chế độ quân chủ lập hiến.", answer: true, explain: "Đúng." },
+      { lesson: 'ls-bai-2', type: 'mcq', q: "Ngày nhân dân Pa-ri chiếm ngục Ba-xti:", options: ["14/7/1789", "4/7/1776", "1/9/1858", "7/11/1917"], answer: 0, explain: "14/7/1789." },
+      { lesson: 'ls-bai-3', type: 'mcq', q: "Người cải tiến máy hơi nước:", options: ["G. Oát", "Ê-đi-xơn", "Đác-uyn", "Mác"], answer: 0, explain: "G. Oát." },
+      { lesson: 'ls-bai-5', type: 'short', q: "Từ 1627 đến 1672 là bao nhiêu năm?", answer: "45", unit: "năm", calc: "1672-1627", explain: "45." },
+      { lesson: 'ls-bai-8', type: 'mcq', q: "Trận đại phá quân Thanh năm 1789:", options: ["Ngọc Hồi – Đống Đa", "Rạch Gầm – Xoài Mút", "Chi Lăng", "Bạch Đằng"], answer: 0, explain: "Ngọc Hồi – Đống Đa." },
+      { lesson: 'ls-bai-12', type: 'tf', q: "Khẳng định sau đúng hay sai: Chiến tranh thế giới thứ nhất bùng nổ năm 1918.", answer: false, explain: "Sai." },
+      { lesson: 'ls-bai-16', type: 'mcq', q: "Quốc hiệu nước ta năm 1838:", options: ["Đại Nam", "Đại Việt", "Đại Cồ Việt", "Vạn Xuân"], answer: 0, explain: "Đại Nam." },
+      { lesson: 'ls-bai-17', type: 'short', q: "Từ 1858 đến 1884 là bao nhiêu năm?", answer: "26", unit: "năm", calc: "1884-1858", explain: "26." },
+      { lesson: 'ls-bai-19', type: 'mcq', q: "Người lập Duy Tân hội năm 1904:", options: ["Phan Bội Châu", "Phan Châu Trinh", "Hoàng Hoa Thám", "Tôn Thất Thuyết"], answer: 0, explain: "Phan Bội Châu." },
+      { lesson: 'dl-bai-1', type: 'mcq', q: "Điểm cực Bắc của nước ta:", options: ["Lũng Cú", "Đất Mũi", "Sín Thầu", "Mũi Đôi"], answer: 0, explain: "Lũng Cú." },
+      { lesson: 'dl-bai-2', type: 'tf', q: "Khẳng định sau đúng hay sai: Đồi núi chiếm khoảng 3/4 diện tích nước ta.", answer: true, explain: "Đúng." },
+      { lesson: 'dl-bai-4', type: 'short', q: "Trạm Láng năm 2023: tháng 7 là 31,5 °C, tháng 1 là 18,2 °C. Biên độ nhiệt (°C)?", answer: "13.3", answerText: "13,3", unit: "°C", calc: "31.5-18.2", explain: "13,3." },
+      { lesson: 'dl-bai-9', type: 'mcq', q: "Nhóm đất chiếm diện tích lớn nhất nước ta:", options: ["Feralit", "Phù sa", "Mùn núi cao", "Cát biển"], answer: 0, explain: "Feralit." },
+      { lesson: 'dl-bai-11', type: 'short', q: "Lãnh hải rộng 12 hải lí, 1 hải lí = 1 852 m. Lãnh hải rộng bao nhiêu m?", answer: "22224", answerText: "22 224", unit: "m", calc: "12*1852", explain: "22 224." },
+      { lesson: 'dl-bai-11', type: 'tf', q: "Khẳng định sau đúng hay sai: Quần đảo Trường Sa thuộc tỉnh Khánh Hoà.", answer: true, explain: "Đúng." }
+    ]
+  }
 });

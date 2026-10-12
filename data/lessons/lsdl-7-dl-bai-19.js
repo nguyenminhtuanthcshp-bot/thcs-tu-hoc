@@ -11,16 +11,16 @@ THCS.registerLesson('lsdl-7/dl-bai-19', {
   steps: [
     { title: "Lịch sử khám phá", html: "<p>Năm <b>1820</b>, các nhà hàng hải đã nhìn thấy lục địa Nam Cực. Năm <b>1911</b>, đoàn của R. A-mun-xen (Na Uy) lần đầu tới điểm cực Nam. Năm <b>1959</b>, 12 nước kí <b>Hiệp ước Nam Cực</b>: chỉ dùng Nam Cực cho mục đích hoà bình, nghiên cứu khoa học.</p>",
       svg: S.timeline({ title: "Khám phá Nam Cực", items: [{ y: "1820", s: "Nhìn thấy lục địa" }, { y: "1911", s: "A-mun-xen tới cực Nam" }, { y: "1959", s: "Hiệp ước Nam Cực" }, { y: "1983", s: "−89,2 °C ở Vô-xtốc" }] }), caption: "Hiện nhiều nước có trạm nghiên cứu ở Nam Cực." },
-    { title: "Vị trí, tự nhiên", html: "<p>Châu Nam Cực rộng khoảng <b>14,1 triệu km²</b>, gần như nằm hoàn toàn trong vòng cực Nam. Khoảng <b>98%</b> diện tích bị băng phủ, độ dày trung bình gần 2 000 m. Khí hậu lạnh và khô nhất thế giới; gió bão nhiều.</p>",
+    { title: "Vị trí, tự nhiên", html: "<p>Châu Nam Cực rộng khoảng <b>14 triệu km²</b>, gần như nằm hoàn toàn trong vòng cực Nam. Khoảng <b>98%</b> diện tích bị băng phủ, độ dày trung bình gần 2 000 m. Khí hậu lạnh và khô nhất thế giới; gió bão nhiều.</p>",
       svg: S.climateChart({ title: "Nhiệt độ trung bình tháng ở trạm Vô-xtốc (gần đúng)", temp: [-32, -44, -58, -65, -66, -66, -67, -68, -66, -57, -43, -32], rain: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], tMax: 0, rMax: 10, tMin: -80, note: "Số liệu làm tròn, gần đúng; lượng mưa rất nhỏ nên coi như 0." }), caption: "Tháng 7, 8 là mùa đông ở Nam Cực." },
     { title: "Sinh vật", html: "<p>Thực vật nghèo nàn (rêu, địa y). Động vật sống ven biển: chim cánh cụt, hải cẩu, cá voi.</p>" },
     { title: "Kịch bản khi Trái Đất nóng lên", html: "<p>Tóm tắt:</p>",
       svg: S.flowchart({ title: "Kịch bản biến đổi ở Nam Cực", steps: [{ t: 'start', s: "Nhiệt độ tăng" }, { t: 'proc', s: "Băng tan nhanh hơn" }, { t: 'proc', s: "Nước biển dâng" }, { t: 'end', s: "Mất nơi sống của sinh vật" }] }), caption: "Băng Nam Cực tan nhiều có thể làm mực nước biển dâng, đe doạ vùng ven biển như đồng bằng sông Cửu Long." }
   ],
-  summary: "Lục địa Nam Cực được nhìn thấy năm 1820; năm 1911 A-mun-xen tới cực Nam; năm 1959 Hiệp ước Nam Cực được kí. Châu Nam Cực rộng khoảng 14,1 triệu km², gần 98% bị băng phủ, lạnh và khô nhất thế giới (−89,2 °C ở Vô-xtốc năm 1983). Sinh vật nghèo, chủ yếu chim cánh cụt, hải cẩu ven biển. Trái Đất nóng lên làm băng tan, nước biển dâng.",
+  summary: "Lục địa Nam Cực được nhìn thấy năm 1820; năm 1911 A-mun-xen tới cực Nam; năm 1959 Hiệp ước Nam Cực được kí. Châu Nam Cực rộng khoảng 14 triệu km², gần 98% bị băng phủ, lạnh và khô nhất thế giới (−89,2 °C ở Vô-xtốc năm 1983). Sinh vật nghèo, chủ yếu chim cánh cụt, hải cẩu ven biển. Trái Đất nóng lên làm băng tan, nước biển dâng.",
   examples: [
     { title: "Tính", problem: "Từ năm 1959 đến năm 2029 là bao nhiêu năm?", solution: "70 năm." },
-    { title: "Tính", problem: "98% của 14,1 triệu km² bị băng phủ là khoảng bao nhiêu triệu km²?", solution: "14,1 × 98% ≈ 13,8 triệu km²." },
+    { title: "Tính", problem: "98% của 14 triệu km² bị băng phủ là khoảng bao nhiêu triệu km²?", solution: "14 × 98% ≈ 13,7 triệu km²." },
     { title: "Giải thích", problem: "Vì sao Nam Cực rất lạnh?", solution: "Ở vĩ độ rất cao, nhận ít nhiệt; băng phản xạ phần lớn ánh sáng Mặt Trời; địa hình cao." }
   ],
   exercises: [
@@ -36,7 +36,7 @@ THCS.registerLesson('lsdl-7/dl-bai-19', {
     { type: 'tf', q: "Khẳng định sau đúng hay sai: Nam Cực có rừng rậm nhiệt đới.", answer: false, explain: "Chỉ có rêu, địa y." },
     { type: 'mcq', q: "Hậu quả khi băng Nam Cực tan nhiều:", options: ["Nước biển dâng", "Sa mạc mở rộng ở Nam Cực", "Nhiệt độ giảm mạnh", "Hết mưa toàn cầu"], answer: 0, explain: "Nước biển dâng." },
     { type: 'short', q: "Nhiệt độ ở Vô-xtốc tháng 1 khoảng −32 °C, tháng 8 khoảng −68 °C. Chênh lệch bao nhiêu °C?", answer: "36", unit: "°C", calc: "-32-(-68)", explain: "36." },
-    { type: 'mcq', q: "Diện tích châu Nam Cực khoảng:", options: ["14,1 triệu km²", "44,4 triệu km²", "8,5 triệu km²", "42 triệu km²"], answer: 0, explain: "14,1 triệu km²." }
+    { type: 'mcq', q: "Diện tích châu Nam Cực khoảng:", options: ["Khoảng 14 triệu km²", "44,4 triệu km²", "8,5 triệu km²", "42 triệu km²"], answer: 0, explain: "Khoảng 14 triệu km²." }
   ]
 });
 })();
