@@ -383,4 +383,20 @@
     return wrap(W, H, b, o.title || 'Đầu trang và chân trang');
   }
   S.timeline = timeline; S.layers = layers; S.cropBox = cropBox; S.pageHF = pageHF;
+  /* videoTrack({ title, total: giây, tracks: [{ name, items: [{ s, e, t, c }] }], head: giây, note }) – dòng thời gian dựng video */
+  function videoTrack(o) {
+    o = o || {}; var W = 640, x0 = 110, tw = 500, tot = o.total || 60, k = tw / tot, y0 = (o.title ? 38 : 10), th = 34, tr = o.tracks || [], b = title(W, o.title), cols = ['#bfdbfe', '#fde68a', '#bbf7d0', '#fbcfe8', '#ddd6fe'];
+    var step = tot <= 30 ? 5 : (tot <= 90 ? 10 : 30);
+    for (var t = 0; t <= tot; t += step) b += L(x0 + t * k, y0 + 14, x0 + t * k, y0 + 20, { color: '#64748b', width: 1 }) + T(x0 + t * k, y0 + 9, t + ' s', { size: 10.5, color: C.muted });
+    tr.forEach(function (r, i) { var y = y0 + 26 + i * (th + 8);
+      b += R(10, y, x0 - 18, th, { fill: '#f1f5f9', stroke: '#cbd5e1', rx: 4 }) + T(16, y + th / 2, r.name, { size: 12, bold: true, anchor: 'start', vcenter: true });
+      b += R(x0, y, tw, th, { fill: '#f8fafc', stroke: '#e2e8f0', rx: 3 });
+      (r.items || []).forEach(function (it, j) { b += R(x0 + it.s * k + 1, y + 3, (it.e - it.s) * k - 2, th - 6, { fill: it.c || cols[(i + j) % 5], stroke: '#475569', rx: 4, sw: 1 }) + T(x0 + (it.s + it.e) / 2 * k, y + th / 2, it.t, { size: 11, vcenter: true }); });
+    });
+    var yb = y0 + 26 + tr.length * (th + 8);
+    if (o.head != null) b += L(x0 + o.head * k, y0 + 18, x0 + o.head * k, yb, { color: '#dc2626', width: 2 }) + P('M' + n2(x0 + o.head * k - 6) + ',' + (y0 + 14) + ' h12 l-6,8 z', { fill: '#dc2626', stroke: 'none' });
+    var H = yb + (o.note ? 24 : 6); if (o.note) b += T(W / 2, H - 8, o.note, { size: 12, color: C.muted });
+    return wrap(W, H, b, o.title || 'Dòng thời gian dựng video');
+  }
+  S.videoTrack = videoTrack;
 })();

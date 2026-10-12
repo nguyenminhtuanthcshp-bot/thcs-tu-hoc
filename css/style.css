@@ -239,3 +239,6 @@ figure.fig figcaption { font-size: .9em; color: #6b7280; margin-top: 6px; font-s
 .fig-cell { flex: 1 1 140px; max-width: 240px; }
 .fig-cap { font-size: .88em; color: #374151; margin-top: 4px; font-weight: 600; }
 @media (max-width: 520px) { .fig-cell { flex-basis: 40%; } }
+
+/* Công thức dài trong <code> được xuống dòng trên màn hình hẹp */
+.lesson code, .step code, .box code { overflow-wrap: anywhere; word-break: break-word; }

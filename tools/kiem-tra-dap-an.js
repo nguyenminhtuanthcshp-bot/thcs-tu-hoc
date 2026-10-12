@@ -23,7 +23,7 @@ var ctx = { console: console, Math: Math,
   sum: function (a) { return a.reduce(function (s, x) { return s + x; }, 0); },
   mean: function (a) { return ctx.sum(a) / a.length; },
   poly: function (c, x) { return c.reduce(function (s, a, i) { return s + a * Math.pow(x, i); }, 0); } };
-var STRICT_CALC = ['toan-7', 'toan-8', 'toan-9', 'khtn-7', 'khtn-8', 'khtn-9', 'tin-hoc-6', 'tin-hoc-7', 'tin-hoc-8'];
+var STRICT_CALC = ['toan-7', 'toan-8', 'toan-9', 'khtn-7', 'khtn-8', 'khtn-9', 'tin-hoc-6', 'tin-hoc-7', 'tin-hoc-8', 'tin-hoc-9'];
 ctx.window = ctx;
 ctx.THCS = {
   registerSubject: function () {},
