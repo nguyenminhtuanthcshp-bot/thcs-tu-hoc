@@ -399,4 +399,24 @@
     return wrap(W, H, b, o.title || 'Dòng thời gian dựng video');
   }
   S.videoTrack = videoTrack;
+  /* ===== Hình cho GDCD ===== */
+  /* card({ title, tag, lines: ['…'], q, color }) – thẻ tình huống (mỗi dòng ≤ ~70 kí tự) */
+  function card(o) {
+    o = o || {}; var W = 640, ls = o.lines || [], col = o.color || '#c2410c', y0 = o.title ? 36 : 8, h = 52 + ls.length * 24 + (o.q ? 40 : 0), b = title(W, o.title);
+    b += R(20, y0, W - 40, h, { fill: '#fff7ed', stroke: col, rx: 14, sw: 2 });
+    b += R(36, y0 + 12, 150, 26, { fill: col, stroke: 'none', rx: 13 }) + T(111, y0 + 25, o.tag || 'Tình huống', { size: 13, bold: true, color: '#fff', vcenter: true });
+    ls.forEach(function (l, i) { b += T(40, y0 + 62 + i * 24, l, { size: 14, anchor: 'start' }); });
+    if (o.q) { var yq = y0 + 58 + ls.length * 24; b += L(40, yq, W - 40, yq, { color: '#fdba74', width: 1 }) + T(40, yq + 22, '❓ ' + o.q, { size: 14, bold: true, anchor: 'start', color: '#9a3412' }); }
+    return wrap(W, y0 + h + 8, b, o.title || 'Thẻ tình huống');
+  }
+  /* compare({ title, left: { h, items }, right: { h, items } }) – hai cột Nên / Không nên */
+  function compare(o) {
+    o = o || {}; var W = 640, y0 = o.title ? 38 : 8, a = o.left || { items: [] }, c = o.right || { items: [] }, n = Math.max(a.items.length, c.items.length), H = y0 + 44 + n * 30 + 14, b = title(W, o.title);
+    [[a, 20, '#dcfce7', '#15803d', '✓'], [c, 330, '#fee2e2', '#b91c1c', '✗']].forEach(function (z) {
+      b += R(z[1], y0, 290, H - y0 - 8, { fill: z[2], stroke: z[3], rx: 10, sw: 1.5 }) + T(z[1] + 145, y0 + 20, z[0].h || '', { size: 14, bold: true, color: z[3], vcenter: true });
+      z[0].items.forEach(function (it, i) { b += T(z[1] + 14, y0 + 54 + i * 30, z[4] + ' ' + it, { size: 13, anchor: 'start', color: '#1f2937' }); });
+    });
+    return wrap(W, H, b, o.title || 'So sánh');
+  }
+  S.card = card; S.compare = compare;
 })();

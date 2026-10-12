@@ -241,7 +241,7 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
    `python3 tools/cap-nhat-index.py` để công cụ tự thêm.
 3. Chạy `node tools/kiem-tra-dap-an.js toan-6` (thay `toan-6` bằng môn – lớp, hoặc bỏ trống để kiểm tra tất cả):
    công cụ kiểm tra cấu trúc (mục tiêu, 4–5 bước, 3 ví dụ, 3 bài tập có 2 gợi ý, 8 câu kiểm tra…), tính lại các đáp án có `calc`,
-   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8 và Tin học 9 (danh sách `STRICT_CALC` trong công cụ), mọi câu
+   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9 và GDCD 6 (danh sách `STRICT_CALC` trong công cụ), mọi câu
    `short` có đáp án là số **bắt buộc** có `calc`; công cụ in tỉ lệ câu có `calc` của từng môn – lớp.
 4. Mở lại `index.html` và kiểm tra bài học.
 
@@ -364,9 +364,14 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
   COUNTIF/SUMIF/IF, biểu đồ, dòng thời gian dựng video, kịch bản phân cảnh, sơ đồ khối, sơ đồ phân cấp, khối lệnh Scratch tự định nghĩa,
   bảng kiểm thử, nhóm nghề tin học). Hàm mới trong `js/svg-tin.js`: `videoTrack`. Trắc nghiệm 176 câu (72 nhiều lựa chọn, 44 đúng/sai, 60 trả lời ngắn); mọi câu có đáp án số (60 câu)
   đều có `calc`; Tin học 9 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ các chủ đề và cả hai nhánh.
-* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6, 7, 8 và 9 (môn Tin học đã hoàn chỉnh), trang hiện có **688 bài học** đã soạn
-  và **16 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
-* **Đang biên soạn:** GDCD 6–9; LS&ĐL 6–9 (212 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
+* **GDCD 6: soạn đầy đủ cả 12 bài** (giáo dục đạo đức, kĩ năng sống, kinh tế, pháp luật); 25 hình SVG (thẻ tình huống, bảng
+  “Nên / Không nên”, sơ đồ quyết định ứng xử, bảng số điện thoại khẩn cấp 113/114/115/111, bảng quyền và nghĩa vụ theo Hiến pháp năm 2013,
+  các trường hợp có quốc tịch Việt Nam, bốn nhóm quyền trẻ em theo Luật Trẻ em năm 2016, biểu đồ chi tiêu minh hoạ). Hàm mới trong
+  `js/svg-tin.js`: `card`, `compare`. Trắc nghiệm 96 câu (46 nhiều lựa chọn, 24 đúng/sai, 26 trả lời ngắn); câu có đáp án số (26 câu) đều có `calc`; GDCD 6 nằm trong `STRICT_CALC`.
+  Tình huống đều tự viết; ca dao, tục ngữ dân gian được trích ngắn. Kiểm tra đầu vào 15 câu trải đủ 12 bài.
+* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6–9 (đã hoàn chỉnh) và GDCD 6, trang hiện có **700 bài học** đã soạn
+  và **17 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
+* **Đang biên soạn:** GDCD 7–9; LS&ĐL 6–9 (200 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
   các bài hiện thông báo “Bài học đang được biên soạn”.
 
 ## 9. Căn cứ
