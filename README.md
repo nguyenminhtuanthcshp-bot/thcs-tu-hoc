@@ -241,7 +241,7 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
    `python3 tools/cap-nhat-index.py` để công cụ tự thêm.
 3. Chạy `node tools/kiem-tra-dap-an.js toan-6` (thay `toan-6` bằng môn – lớp, hoặc bỏ trống để kiểm tra tất cả):
    công cụ kiểm tra cấu trúc (mục tiêu, 4–5 bước, 3 ví dụ, 3 bài tập có 2 gợi ý, 8 câu kiểm tra…), tính lại các đáp án có `calc`,
-   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9, GDCD 6 và GDCD 7 (danh sách `STRICT_CALC` trong công cụ), mọi câu
+   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9, GDCD 6, GDCD 7 và GDCD 8 (danh sách `STRICT_CALC` trong công cụ), mọi câu
    `short` có đáp án là số **bắt buộc** có `calc`; công cụ in tỉ lệ câu có `calc` của từng môn – lớp.
 4. Mở lại `index.html` và kiểm tra bài học.
 
@@ -375,9 +375,16 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
   (Luật số 73/2021/QH14, Điều 5), Luật Di sản văn hoá 2024 (hiệu lực 1/7/2025), Nghị định 80/2017/NĐ-CP, Luật Trẻ em 2016 (Điều 6), Bộ luật Hình sự 2015
   (Điều 321, 322), Hiến pháp 2013 (Điều 36). Trắc nghiệm 80 câu (38 nhiều lựa chọn, 20 đúng/sai, 22 trả lời ngắn); câu có đáp án số (22 câu) đều có `calc`;
   GDCD 7 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ 10 bài.
-* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6–9 (đã hoàn chỉnh) và GDCD 6–7, trang hiện có **710 bài học** đã soạn
-  và **18 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
-* **Đang biên soạn:** GDCD 8–9; LS&ĐL 6–9 (190 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
+* **GDCD 8: soạn đầy đủ cả 10 bài** (đạo đức, kĩ năng sống, kinh tế, pháp luật); 20 hình SVG (các chiến thắng tiêu biểu, cơ cấu dân tộc theo
+  Tổng điều tra 2019, tiêu chí SMART, các hình thức bạo lực gia đình, kế hoạch chi tiêu minh hoạ, sơ đồ thoát nạn khi cháy, thời giờ làm việc
+  của lao động chưa thành niên). Dẫn chiếu pháp luật đã đối chiếu: Hiến pháp 2013 (Điều 5, 35, 43); Luật Bảo vệ môi trường 2020 (72/2020/QH14, Điều 6);
+  Luật Phòng, chống bạo lực gia đình 2022 (13/2022/QH15, hiệu lực 1/7/2023, Điều 3, 5); Luật Quản lý, sử dụng vũ khí, vật liệu nổ và công cụ hỗ trợ 2024
+  (42/2024/QH15); Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ 2024 (55/2024/QH15); Luật Hoá chất 2025 (69/2025/QH15); Bộ luật Lao động 2019
+  (45/2019/QH14, Điều 143, 145, 146, 147). Trắc nghiệm 80 câu (34 nhiều lựa chọn, 20 đúng/sai, 26 trả lời ngắn); câu có đáp án số (26 câu) đều có `calc`;
+  GDCD 8 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ 10 bài.
+* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6–9 (đã hoàn chỉnh) và GDCD 6–8, trang hiện có **720 bài học** đã soạn
+  và **19 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
+* **Đang biên soạn:** GDCD 9; LS&ĐL 6–9 (180 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
   các bài hiện thông báo “Bài học đang được biên soạn”.
 
 ## 9. Căn cứ
