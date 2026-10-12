@@ -11,7 +11,7 @@ THCS.registerLesson('lsdl-8/ls-bai-15', {
   steps: [
     { title: "Ấn Độ dưới ách thống trị của Anh", html: "<p>Giữa thế kỉ XIX, Anh hoàn thành xâm lược Ấn Độ, vơ vét tài nguyên, chia để trị. Cuộc khởi nghĩa <b>Xi-pay</b> (1857 – 1859) lan rộng. Năm <b>1885</b>, <b>Đảng Quốc đại</b> thành lập, lãnh đạo đấu tranh giành độc lập.</p>" },
     { title: "Phong trào ở Đông Nam Á", html: "<p>Tóm tắt:</p>",
-      svg: S.table({ title: "Một số phong trào ở Đông Nam Á", head: ["Nước", "Phong trào"], rows: [["In-đô-nê-xi-a", "Hiệp hội Hồi giáo (1911)"], ["Phi-líp-pin", "Cách mạng 1896 – 1898"], ["Miến Điện", "Kháng chiến chống Anh"], ["Việt Nam", "Cần Vương, Yên Thế"]], colW: 250 }), caption: "Phi-líp-pin tuyên bố độc lập năm 1898 nhưng sau đó bị Mỹ chiếm." },
+      svg: S.table({ title: "Một số phong trào ở Đông Nam Á", head: ["Nước", "Phong trào"], rows: [["In-đô-nê-xi-a", "Sarekat Islam (tổ chức lại năm 1912)"], ["Phi-líp-pin", "Cách mạng 1896 – 1898"], ["Miến Điện", "Kháng chiến chống Anh"], ["Việt Nam", "Cần Vương, Yên Thế"]], colW: 250 }), caption: "Phi-líp-pin tuyên bố độc lập năm 1898 nhưng sau đó bị Mỹ chiếm." },
     { title: "Xiêm cải cách", html: "<p>Vua <b>Ra-ma V</b> (Chu-la-long-con) tiến hành cải cách theo hướng phương Tây, đồng thời thực hiện chính sách ngoại giao mềm dẻo, lợi dụng mâu thuẫn Anh – Pháp, nhờ đó Xiêm giữ được độc lập (dù phải cắt nhượng một số vùng đất).</p>",
       svg: S.flowchart({ title: "Vì sao Xiêm giữ được độc lập", steps: [{ t: 'start', s: "Cải cách theo phương Tây" }, { t: 'proc', s: "Ngoại giao mềm dẻo" }, { t: 'proc', s: "Làm “vùng đệm” Anh – Pháp" }, { t: 'end', s: "Giữ được độc lập" }] }), caption: "Xiêm (Thái Lan) nằm giữa thuộc địa Anh (Miến Điện) và Pháp (Đông Dương)." },
     { title: "Ghi nhớ", html: "<div class=\"box key\">Ấn Độ: khởi nghĩa Xi-pay (1857 – 1859), Đảng Quốc đại (1885). Đông Nam Á: đấu tranh khắp nơi; Xiêm giữ được độc lập nhờ cải cách và ngoại giao.</div>" }
@@ -35,7 +35,7 @@ THCS.registerLesson('lsdl-8/ls-bai-15', {
     { type: 'tf', q: "Khẳng định sau đúng hay sai: Khởi nghĩa Xi-pay diễn ra ở In-đô-nê-xi-a.", answer: false, explain: "Ở Ấn Độ." },
     { type: 'mcq', q: "Vua tiến hành cải cách ở Xiêm:", options: ["Ra-ma V", "Minh Trị", "Quang Trung", "Tôn Trung Sơn"], answer: 0, explain: "Ra-ma V." },
     { type: 'short', q: "Từ 1857 đến 1859 là bao nhiêu năm?", answer: "2", unit: "năm", calc: "1859-1857", explain: "2." },
-    { type: 'mcq', q: "Tổ chức yêu nước ở In-đô-nê-xi-a năm 1911:", options: ["Hiệp hội Hồi giáo", "Đảng Quốc đại", "Đồng minh hội", "Duy Tân hội"], answer: 0, explain: "Hiệp hội Hồi giáo." }
+    { type: 'mcq', q: "Tổ chức yêu nước ở In-đô-nê-xi-a, tổ chức lại năm 1912:", options: ["Sarekat Islam (Hiệp hội Hồi giáo)", "Đảng Quốc đại", "Đồng minh hội", "Duy Tân hội"], answer: 0, explain: "Sarekat Islam; tiền thân là Hội buôn Hồi giáo, có nguồn ghi năm 1905, có nguồn ghi năm 1911." }
   ]
 });
 })();

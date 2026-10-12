@@ -241,7 +241,7 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
    `python3 tools/cap-nhat-index.py` để công cụ tự thêm.
 3. Chạy `node tools/kiem-tra-dap-an.js toan-6` (thay `toan-6` bằng môn – lớp, hoặc bỏ trống để kiểm tra tất cả):
    công cụ kiểm tra cấu trúc (mục tiêu, 4–5 bước, 3 ví dụ, 3 bài tập có 2 gợi ý, 8 câu kiểm tra…), tính lại các đáp án có `calc`,
-   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9, GDCD 6, GDCD 7, GDCD 8, GDCD 9, LS&ĐL 6, LS&ĐL 7 và LS&ĐL 8 (danh sách `STRICT_CALC` trong công cụ), mọi câu
+   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9, GDCD 6, GDCD 7, GDCD 8, GDCD 9, LS&ĐL 6, LS&ĐL 7, LS&ĐL 8 và LS&ĐL 9 (danh sách `STRICT_CALC` trong công cụ), mọi câu
    `short` có đáp án là số **bắt buộc** có `calc`; công cụ in tỉ lệ câu có `calc` của từng môn – lớp.
 4. Mở lại `index.html` và kiểm tra bài học.
 
@@ -399,10 +399,8 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
   “giản lược, không theo tỉ lệ”), biểu đồ khí hậu minh hoạ, lát cắt địa hình Bắc Mỹ, biểu đồ tròn. Mọi câu trả lời ngắn dạng số có `calc`;
   LS&ĐL 7 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ hai phân môn. Mốc bỏ kinh đô Ăng-co dùng năm quy ước 1431. Số liệu đã đối chiếu lại: GDP 2023 (Ngân hàng Thế giới), dân số các châu lục 2023 (Liên hợp quốc), diện tích châu Nam Cực khoảng 14 triệu km².
 * **LS&ĐL 8** (33 bài: Lịch sử 19, Địa lí 12, 2 chủ đề chung) – 64 hình SVG (trục thời gian, sơ đồ, bảng, lược đồ giản lược không theo tỉ lệ, biểu đồ khí hậu trạm Láng 2023 theo Tổng cục Thống kê). Trắc nghiệm 264 câu (132 nhiều lựa chọn, 66 đúng/sai, 66 trả lời ngắn); mọi câu có đáp án số đều có `calc`; LS&ĐL 8 nằm trong `STRICT_CALC`. Địa danh hành chính theo đơn vị sau sáp nhập 2025. Kiểm tra đầu vào 15 câu trải đủ hai phân môn.
-* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6–9, GDCD 6–9, LS&ĐL 6, LS&ĐL 7 và LS&ĐL 8 (đã hoàn chỉnh), trang hiện có **853 bài học** đã soạn
-  và **21 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
-* **Đang biên soạn:** LS&ĐL 9 – đã có khung chương trình đầy đủ để học sinh xem trước,
-  các bài hiện thông báo “Bài học đang được biên soạn”.
+* **LS&ĐL 9** (47 bài: Lịch sử 22, Địa lí 22, 3 chủ đề chung) – 91 hình SVG (trục thời gian, sơ đồ, bảng, biểu đồ tròn, lược đồ giản lược không theo tỉ lệ). Trắc nghiệm 376 câu (188 nhiều lựa chọn, 94 đúng/sai, 94 trả lời ngắn); mọi câu có đáp án số đều có `calc`; LS&ĐL 9 nằm trong `STRICT_CALC`. Số liệu Việt Nam theo Tổng cục Thống kê (dân số, GDP, nông nghiệp, thuỷ sản, xuất nhập khẩu, du lịch, mức sống năm 2024); tên tỉnh, thành phố và 6 vùng kinh tế – xã hội theo sắp xếp năm 2025 (Nghị quyết 202/2025/QH15, Nghị quyết 306/NQ-CP); số liệu minh hoạ được ghi rõ. Kiểm tra đầu vào 15 câu trải đủ hai phân môn.
+* **Toàn bộ 24 khung chương trình (Toán, Ngữ văn, KHTN, Tin học, GDCD, LS&ĐL lớp 6–9) đã hoàn chỉnh: 900 bài học** và **24 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể). Không còn bài nào ở trạng thái “đang biên soạn”.
 
 ## 9. Căn cứ
 

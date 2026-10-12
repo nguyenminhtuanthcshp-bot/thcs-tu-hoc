@@ -13,5 +13,24 @@ THCS.registerCourse({
     {"id": "dl-c2", "part": "Phân môn Địa lí", "title": "Chương 2. Địa lí các ngành kinh tế", "lessons": [{"id": "dl-bai-4", "title": "Bài 4. Nông nghiệp"}, {"id": "dl-bai-5", "title": "Bài 5. Lâm nghiệp và thuỷ sản"}, {"id": "dl-bai-6", "title": "Bài 6. Thực hành: Viết báo cáo về một mô hình sản xuất nông nghiệp có hiệu quả"}, {"id": "dl-bai-7", "title": "Bài 7. Công nghiệp"}, {"id": "dl-bai-8", "title": "Bài 8. Thực hành: Xác định các trung tâm công nghiệp chính ở nước ta"}, {"id": "dl-bai-9", "title": "Bài 9. Dịch vụ"}, {"id": "dl-bai-10", "title": "Bài 10. Thực hành: Tìm hiểu xu hướng phát triển ngành thương mại, du lịch"}]},
     {"id": "dl-c3", "part": "Phân môn Địa lí", "title": "Chương 3. Sự phân hoá lãnh thổ", "lessons": [{"id": "dl-bai-11", "title": "Bài 11. Vùng Trung du và miền núi Bắc Bộ"}, {"id": "dl-bai-12", "title": "Bài 12. Vùng Đồng bằng sông Hồng"}, {"id": "dl-bai-13", "title": "Bài 13. Thực hành: Tìm hiểu về vùng kinh tế trọng điểm Bắc Bộ"}, {"id": "dl-bai-14", "title": "Bài 14. Vùng Bắc Trung Bộ"}, {"id": "dl-bai-15", "title": "Bài 15. Vùng Duyên hải Nam Trung Bộ"}, {"id": "dl-bai-16", "title": "Bài 16. Thực hành: Phân tích ảnh hưởng của hạn hán và sa mạc hoá đối với phát triển kinh tế – xã hội ở vùng khô hạn Ninh Thuận – Bình Thuận"}, {"id": "dl-bai-17", "title": "Bài 17. Vùng Tây Nguyên"}, {"id": "dl-bai-18", "title": "Bài 18. Vùng Đông Nam Bộ"}, {"id": "dl-bai-19", "title": "Bài 19. Thực hành: Tìm hiểu về vùng kinh tế trọng điểm phía Nam"}, {"id": "dl-bai-20", "title": "Bài 20. Vùng Đồng bằng sông Cửu Long"}, {"id": "dl-bai-21", "title": "Bài 21. Thực hành: Tìm hiểu về tác động của biến đổi khí hậu đối với Đồng bằng sông Cửu Long"}, {"id": "dl-bai-22", "title": "Bài 22. Phát triển tổng hợp kinh tế và bảo vệ tài nguyên, môi trường biển đảo"}]},
     {"id": "cdc", "part": "Chủ đề chung", "title": "Các chủ đề chung", "lessons": [{"id": "cdc-1", "title": "Chủ đề chung 1. Đô thị: Lịch sử và hiện tại"}, {"id": "cdc-2", "title": "Chủ đề chung 2. Văn minh châu thổ sông Hồng và sông Cửu Long"}, {"id": "cdc-3", "title": "Chủ đề chung 3. Bảo vệ chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông"}]}
-  ]
+  ],
+  diagnostic: {
+    questions: [
+      { lesson: 'ls-bai-1', type: 'tf', q: "Khẳng định sau đúng hay sai: Liên Xô được thành lập ngày 30/12/1922.", answer: true, explain: "Đúng." },
+      { lesson: 'ls-bai-4', type: 'mcq', q: "Chiến tranh thế giới thứ hai bùng nổ ngày:", options: ["1/9/1939", "22/6/1941", "7/12/1941", "9/5/1945"], answer: 0, explain: "1/9/1939." },
+      { lesson: 'ls-bai-6', type: 'mcq', q: "Đảng Cộng sản Việt Nam được thành lập năm:", options: ["1930", "1925", "1941", "1945"], answer: 0, explain: "1930." },
+      { lesson: 'ls-bai-8', type: 'short', q: "Từ 1945 đến 2025 là bao nhiêu năm?", answer: "80", unit: "năm", calc: "2025-1945", explain: "80." },
+      { lesson: 'ls-bai-9', type: 'tf', q: "Khẳng định sau đúng hay sai: Chiến tranh lạnh chấm dứt năm 1975.", answer: false, explain: "Sai." },
+      { lesson: 'ls-bai-15', type: 'mcq', q: "Chiến dịch Điện Biên Phủ kết thúc ngày:", options: ["7/5/1954", "21/7/1954", "30/4/1975", "19/12/1946"], answer: 0, explain: "7/5/1954." },
+      { lesson: 'ls-bai-17', type: 'short', q: "Từ 1954 đến 1975 là bao nhiêu năm?", answer: "21", unit: "năm", calc: "1975-1954", explain: "21." },
+      { lesson: 'ls-bai-18', type: 'mcq', q: "Đường lối Đổi mới được đề ra tại:", options: ["Đại hội VI (1986)", "Đại hội III (1960)", "Đại hội II (1951)", "Đại hội VII (1991)"], answer: 0, explain: "Đại hội VI (1986)." },
+      { lesson: 'ls-bai-21', type: 'mcq', q: "Việt Nam gia nhập WTO năm:", options: ["2007", "1995", "1998", "2015"], answer: 0, explain: "2007." },
+      { lesson: 'dl-bai-1', type: 'mcq', q: "Số dân tộc ở Việt Nam:", options: ["54", "50", "64", "34"], answer: 0, explain: "54." },
+      { lesson: 'dl-bai-2', type: 'short', q: "Mật độ dân số 2024 là 305, năm 2019 là 290 người/km². Tăng bao nhiêu?", answer: "15", unit: "người/km²", calc: "305-290", explain: "15." },
+      { lesson: 'dl-bai-4', type: 'mcq', q: "Vùng sản xuất lúa lớn nhất:", options: ["Đồng bằng sông Cửu Long", "Đồng bằng sông Hồng", "Tây Nguyên", "Bắc Trung Bộ"], answer: 0, explain: "Đồng bằng sông Cửu Long." },
+      { lesson: 'dl-bai-17', type: 'mcq', q: "Cây công nghiệp chủ lực của Tây Nguyên:", options: ["Cà phê", "Chè", "Lúa", "Đay"], answer: 0, explain: "Cà phê." },
+      { lesson: 'dl-bai-22', type: 'short', q: "Vùng đặc quyền kinh tế rộng 200 hải lí, 1 hải lí = 1,852 km. Bằng bao nhiêu km?", answer: "370.4", answerText: "370,4", unit: "km", calc: "200*1.852", explain: "370,4." },
+      { lesson: 'cdc-3', type: 'tf', q: "Khẳng định sau đúng hay sai: Quần đảo Hoàng Sa thuộc thành phố Đà Nẵng.", answer: true, explain: "Đúng." }
+    ]
+  }
 });
