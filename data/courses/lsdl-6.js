@@ -15,5 +15,24 @@ THCS.registerCourse({
     {"id": "dl-c6", "part": "Phân môn Địa lí", "title": "Chương 5. Nước trên Trái Đất", "lessons": [{"id": "dl-bai-19", "title": "Bài 19. Thuỷ quyển và vòng tuần hoàn lớn của nước"}, {"id": "dl-bai-20", "title": "Bài 20. Sông và hồ. Nước ngầm và băng hà"}, {"id": "dl-bai-21", "title": "Bài 21. Biển và đại dương"}]},
     {"id": "dl-c7", "part": "Phân môn Địa lí", "title": "Chương 6. Đất và sinh vật trên Trái Đất", "lessons": [{"id": "dl-bai-22", "title": "Bài 22. Lớp đất trên Trái Đất"}, {"id": "dl-bai-23", "title": "Bài 23. Sự sống trên Trái Đất"}, {"id": "dl-bai-24", "title": "Bài 24. Rừng nhiệt đới"}, {"id": "dl-bai-25", "title": "Bài 25. Sự phân bố các đới thiên nhiên trên Trái Đất"}, {"id": "dl-bai-26", "title": "Bài 26. Thực hành: Tìm hiểu môi trường tự nhiên địa phương"}]},
     {"id": "dl-c8", "part": "Phân môn Địa lí", "title": "Chương 7. Con người và thiên nhiên", "lessons": [{"id": "dl-bai-27", "title": "Bài 27. Dân số và sự phân bố dân cư trên thế giới"}, {"id": "dl-bai-28", "title": "Bài 28. Mối quan hệ giữa con người và thiên nhiên"}, {"id": "dl-bai-29", "title": "Bài 29. Bảo vệ tự nhiên và khai thác thông minh các tài nguyên thiên nhiên vì sự phát triển bền vững"}, {"id": "dl-bai-30", "title": "Bài 30. Thực hành: Tìm hiểu mối quan hệ giữa con người và thiên nhiên ở địa phương"}]}
-  ]
+  ],
+  diagnostic: {
+    questions: [
+      { lesson: 'ls-bai-1', type: 'tf', q: 'Khẳng định sau đúng hay sai: Lịch sử là những gì đã diễn ra trong quá khứ.', answer: true, explain: 'Đúng.' },
+      { lesson: 'ls-bai-3', type: 'short', q: 'Năm 938 thuộc thế kỉ thứ mấy? (ghi số)', answer: '10', calc: 'Math.floor((938-1)/100)+1', explain: 'Thế kỉ X.' },
+      { lesson: 'ls-bai-7', type: 'mcq', q: 'Chữ viết của người Lưỡng Hà cổ đại:', options: ['Chữ hình nêm', 'Chữ Phạn', 'Chữ Hán', 'Chữ La-tinh'], answer: 0, explain: 'Hình nêm.' },
+      { lesson: 'ls-bai-9', type: 'mcq', q: 'Năm 221 TCN, ai thống nhất Trung Quốc?', options: ['Tần Thuỷ Hoàng', 'Lưu Bang', 'Khổng Tử', 'Hán Vũ Đế'], answer: 0, explain: 'Tần Thuỷ Hoàng.' },
+      { lesson: 'ls-bai-14', type: 'short', q: 'Từ năm 208 TCN đến năm 179 TCN là bao nhiêu năm?', answer: '29', unit: 'năm', calc: '208-179', explain: '29.' },
+      { lesson: 'ls-bai-16', type: 'mcq', q: 'Lý Bí lập nước Vạn Xuân năm:', options: ['544', '40', '248', '938'], answer: 0, explain: '544.' },
+      { lesson: 'ls-bai-18', type: 'tf', q: 'Khẳng định sau đúng hay sai: Năm 938, Ngô Quyền đánh tan quân Nam Hán trên sông Bạch Đằng.', answer: true, explain: 'Đúng.' },
+      { lesson: 'ls-bai-19', type: 'mcq', q: 'Người lập nước Lâm Ấp năm 192:', options: ['Khu Liên', 'Thục Phán', 'Phùng Hưng', 'Mai Thúc Loan'], answer: 0, explain: 'Khu Liên.' },
+      { lesson: 'dl-bai-1', type: 'short', q: 'Các kinh tuyến cách nhau 10°. Có bao nhiêu kinh tuyến?', answer: '36', unit: 'kinh tuyến', calc: '360/10', explain: '36.' },
+      { lesson: 'dl-bai-3', type: 'short', q: 'Bản đồ 1 : 100 000, hai điểm cách 4 cm. Thực tế bao nhiêu km?', answer: '4', unit: 'km', calc: '4*100000/100000', explain: '4.' },
+      { lesson: 'dl-bai-7', type: 'short', q: 'Luân Đôn 8 giờ. Hà Nội (khu vực giờ 7) mấy giờ?', answer: '15', unit: 'giờ', calc: '8+7', explain: '15.' },
+      { lesson: 'dl-bai-10', type: 'mcq', q: 'Lớp mỏng nhất của Trái Đất:', options: ['Vỏ Trái Đất', 'Man-ti', 'Nhân ngoài', 'Nhân trong'], answer: 0, explain: 'Vỏ.' },
+      { lesson: 'dl-bai-15', type: 'short', q: 'Chân núi 25 °C, lên cao 2 000 m (giảm 0,6 °C/100 m). Nhiệt độ đỉnh (°C)?', answer: '13', unit: '°C', calc: '25-0.6*2000/100', explain: '13.' },
+      { lesson: 'dl-bai-21', type: 'tf', q: 'Khẳng định sau đúng hay sai: Thuỷ triều chủ yếu do gió gây ra.', answer: false, explain: 'Do sức hút Mặt Trăng, Mặt Trời.' },
+      { lesson: 'dl-bai-27', type: 'short', q: 'Vùng có 1 500 000 người, diện tích 3 000 km². Mật độ (người/km²)?', answer: '500', unit: 'người/km²', calc: '1500000/3000', explain: '500.' }
+    ]
+  }
 });

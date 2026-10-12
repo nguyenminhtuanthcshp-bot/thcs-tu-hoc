@@ -419,4 +419,113 @@
     return wrap(W, H, b, o.title || 'So sánh');
   }
   S.card = card; S.compare = compare;
+  /* ===== Hình cho Lịch sử và Địa lí ===== */
+  function note(W, H, t) { return t ? T(W / 2, H - 8, t, { size: 11.5, color: C.muted }) : ''; }
+  /* latLonGrid({ title, points: [{ lon, lat, label }], step: 30, note }) – lưới kinh, vĩ tuyến (hình chữ nhật, giản lược) */
+  function latLonGrid(o) {
+    o = o || {}; var W = 640, x0 = 70, y0 = (o.title ? 40 : 12) + 6, gw = 520, gh = 260, st = o.step || 30, b = title(W, o.title);
+    function X(l) { return x0 + (l + 180) / 360 * gw; } function Y(l) { return y0 + (90 - l) / 180 * gh; }
+    b += R(x0, y0, gw, gh, { fill: '#eff6ff', stroke: '#64748b', rx: 0, sw: 1.2 });
+    for (var lo = -180; lo <= 180; lo += st) { b += L(X(lo), y0, X(lo), y0 + gh, { color: lo === 0 ? '#dc2626' : '#94a3b8', width: lo === 0 ? 2.2 : 1 }); b += T(X(lo), y0 + gh + 16, Math.abs(lo) + '°' + (lo < 0 ? 'T' : lo > 0 ? 'Đ' : ''), { size: 10.5, color: C.muted }); }
+    for (var la = -90; la <= 90; la += st) { b += L(x0, Y(la), x0 + gw, Y(la), { color: la === 0 ? '#2563eb' : '#94a3b8', width: la === 0 ? 2.2 : 1 }); b += T(x0 - 6, Y(la), Math.abs(la) + '°' + (la < 0 ? 'N' : la > 0 ? 'B' : ''), { size: 10.5, anchor: 'end', vcenter: true, color: C.muted }); }
+    b += T(x0 + gw - 4, Y(0) - 6, 'Xích đạo', { size: 11, anchor: 'end', bold: true, color: '#2563eb' }) + T(X(0) + 4, y0 + 12, 'Kinh tuyến gốc', { size: 11, anchor: 'start', bold: true, color: '#dc2626' });
+    (o.points || []).forEach(function (p) { b += Ci(X(p.lon), Y(p.lat), 5, { fill: '#ea580c' }) + T(X(p.lon) + 8, Y(p.lat) - 6, p.label, { size: 12, anchor: p.lon > 120 ? 'end' : 'start', bold: true, color: '#9a3412' }); });
+    var H = y0 + gh + 30 + (o.note ? 18 : 0); b += note(W, H, o.note);
+    return wrap(W, H, b, o.title || 'Lưới kinh, vĩ tuyến');
+  }
+  /* globe({ title, marks: { tilt: false }, note }) – quả địa cầu với kinh tuyến, vĩ tuyến, xích đạo, hai cực */
+  function globe(o) {
+    o = o || {}; var W = 600, cy = (o.title ? 40 : 12) + 140, cx = 300, r = 125, b = title(W, o.title);
+    b += Ci(cx, cy, r, { fill: '#dbeafe', stroke: '#1e3a8a', sw: 2 });
+    [-60, -30, 30, 60].forEach(function (la) { var yy = cy - r * Math.sin(la * Math.PI / 180), rx = r * Math.cos(la * Math.PI / 180); b += '<ellipse cx="' + cx + '" cy="' + n2(yy) + '" rx="' + n2(rx) + '" ry="' + n2(rx * .18) + '" fill="none" stroke="#64748b" stroke-width="1"/>'; });
+    b += '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + r + '" ry="' + n2(r * .18) + '" fill="none" stroke="#2563eb" stroke-width="2.4"/>';
+    [.35, .7].forEach(function (k) { b += '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + n2(r * k) + '" ry="' + r + '" fill="none" stroke="#64748b" stroke-width="1"/>'; });
+    b += L(cx, cy - r, cx, cy + r, { color: '#dc2626', width: 2.2 });
+    b += Ci(cx, cy - r, 4, { fill: '#111827' }) + Ci(cx, cy + r, 4, { fill: '#111827' }) + T(cx, cy - r - 8, 'Cực Bắc', { size: 12, bold: true }) + T(cx, cy + r + 18, 'Cực Nam', { size: 12, bold: true });
+    b += L(cx + r * .98, cy + 4, cx + r + 40, cy + 30, { color: '#2563eb', width: 1 }) + T(cx + r + 42, cy + 36, 'Xích đạo (0°)', { size: 12, anchor: 'start', color: '#2563eb', bold: true });
+    b += L(cx + 2, cy - r * .55, cx + r + 40, cy - r * .75, { color: '#dc2626', width: 1 }) + T(cx + r + 42, cy - r * .75, 'Kinh tuyến gốc (0°)', { size: 12, anchor: 'start', color: '#dc2626', bold: true });
+    b += T(cx - r - 10, cy - r * .55, 'Nửa cầu Bắc', { size: 12, anchor: 'end' }) + T(cx - r - 10, cy + r * .55, 'Nửa cầu Nam', { size: 12, anchor: 'end' }) + T(cx - r - 10, cy - r * .2, 'Vĩ tuyến', { size: 11, anchor: 'end', color: C.muted });
+    var H = cy + r + 34 + (o.note ? 18 : 0); b += note(W, H, o.note);
+    return wrap(W, H, b, o.title || 'Quả địa cầu');
+  }
+  /* earthLayers({ title, layers: [{ name, sub }] (ngoài vào trong), note }) – mặt cắt cấu tạo Trái Đất */
+  function earthLayers(o) {
+    o = o || {}; var W = 640, ly = o.layers || [], cx = 190, cy = (o.title ? 40 : 12) + 150, b = title(W, o.title), cols = ['#a16207', '#f97316', '#facc15', '#fde68a', '#fef3c7'], rs = [140, 128, 70, 34];
+    ly.forEach(function (l, i) { var r = rs[i] || 20; b += P('M' + (cx - r) + ',' + cy + ' A' + r + ',' + r + ' 0 0 1 ' + (cx + r) + ',' + cy + ' Z', { fill: cols[i % 5], stroke: '#78350f', sw: 1.2 }); });
+    ly.forEach(function (l, i) { var r = rs[i] || 20, yy = cy - 18 - i * 46, ax = cx + (i === 0 ? r * .7 : (r + (rs[i + 1] || 0)) / 2 * .7), ay = cy - (i === 0 ? r * .72 : (r + (rs[i + 1] || 0)) / 2 * .72);
+      b += L(ax, ay, 360, yy - 4 - (ly.length - 1 - i) * 0, { color: '#475569', width: 1 }) + Ci(ax, ay, 3, { fill: '#111827' }) + T(366, yy - 4, l.name, { size: 13.5, anchor: 'start', bold: true }) + T(366, yy + 13, l.sub || '', { size: 11.5, anchor: 'start', color: C.muted }); });
+    b += L(cx - 150, cy, cx + 150, cy, { color: '#78350f', width: 1.5 });
+    var H = cy + 16 + (o.note ? 18 : 0); b += note(W, H, o.note);
+    return wrap(W, H, b, o.title || 'Cấu tạo Trái Đất');
+  }
+  /* orbit({ title, pos: [{ label, sub }] x4 (phải, dưới, trái, trên), note }) – quỹ đạo Trái Đất quanh Mặt Trời */
+  function orbit(o) {
+    o = o || {}; var W = 640, cx = 320, cy = (o.title ? 40 : 12) + 130, rx = 230, ry = 95, b = title(W, o.title), id = 'or' + (++uid), ps = o.pos || [];
+    b += AR(id, '#64748b') + '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 4"/>';
+    b += Ci(cx, cy, 30, { fill: '#fde047', stroke: '#f59e0b' }) + T(cx, cy, 'Mặt Trời', { size: 12, bold: true, vcenter: true });
+    var xy = [[cx + rx, cy], [cx, cy + ry], [cx - rx, cy], [cx, cy - ry]];
+    xy.forEach(function (q, i) { var p = ps[i]; if (!p) return; b += Ci(q[0], q[1], 13, { fill: '#60a5fa', stroke: '#1e3a8a', sw: 1.5 }) + L(q[0] - 9, q[1] + 12, q[0] + 9, q[1] - 12, { color: '#1e3a8a', width: 1.4 });
+      var tx = i === 0 ? q[0] - 20 : i === 2 ? q[0] + 20 : q[0], ty = i === 1 ? q[1] + 30 : i === 3 ? q[1] - 34 : q[1] - 4, an = i === 0 ? 'end' : i === 2 ? 'start' : 'middle';
+      if (i === 0 || i === 2) ty = q[1] + 32;
+      b += T(tx, ty, p.label, { size: 12.5, bold: true, anchor: an, color: '#1e3a8a' }) + T(tx, ty + 15, p.sub || '', { size: 11, anchor: an, color: C.muted }); });
+    b += P('M' + (cx + 150) + ',' + n2(cy - ry * .76) + ' q 30,10 50,28', { stroke: '#64748b', sw: 1.5, marker: id });
+    var H = cy + ry + 54 + (o.note ? 18 : 0); b += note(W, H, o.note);
+    return wrap(W, H, b, o.title || 'Quỹ đạo Trái Đất');
+  }
+  /* climateChart({ title, temp: [12 số °C], rain: [12 số mm], tMax, rMax, note }) – biểu đồ nhiệt độ (đường) và lượng mưa (cột) */
+  function climateChart(o) {
+    o = o || {}; var W = 640, x0 = 70, y0 = (o.title ? 40 : 12) + 16, gw = 500, gh = 220, tM = o.tMax || 40, rM = o.rMax || 400, tm = o.tMin || 0, b = title(W, o.title), bw = gw / 12;
+    b += L(x0, y0, x0, y0 + gh, { color: '#334155', width: 1.5 }) + L(x0 + gw, y0, x0 + gw, y0 + gh, { color: '#334155', width: 1.5 }) + L(x0, y0 + gh, x0 + gw, y0 + gh, { color: '#334155', width: 1.5 });
+    for (var k = 0; k <= 4; k++) { var yy = y0 + gh - gh * k / 4; b += L(x0, yy, x0 + gw, yy, { color: '#e2e8f0', width: 1 }) + T(x0 - 6, yy, Math.round(tm + (tM - tm) * k / 4), { size: 10.5, anchor: 'end', vcenter: true, color: '#dc2626' }) + T(x0 + gw + 6, yy, Math.round(rM * k / 4), { size: 10.5, anchor: 'start', vcenter: true, color: '#2563eb' }); }
+    (o.rain || []).forEach(function (v, i) { var h = v / rM * gh; b += R(x0 + i * bw + bw * .18, y0 + gh - h, bw * .64, h, { fill: '#93c5fd', stroke: '#2563eb', rx: 1, sw: 1 }); });
+    var pts = (o.temp || []).map(function (v, i) { return n2(x0 + (i + .5) * bw) + ',' + n2(y0 + gh - (v - tm) / (tM - tm) * gh); });
+    b += '<polyline points="' + pts.join(' ') + '" fill="none" stroke="#dc2626" stroke-width="2.5"/>'; pts.forEach(function (p) { var a = p.split(','); b += Ci(+a[0], +a[1], 3, { fill: '#dc2626' }); });
+    for (var m = 0; m < 12; m++) b += T(x0 + (m + .5) * bw, y0 + gh + 15, String(m + 1), { size: 10.5, color: C.muted });
+    b += T(x0, y0 - 8, '°C', { size: 11, bold: true, color: '#dc2626' }) + T(x0 + gw, y0 - 8, 'mm', { size: 11, bold: true, color: '#2563eb' }) + T(x0 + gw / 2, y0 + gh + 32, 'Tháng', { size: 11, color: C.muted });
+    var H = y0 + gh + 44 + (o.note ? 18 : 0); b += note(W, H, o.note);
+    return wrap(W, H, b, o.title || 'Biểu đồ nhiệt độ và lượng mưa');
+  }
+  /* sketchMap({ title, areas: [{ pts: [[x,y]…] (khung 600×300), fill, label, lx, ly }], lines: [{ pts, label, color }], points: [{ x, y, label }], note })
+     – lược đồ GIẢN LƯỢC (không theo tỉ lệ) */
+  function sketchMap(o) {
+    o = o || {}; var W = 640, ox = 20, oy = (o.title ? 40 : 12), b = title(W, o.title), cols = ['#bbf7d0', '#fde68a', '#fecaca', '#ddd6fe', '#bae6fd', '#fbcfe8'];
+    b += R(ox, oy, 600, 300, { fill: o.sea === false ? '#f8fafc' : '#e0f2fe', stroke: '#94a3b8', rx: 4, sw: 1 });
+    (o.areas || []).forEach(function (a, i) { b += '<polygon points="' + a.pts.map(function (p) { return n2(ox + p[0]) + ',' + n2(oy + p[1]); }).join(' ') + '" fill="' + (a.fill || cols[i % 6]) + '" stroke="#475569" stroke-width="1.3"/>'; if (a.label) b += T(ox + a.lx, oy + a.ly, a.label, { size: a.size || 12.5, bold: true, vcenter: true, color: a.color || '#1f2937' }); });
+    (o.lines || []).forEach(function (l) { b += '<polyline points="' + l.pts.map(function (p) { return n2(ox + p[0]) + ',' + n2(oy + p[1]); }).join(' ') + '" fill="none" stroke="' + (l.color || '#2563eb') + '" stroke-width="' + (l.w || 2.5) + '"' + (l.dash ? ' stroke-dasharray="6 4"' : '') + '/>'; if (l.label) { var q = l.lp || l.pts[Math.floor(l.pts.length / 2)]; b += T(ox + q[0] + 4, oy + q[1] - 6, l.label, { size: 11.5, anchor: 'start', italic: true, color: l.color || '#1d4ed8' }); } });
+    (o.points || []).forEach(function (p) { b += Ci(ox + p.x, oy + p.y, 4.5, { fill: p.c || '#dc2626', stroke: '#fff', sw: 1 }) + T(ox + p.x + (p.left ? -7 : 7), oy + p.y - 7, p.label, { size: 11.5, anchor: p.left ? 'end' : 'start', bold: true }); });
+    b += T(ox + 585, oy + 22, 'B', { size: 13, bold: true }) + L(ox + 585, oy + 52, ox + 585, oy + 28, { color: '#111827', width: 2 }) + P('M' + (ox + 580) + ',' + (oy + 34) + ' l5,-8 l5,8', { stroke: '#111827', sw: 2 });
+    var H = oy + 300 + 24; b += T(W / 2, H - 6, o.note || 'Lược đồ giản lược, không theo tỉ lệ.', { size: 11.5, color: C.muted });
+    return wrap(W, H, b, o.title || 'Lược đồ giản lược');
+  }
+  /* profile({ title, pts: [[km, m]…], labels: [{ k, t }], hMax, note }) – lát cắt địa hình */
+  function profile(o) {
+    o = o || {}; var W = 640, x0 = 70, y0 = (o.title ? 40 : 12) + 10, gw = 530, gh = 200, ps = o.pts || [[0, 0]], kM = ps[ps.length - 1][0], hM = o.hMax || 1000, b = title(W, o.title);
+    function X(k) { return x0 + k / kM * gw; } function Y(h) { return y0 + gh - h / hM * gh; }
+    for (var i = 0; i <= 4; i++) b += L(x0, Y(hM * i / 4), x0 + gw, Y(hM * i / 4), { color: '#e2e8f0', width: 1 }) + T(x0 - 6, Y(hM * i / 4), Math.round(hM * i / 4), { size: 10.5, anchor: 'end', vcenter: true, color: C.muted });
+    b += '<polygon points="' + n2(X(0)) + ',' + (y0 + gh) + ' ' + ps.map(function (p) { return n2(X(p[0])) + ',' + n2(Y(p[1])); }).join(' ') + ' ' + n2(X(kM)) + ',' + (y0 + gh) + '" fill="#d9f99d" stroke="#4d7c0f" stroke-width="2"/>';
+    b += L(x0, y0, x0, y0 + gh, { color: '#334155', width: 1.5 }) + L(x0, y0 + gh, x0 + gw, y0 + gh, { color: '#334155', width: 1.5 }) + T(x0, y0 - 6, 'm', { size: 11, bold: true });
+    (o.labels || []).forEach(function (l) { var p = ps.filter(function (q) { return q[0] === l.k; })[0] || [l.k, 0]; b += T(X(l.k), Y(p[1]) - 8, l.t, { size: 11.5, bold: true, color: '#3f6212' }); });
+    for (var k = 0; k <= kM; k += (o.kStep || 1)) b += T(X(k), y0 + gh + 15, k + (k === kM ? ' km' : ''), { size: 10.5, color: C.muted });
+    var H = y0 + gh + 30 + (o.note ? 18 : 0); b += note(W, H, o.note);
+    return wrap(W, H, b, o.title || 'Lát cắt địa hình');
+  }
+  /* compass({ title, note }) – hoa gió 8 hướng */
+  function compass(o) {
+    o = o || {}; var W = 600, cx = 300, cy = (o.title ? 40 : 12) + 130, b = title(W, o.title), d = [['Bắc', 0], ['Đông Bắc', 45], ['Đông', 90], ['Đông Nam', 135], ['Nam', 180], ['Tây Nam', 225], ['Tây', 270], ['Tây Bắc', 315]];
+    d.forEach(function (q, i) { var a = q[1] * Math.PI / 180, r = i % 2 ? 70 : 105, x = cx + r * Math.sin(a), y = cy - r * Math.cos(a), lx = cx + (r + 22) * Math.sin(a), ly = cy - (r + 22) * Math.cos(a);
+      b += P('M' + cx + ',' + cy + ' L' + n2(cx + 12 * Math.sin(a + 1.57)) + ',' + n2(cy - 12 * Math.cos(a + 1.57)) + ' L' + n2(x) + ',' + n2(y) + ' Z', { fill: i % 2 ? '#bfdbfe' : '#1e40af', stroke: '#1e3a8a', sw: 1 });
+      b += T(lx, ly, q[0], { size: i % 2 ? 12 : 14, bold: true, vcenter: true, anchor: Math.abs(Math.sin(a)) < .1 ? 'middle' : (Math.sin(a) > 0 ? 'start' : 'end'), color: i === 0 ? '#dc2626' : '#1f2937' }); });
+    var H = cy + 140 + (o.note ? 18 : 0); b += note(W, H, o.note);
+    return wrap(W, H, b, o.title || 'Hoa gió');
+  }
+  /* planets({ title, items: [{ name, r, sub }], highlight, note }) – các hành tinh theo thứ tự xa dần Mặt Trời */
+  function planets(o) {
+    o = o || {}; var W = 640, it = o.items || [], cy = (o.title ? 40 : 12) + 70, b = title(W, o.title), gx = 520 / it.length;
+    b += P('M0,' + (cy - 70) + ' A70,70 0 0 1 0,' + (cy + 70), { fill: '#fde047', stroke: '#f59e0b' }) + T(8, cy + 88, 'Mặt Trời', { size: 11.5, anchor: 'start', bold: true });
+    it.forEach(function (p, i) { var x = 100 + gx * (i + .5), r = p.r || 8; b += Ci(x, cy, r, { fill: i === o.highlight ? '#3b82f6' : '#cbd5e1', stroke: i === o.highlight ? '#1e3a8a' : '#64748b', sw: 1.5 }) + T(x, cy + 44, p.name, { size: 11.5, bold: i === o.highlight, color: i === o.highlight ? '#1d4ed8' : C.ink }) + (p.sub ? T(x, cy + 60, p.sub, { size: 10, color: C.muted }) : ''); });
+    var H = cy + 96 + (o.note ? 18 : 0); b += note(W, H, o.note);
+    return wrap(W, H, b, o.title || 'Hệ Mặt Trời');
+  }
+  S.latLonGrid = latLonGrid; S.globe = globe; S.earthLayers = earthLayers; S.orbit = orbit; S.climateChart = climateChart; S.sketchMap = sketchMap; S.profile = profile; S.compass = compass; S.planets = planets;
+
 })();

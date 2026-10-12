@@ -241,7 +241,7 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
    `python3 tools/cap-nhat-index.py` để công cụ tự thêm.
 3. Chạy `node tools/kiem-tra-dap-an.js toan-6` (thay `toan-6` bằng môn – lớp, hoặc bỏ trống để kiểm tra tất cả):
    công cụ kiểm tra cấu trúc (mục tiêu, 4–5 bước, 3 ví dụ, 3 bài tập có 2 gợi ý, 8 câu kiểm tra…), tính lại các đáp án có `calc`,
-   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9, GDCD 6, GDCD 7, GDCD 8 và GDCD 9 (danh sách `STRICT_CALC` trong công cụ), mọi câu
+   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9, GDCD 6, GDCD 7, GDCD 8, GDCD 9 và LS&ĐL 6 (danh sách `STRICT_CALC` trong công cụ), mọi câu
    `short` có đáp án là số **bắt buộc** có `calc`; công cụ in tỉ lệ câu có `calc` của từng môn – lớp.
 4. Mở lại `index.html` và kiểm tra bài học.
 
@@ -388,9 +388,15 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
   tiêu dùng 2023 (19/2023/QH15, hiệu lực 1/7/2024, Điều 4); Bộ luật Hình sự 2015 (Điều 12); Luật Xử lý vi phạm hành chính 2012 (Điều 5);
   Luật Quản lý thuế 2025 (108/2025/QH15, hiệu lực 1/7/2026). Trắc nghiệm 80 câu (32 nhiều lựa chọn, 20 đúng/sai, 28 trả lời ngắn); câu có
   đáp án số (28 câu) đều có `calc`; GDCD 9 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ 10 bài.
-* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6–9 (đã hoàn chỉnh) và GDCD 6–9 (đã hoàn chỉnh), trang hiện có **730 bài học** đã soạn
-  và **20 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
-* **Đang biên soạn:** LS&ĐL 6–9 (180 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
+* **Lịch sử và Địa lí 6: soạn đầy đủ cả 51 bài** (Lịch sử 20 bài, Địa lí 31 bài gồm Bài mở đầu); 100 hình SVG: trục thời gian, lược đồ giản lược
+  (ghi rõ “giản lược, không theo tỉ lệ”), bảng, lưới kinh – vĩ tuyến, quả Địa Cầu, cấu tạo Trái Đất, quỹ đạo Trái Đất, biểu đồ khí hậu (số liệu
+  trạm Láng 1991 – 2020), lát cắt địa hình, la bàn, hệ Mặt Trời. Helper mới trong `js/svg-tin.js`: `latLonGrid`, `globe`, `earthLayers`, `orbit`,
+  `climateChart`, `sketchMap`, `profile`, `compass`, `planets`. Niên đại, nhân vật, số liệu địa lí được đối chiếu nguồn công khai; số liệu minh hoạ
+  được ghi rõ. Trắc nghiệm 408 câu (173 nhiều lựa chọn, 102 đúng/sai, 133 trả lời ngắn); mọi câu có đáp án số (133 câu: tỉ lệ bản đồ, giờ khu vực,
+  nhiệt độ, độ cao, thế kỉ…) đều có `calc`; LS&ĐL 6 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ hai phân môn.
+* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6–9, GDCD 6–9 và LS&ĐL 6 (đã hoàn chỉnh), trang hiện có **781 bài học** đã soạn
+  và **21 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
+* **Đang biên soạn:** LS&ĐL 7–9 (129 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
   các bài hiện thông báo “Bài học đang được biên soạn”.
 
 ## 9. Căn cứ
