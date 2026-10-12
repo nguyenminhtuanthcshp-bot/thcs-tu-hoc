@@ -15,5 +15,24 @@ THCS.registerCourse({
     {"id": "dl-c4", "part": "Phân môn Địa lí", "title": "Chương 4. Châu Mỹ", "lessons": [{"id": "dl-bai-13", "title": "Bài 13. Vị trí địa lí, phạm vi châu Mỹ. Sự phát kiến ra châu Mỹ"}, {"id": "dl-bai-14", "title": "Bài 14. Đặc điểm tự nhiên Bắc Mỹ"}, {"id": "dl-bai-15", "title": "Bài 15. Đặc điểm dân cư, xã hội, phương thức khai thác tự nhiên bền vững ở Bắc Mỹ"}, {"id": "dl-bai-16", "title": "Bài 16. Đặc điểm tự nhiên Trung và Nam Mỹ"}, {"id": "dl-bai-17", "title": "Bài 17. Đặc điểm dân cư, xã hội Trung và Nam Mỹ, khai thác, sử dụng và bảo vệ rừng A-ma-dôn"}]},
     {"id": "dl-c5", "part": "Phân môn Địa lí", "title": "Chương 5. Châu Đại Dương và châu Nam Cực", "lessons": [{"id": "dl-bai-18", "title": "Bài 18. Châu Đại Dương"}, {"id": "dl-bai-19", "title": "Bài 19. Châu Nam Cực"}]},
     {"id": "cdc", "part": "Chủ đề chung", "title": "Các chủ đề chung", "lessons": [{"id": "cdc-1", "title": "Chủ đề chung 1. Các cuộc đại phát kiến địa lí"}, {"id": "cdc-2", "title": "Chủ đề chung 2. Đô thị: Lịch sử và hiện tại"}]}
-  ]
+],
+  diagnostic: {
+    questions: [
+      { lesson: 'ls-bai-1', type: 'tf', q: 'Khẳng định sau đúng hay sai: Lãnh địa là đơn vị kinh tế, chính trị cơ bản trong xã hội phong kiến Tây Âu.', answer: true, explain: 'Đúng.' },
+      { lesson: 'ls-bai-7', type: 'short', q: 'Pha Ngừm lập nước Lạn Xạng năm 1353. Năm đó thuộc thế kỉ thứ mấy? (ghi số)', answer: '14', calc: 'Math.floor((1353-1)/100)+1', explain: 'Thế kỉ XIV.' },
+      { lesson: 'ls-bai-8', type: 'mcq', q: 'Công trình nổi tiếng của Cam-pu-chia thời Ăng-co:', options: ['Ăng-co Vát', 'Thạt Luổng', 'Kim tự tháp', 'Tháp Phổ Minh'], answer: 0, explain: 'Ăng-co Vát.' },
+      { lesson: 'ls-bai-11', type: 'mcq', q: 'Năm 1010, nhà Lý dời đô về:', options: ['Thăng Long', 'Hoa Lư', 'Cổ Loa', 'Tây Đô'], answer: 0, explain: 'Thăng Long.' },
+      { lesson: 'ls-bai-14', type: 'short', q: 'Từ năm 1258 đến năm 1288 là bao nhiêu năm?', answer: '30', unit: 'năm', calc: '1288-1258', explain: '30.' },
+      { lesson: 'ls-bai-15', type: 'tf', q: 'Khẳng định sau đúng hay sai: Nhà Hồ đổi quốc hiệu nước ta thành Đại Cồ Việt.', answer: false, explain: 'Đại Ngu.' },
+      { lesson: 'ls-bai-16', type: 'mcq', q: 'Người lãnh đạo khởi nghĩa Lam Sơn:', options: ['Lê Lợi', 'Lý Thường Kiệt', 'Trần Quốc Tuấn', 'Hồ Quý Ly'], answer: 0, explain: 'Lê Lợi.' },
+      { lesson: 'ls-bai-17', type: 'mcq', q: 'Thời Lê Thánh Tông, cả nước chia thành:', options: ['13 đạo thừa tuyên', '12 lộ', '24 lộ', '10 đạo'], answer: 0, explain: '13 đạo.' },
+      { lesson: 'dl-bai-1', type: 'mcq', q: 'Dãy núi ngăn cách châu Âu với châu Á:', options: ['U-ran', 'An-pơ', 'Hi-ma-lay-a', 'An-đét'], answer: 0, explain: 'U-ran.' },
+      { lesson: 'dl-bai-4', type: 'short', q: 'EU có 27 thành viên, ban đầu có 6 nước. Tăng thêm bao nhiêu nước?', answer: '21', unit: 'nước', calc: '27-6', explain: '21.' },
+      { lesson: 'dl-bai-5', type: 'tf', q: 'Khẳng định sau đúng hay sai: Châu Á là châu lục rộng nhất thế giới.', answer: true, explain: 'Đúng.' },
+      { lesson: 'dl-bai-9', type: 'mcq', q: 'Hoang mạc lớn nhất châu Phi:', options: ['Xa-ha-ra', 'Gô-bi', 'A-ta-ca-ma', 'Vích-to-ri-a'], answer: 0, explain: 'Xa-ha-ra.' },
+      { lesson: 'dl-bai-14', type: 'mcq', q: 'Hệ thống núi trẻ ở phía tây Bắc Mỹ:', options: ['Coóc-đi-e', 'A-pa-lát', 'U-ran', 'Các-pát'], answer: 0, explain: 'Coóc-đi-e.' },
+      { lesson: 'dl-bai-16', type: 'short', q: 'Lên cao 1 000 m, nhiệt độ giảm bao nhiêu °C (0,6 °C mỗi 100 m)?', answer: '6', unit: '°C', calc: '1000/100*0.6', explain: '6 °C.' },
+      { lesson: 'dl-bai-19', type: 'tf', q: 'Khẳng định sau đúng hay sai: Châu Nam Cực có khí hậu nóng ẩm.', answer: false, explain: 'Lạnh và khô nhất thế giới.' }
+    ]
+  }
 });

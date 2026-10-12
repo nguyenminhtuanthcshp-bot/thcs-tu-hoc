@@ -241,7 +241,7 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
    `python3 tools/cap-nhat-index.py` để công cụ tự thêm.
 3. Chạy `node tools/kiem-tra-dap-an.js toan-6` (thay `toan-6` bằng môn – lớp, hoặc bỏ trống để kiểm tra tất cả):
    công cụ kiểm tra cấu trúc (mục tiêu, 4–5 bước, 3 ví dụ, 3 bài tập có 2 gợi ý, 8 câu kiểm tra…), tính lại các đáp án có `calc`,
-   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9, GDCD 6, GDCD 7, GDCD 8, GDCD 9 và LS&ĐL 6 (danh sách `STRICT_CALC` trong công cụ), mọi câu
+   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9, GDCD 6, GDCD 7, GDCD 8, GDCD 9, LS&ĐL 6 và LS&ĐL 7 (danh sách `STRICT_CALC` trong công cụ), mọi câu
    `short` có đáp án là số **bắt buộc** có `calc`; công cụ in tỉ lệ câu có `calc` của từng môn – lớp.
 4. Mở lại `index.html` và kiểm tra bài học.
 
@@ -394,7 +394,11 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
   `climateChart`, `sketchMap`, `profile`, `compass`, `planets`. Niên đại, nhân vật, số liệu địa lí được đối chiếu nguồn công khai; số liệu minh hoạ
   được ghi rõ. Trắc nghiệm 408 câu (173 nhiều lựa chọn, 102 đúng/sai, 133 trả lời ngắn); mọi câu có đáp án số (133 câu: tỉ lệ bản đồ, giờ khu vực,
   nhiệt độ, độ cao, thế kỉ…) đều có `calc`; LS&ĐL 6 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ hai phân môn.
-* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6–9, GDCD 6–9 và LS&ĐL 6 (đã hoàn chỉnh), trang hiện có **781 bài học** đã soạn
+* **Lịch sử và Địa lí 7: soạn đầy đủ cả 39 mục** (Lịch sử 18 bài, Địa lí 19 bài, 2 chủ đề chung); 79 hình SVG: trục thời gian, sơ đồ bộ máy
+  nhà nước, lược đồ giản lược (trận Bạch Đằng 1288, Chăm-pa, các khu vực châu Á, châu Phi, Nam Mỹ, hướng đi của các nhà hàng hải – đều ghi
+  “giản lược, không theo tỉ lệ”), biểu đồ khí hậu minh hoạ, lát cắt địa hình Bắc Mỹ, biểu đồ tròn. Mọi câu trả lời ngắn dạng số có `calc`;
+  LS&ĐL 7 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ hai phân môn. Mốc bỏ kinh đô Ăng-co dùng năm quy ước 1431.
+* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6–9, GDCD 6–9, LS&ĐL 6 và LS&ĐL 7 (đã hoàn chỉnh), trang hiện có **820 bài học** đã soạn
   và **21 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
 * **Đang biên soạn:** LS&ĐL 7–9 (129 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
   các bài hiện thông báo “Bài học đang được biên soạn”.
