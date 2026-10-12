@@ -241,7 +241,7 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
    `python3 tools/cap-nhat-index.py` để công cụ tự thêm.
 3. Chạy `node tools/kiem-tra-dap-an.js toan-6` (thay `toan-6` bằng môn – lớp, hoặc bỏ trống để kiểm tra tất cả):
    công cụ kiểm tra cấu trúc (mục tiêu, 4–5 bước, 3 ví dụ, 3 bài tập có 2 gợi ý, 8 câu kiểm tra…), tính lại các đáp án có `calc`,
-   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6 và Tin học 7 (danh sách `STRICT_CALC` trong công cụ), mọi câu
+   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7 và Tin học 8 (danh sách `STRICT_CALC` trong công cụ), mọi câu
    `short` có đáp án là số **bắt buộc** có `calc`; công cụ in tỉ lệ câu có `calc` của từng môn – lớp.
 4. Mở lại `index.html` và kiểm tra bài học.
 
@@ -352,9 +352,15 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
   tiêu đề/nội dung/hình ảnh, mô phỏng từng bước tìm kiếm tuần tự, tìm kiếm nhị phân, sắp xếp nổi bọt và sắp xếp chọn, sơ đồ khối lặp).
   Hàm mới trong `js/svg-tin.js`: `sheet`, `slide`, `arraySteps`. Trắc nghiệm 128 câu (55 nhiều lựa chọn, 32 đúng/sai, 41 trả lời ngắn);
   mọi câu có đáp án số (41 câu) đều có `calc`; Tin học 7 nằm trong `STRICT_CALC`. Bài kiểm tra đầu vào 15 câu trải đủ 5 chủ đề.
-* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6 và Tin học 7, trang hiện có **646 bài học** đã soạn
-  và **14 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
-* **Đang biên soạn:** Tin học 8, 9; GDCD 6–9; LS&ĐL 6–9 (254 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
+* **Tin học 8: soạn đầy đủ cả 20 bài**, gồm cả hai nhánh lựa chọn (8a–11a: soạn thảo và trình chiếu nâng cao; 8b–11b: chỉnh sửa ảnh);
+  44 hình SVG (trục thời gian công cụ tính toán, thế hệ máy tính, đặc điểm thông tin số, kết quả tìm kiếm, địa chỉ tuyệt đối/hỗn hợp,
+  sắp xếp và lọc, biểu đồ cột/đoạn thẳng/hình tròn, danh sách liệt kê, đầu trang – chân trang, trang chiếu, lớp ảnh, vùng cắt ảnh,
+  chương trình Scratch có biến, rẽ nhánh, lặp, bảng kiểm thử – gỡ lỗi, sơ đồ nghề tin học). Hàm mới trong `js/svg-tin.js`: `timeline`,
+  `layers`, `cropBox`, `pageHF` (và `docPage` nhận danh sách dòng). Trắc nghiệm 160 câu (71 nhiều lựa chọn, 40 đúng/sai, 49 trả lời ngắn);
+  mọi câu có đáp án số (49 câu) đều có `calc`; Tin học 8 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ các chủ đề và cả hai nhánh.
+* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6, 7 và 8, trang hiện có **666 bài học** đã soạn
+  và **15 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
+* **Đang biên soạn:** Tin học 9; GDCD 6–9; LS&ĐL 6–9 (234 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
   các bài hiện thông báo “Bài học đang được biên soạn”.
 
 ## 9. Căn cứ

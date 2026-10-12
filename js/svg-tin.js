@@ -169,6 +169,10 @@
   function docPage(o) {
     o = o || {}; var W = 620, H = 330, b = R(150, 10, 320, 300, { fill: '#fff', stroke: '#64748b', rx: 4 }) + R(176, 34, 268, 252, { fill: 'none', stroke: '#cbd5e1', rx: 0, dash: true, sw: 1.2 });
     var id = 'dp' + (++uid); b += AR(id, '#ea580c');
+    if (o.lines) {
+      o.lines.forEach(function (l, i) { b += T(i === 0 ? 310 : 192, 60 + i * 30, l, { size: i === 0 ? 16 : 13, bold: i === 0, anchor: i === 0 ? 'middle' : 'start' }); });
+      return wrap(W, H, b, o.title || 'Trang văn bản');
+    }
     if (o.variant === 'album') {
       b += T(310, 60, 'SỔ LƯU NIỆM LỚP 6A', { size: 16, bold: true, color: '#7c3aed' }) + R(196, 76, 100, 70, { fill: '#e0f2fe', stroke: '#0284c7', rx: 4 }) + P('M206,136 l25,-30 l18,20 l12,-12 l25,22 z', { fill: '#7dd3fc', stroke: 'none' }) + T(246, 162, 'Ảnh tập thể', { size: 11 });
       ['Kỉ niệm chuyến tham quan', 'bảo tàng ngày 20/11…'].forEach(function (l, i) { b += T(312, 96 + i * 18, l, { size: 11.5, anchor: 'start' }); });
@@ -247,7 +251,7 @@
     return wrap(W, y + 14, b, o.title || 'Sơ đồ khối của thuật toán');
   }
   /* blocks({ stack: [{ k, s, inner:[...] }], w, title }) – khối lệnh kiểu Scratch (vẽ lại đơn giản) */
-  var BK = { event: ['#fbbf24', '#b45309'], motion: ['#60a5fa', '#1d4ed8'], looks: ['#a78bfa', '#6d28d9'], sound: ['#f0abfc', '#a21caf'], control: ['#fdba74', '#c2410c'], pen: ['#34d399', '#047857'], sensing: ['#67e8f9', '#0e7490'], operators: ['#86efac', '#15803d'] };
+  var BK = { event: ['#fbbf24', '#b45309'], motion: ['#60a5fa', '#1d4ed8'], looks: ['#a78bfa', '#6d28d9'], sound: ['#f0abfc', '#a21caf'], control: ['#fdba74', '#c2410c'], pen: ['#34d399', '#047857'], sensing: ['#67e8f9', '#0e7490'], operators: ['#86efac', '#15803d'], variables: ['#fb923c', '#c2410c'] };
   function blocks(o) {
     o = o || {}; var W = o.w || 420, b = title(W, o.title), y = o.title ? 40 : 14, x0 = 20;
     function draw(list, x) {
@@ -341,4 +345,42 @@
     return wrap(W, H, b, o.title || 'Các bước của thuật toán');
   }
   S.sheet = sheet; S.slide = slide; S.arraySteps = arraySteps;
+  /* timeline({ title, items: [{ y: '1642', s: 'Máy Pascaline', sub }] , note }) – trục thời gian (so le trên/dưới) */
+  function timeline(o) {
+    o = o || {}; var it = o.items || [], n = it.length, W = Math.max(600, n * 110 + 40), gx = (W - 40) / n, ay = (o.title ? 34 : 6) + 88, b = title(W, o.title), id = 'tl' + (++uid);
+    b += AR(id, '#334155') + L(14, ay, W - 12, ay, { color: '#334155', width: 3, marker: id });
+    it.forEach(function (e, i) { var x = 20 + gx * (i + .5), up = i % 2 === 0, cy = up ? ay - 78 : ay + 22;
+      b += Ci(x, ay, 6, { fill: '#0e7490' }) + L(x, ay + (up ? -6 : 6), x, up ? cy + 56 : cy, { color: '#94a3b8', width: 1.5 });
+      b += R(x - gx / 2 + 4, cy, gx - 8, 56, { fill: '#ecfeff', stroke: '#0e7490', rx: 6 }) + T(x, cy + 16, e.y, { size: 13, bold: true, color: '#0e7490' }) + T(x, cy + 33, e.s, { size: 11.5 }) + (e.sub ? T(x, cy + 48, e.sub, { size: 10.5, color: C.muted }) : ''); });
+    var H = ay + 86 + (o.note ? 22 : 0); if (o.note) b += T(W / 2, H - 8, o.note, { size: 11.5, color: C.muted });
+    return wrap(W, H, b, o.title || 'Trục thời gian');
+  }
+  /* layers({ title, items: ['Chữ', 'Hình', 'Nền'], active, note }) – các lớp ảnh xếp chồng (trên cùng ở đầu danh sách) */
+  function layers(o) {
+    o = o || {}; var it = o.items || [], W = 600, y0 = o.title ? 40 : 12, b = title(W, o.title), cols = ['#fde68a', '#bfdbfe', '#bbf7d0', '#fecaca', '#e9d5ff'];
+    for (var i = it.length - 1; i >= 0; i--) { var dx = 30 + (it.length - 1 - i) * 0 , y = y0 + 20 + i * 34; b += P('M' + (60 + i * 0) + ',' + (y + 40) + ' l60,-40 h170 l-60,40 z', { fill: cols[i % 5], stroke: i === o.active ? '#dc2626' : '#475569', sw: i === o.active ? 2.5 : 1.2 }); }
+    it.forEach(function (t, i) { var y = y0 + 20 + i * 34; b += L(300, y + 20, 340, y + 20, { color: '#94a3b8', width: 1 }) + R(344, y + 6, 220, 28, { fill: i === o.active ? '#fee2e2' : '#f8fafc', stroke: '#94a3b8', rx: 4 }) + T(356, y + 21, (i + 1) + '. ' + t, { size: 13, anchor: 'start', vcenter: true, bold: i === o.active }); });
+    var H = y0 + 20 + it.length * 34 + 50 + (o.note ? 18 : 0); if (o.note) b += T(W / 2, H - 8, o.note, { size: 12, color: C.muted });
+    return wrap(W, H, b, o.title || 'Các lớp ảnh');
+  }
+  /* cropBox({ title, w, h, crop: [x, y, w, h], labels: true, note }) – vùng cắt trên ảnh (kích thước theo điểm ảnh) */
+  function cropBox(o) {
+    o = o || {}; var W = 600, iw = o.w || 1200, ih = o.h || 800, k = Math.min(380 / iw, 240 / ih), x0 = 40, y0 = (o.title ? 40 : 12) + 10, pw = iw * k, ph = ih * k, b = title(W, o.title);
+    b += R(x0, y0, pw, ph, { fill: '#e0f2fe', stroke: '#0284c7', rx: 0 }) + P('M' + x0 + ',' + (y0 + ph) + ' l' + n2(pw * .3) + ',' + n2(-ph * .5) + ' l' + n2(pw * .2) + ',' + n2(ph * .25) + ' l' + n2(pw * .25) + ',' + n2(-ph * .4) + ' l' + n2(pw * .25) + ',' + n2(ph * .65) + ' z', { fill: '#86efac', stroke: 'none' }) + Ci(x0 + pw * .82, y0 + ph * .2, ph * .08, { fill: '#fde047' });
+    b += T(x0 + pw / 2, y0 + ph + 16, iw + ' điểm ảnh', { size: 12 }) + T(x0 + pw + 8, y0 + ph / 2, ih + ' điểm ảnh', { size: 12, anchor: 'start' });
+    if (o.crop) { var c = o.crop; b += R(x0 + c[0] * k, y0 + c[1] * k, c[2] * k, c[3] * k, { fill: 'none', stroke: '#dc2626', sw: 2.5, rx: 0, dash: true }) + T(x0 + (c[0] + c[2] / 2) * k, y0 + c[1] * k - 6, 'Vùng giữ lại ' + c[2] + ' × ' + c[3], { size: 12, bold: true, color: '#dc2626' }); }
+    var H = y0 + ph + 30 + (o.note ? 18 : 0); if (o.note) b += T(W / 2, H - 8, o.note, { size: 12, color: C.muted });
+    return wrap(W, H, b, o.title || 'Cắt ảnh');
+  }
+  /* pageHF({ title, header, footer, body: n dòng, pageNo, note }) – trang văn bản có đầu trang, chân trang */
+  function pageHF(o) {
+    o = o || {}; var W = 600, y0 = o.title ? 34 : 8, b = title(W, o.title), px = 170, pw = 260, ph = 300;
+    b += R(px, y0, pw, ph, { fill: '#fff', stroke: '#64748b', rx: 4 }) + R(px + 10, y0 + 8, pw - 20, 30, { fill: '#dbeafe', stroke: '#2563eb', rx: 3, dash: true, sw: 1.2 }) + T(px + pw / 2, y0 + 23, o.header || 'Đầu trang', { size: 12, vcenter: true });
+    for (var i = 0; i < (o.body || 9); i++) b += R(px + 22, y0 + 54 + i * 22, (pw - 44) * (i % 3 === 2 ? .7 : 1), 8, { fill: '#cbd5e1', stroke: 'none', rx: 2 });
+    b += R(px + 10, y0 + ph - 38, pw - 20, 30, { fill: '#dcfce7', stroke: '#16a34a', rx: 3, dash: true, sw: 1.2 }) + T(px + pw / 2, y0 + ph - 23, o.footer || 'Chân trang', { size: 12, vcenter: true });
+    b += T(px - 12, y0 + 23, 'Header (đầu trang)', { size: 12, anchor: 'end', color: '#1d4ed8', bold: true, vcenter: true }) + T(px - 12, y0 + ph - 23, 'Footer (chân trang)', { size: 12, anchor: 'end', color: '#15803d', bold: true, vcenter: true }) + T(px + pw + 12, y0 + ph / 2, 'Nội dung chính', { size: 12, anchor: 'start', color: C.muted });
+    var H = y0 + ph + 10 + (o.note ? 22 : 0); if (o.note) b += T(W / 2, H - 8, o.note, { size: 12, color: C.muted });
+    return wrap(W, H, b, o.title || 'Đầu trang và chân trang');
+  }
+  S.timeline = timeline; S.layers = layers; S.cropBox = cropBox; S.pageHF = pageHF;
 })();
