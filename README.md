@@ -241,7 +241,7 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
    `python3 tools/cap-nhat-index.py` để công cụ tự thêm.
 3. Chạy `node tools/kiem-tra-dap-an.js toan-6` (thay `toan-6` bằng môn – lớp, hoặc bỏ trống để kiểm tra tất cả):
    công cụ kiểm tra cấu trúc (mục tiêu, 4–5 bước, 3 ví dụ, 3 bài tập có 2 gợi ý, 8 câu kiểm tra…), tính lại các đáp án có `calc`,
-   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9, GDCD 6, GDCD 7 và GDCD 8 (danh sách `STRICT_CALC` trong công cụ), mọi câu
+   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9, Tin học 6, Tin học 7, Tin học 8, Tin học 9, GDCD 6, GDCD 7, GDCD 8 và GDCD 9 (danh sách `STRICT_CALC` trong công cụ), mọi câu
    `short` có đáp án là số **bắt buộc** có `calc`; công cụ in tỉ lệ câu có `calc` của từng môn – lớp.
 4. Mở lại `index.html` và kiểm tra bài học.
 
@@ -382,9 +382,15 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
   (42/2024/QH15); Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ 2024 (55/2024/QH15); Luật Hoá chất 2025 (69/2025/QH15); Bộ luật Lao động 2019
   (45/2019/QH14, Điều 143, 145, 146, 147). Trắc nghiệm 80 câu (34 nhiều lựa chọn, 20 đúng/sai, 26 trả lời ngắn); câu có đáp án số (26 câu) đều có `calc`;
   GDCD 8 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ 10 bài.
-* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6–9 (đã hoàn chỉnh) và GDCD 6–8, trang hiện có **720 bài học** đã soạn
-  và **19 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
-* **Đang biên soạn:** GDCD 9; LS&ĐL 6–9 (180 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
+* **GDCD 9: soạn đầy đủ cả 10 bài** (đạo đức, kĩ năng sống, kinh tế, pháp luật); 20 hình SVG (sơ đồ tư duy, bảng “Nên / Không nên”, sơ đồ
+  giải quyết mâu thuẫn không bạo lực, ma trận ưu tiên công việc, quy trình mua hàng thông minh, các loại vi phạm pháp luật, độ tuổi chịu
+  trách nhiệm pháp lí, ví dụ giả định tính thuế GTGT). Dẫn chiếu pháp luật đã đối chiếu: Hiến pháp 2013 (Điều 33, 47); Luật Bảo vệ quyền lợi người
+  tiêu dùng 2023 (19/2023/QH15, hiệu lực 1/7/2024, Điều 4); Bộ luật Hình sự 2015 (Điều 12); Luật Xử lý vi phạm hành chính 2012 (Điều 5);
+  Luật Quản lý thuế 2025 (108/2025/QH15, hiệu lực 1/7/2026). Trắc nghiệm 80 câu (32 nhiều lựa chọn, 20 đúng/sai, 28 trả lời ngắn); câu có
+  đáp án số (28 câu) đều có `calc`; GDCD 9 nằm trong `STRICT_CALC`. Kiểm tra đầu vào 15 câu trải đủ 10 bài.
+* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6–9 (đã hoàn chỉnh) và GDCD 6–9 (đã hoàn chỉnh), trang hiện có **730 bài học** đã soạn
+  và **20 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
+* **Đang biên soạn:** LS&ĐL 6–9 (180 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
   các bài hiện thông báo “Bài học đang được biên soạn”.
 
 ## 9. Căn cứ
