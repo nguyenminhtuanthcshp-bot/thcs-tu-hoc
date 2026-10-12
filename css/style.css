@@ -81,6 +81,9 @@ h3 { font-size: 1.1rem; margin: .8em 0 .4em; }
 .subject-card { border-top: 6px solid var(--c); display: flex; flex-direction: column; gap: 10px; }
 .subject-card .s-icon { font-size: 2.4rem; width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; background: var(--cl); }
 .subject-card h2 { margin: 0; color: var(--c); }
+.subject-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.subject-chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; background: var(--cl); color: var(--c); font-weight: 700; border: 1px solid var(--c); }
+.part-head { margin: 26px 0 10px; padding: 8px 14px; border-left: 6px solid var(--subj); background: var(--subj-light); border-radius: 10px; font-size: 1.15rem; }
 .subject-head { border-radius: 22px; padding: 24px; color: #fff; background: var(--subj); margin-bottom: 20px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
 .subject-head h1 { margin: 0; }
 .subject-head .s-icon { font-size: 3rem; background: rgba(255,255,255,.2); width: 80px; height: 80px; border-radius: 20px; display: grid; place-items: center; }
@@ -197,7 +200,7 @@ mark { background: #fde68a; border-radius: 3px; padding: 0 2px; }
 
 @media (max-width: 900px) {
   .grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
-  .grid.cols-3 { grid-template-columns: 1fr; }
+  .grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
   .steps-intro, .stat-grid { grid-template-columns: repeat(2, 1fr); }
   .prog-row { grid-template-columns: 1fr; gap: 6px; }
 }
@@ -211,8 +214,9 @@ mark { background: #fde68a; border-radius: 3px; padding: 0 2px; }
   .hero { flex-direction: column; text-align: center; padding: 22px; }
   .hero h1 { font-size: 1.5rem; }
   h1 { font-size: 1.45rem; }
-  .grid.cols-2 { grid-template-columns: 1fr; }
+  .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
   .card { padding: 16px; }
+  .subject-chip { padding: 6px 11px; font-size: .9rem; }
   .steps-intro { grid-template-columns: 1fr; }
 }
 @media print { .site-header, .site-footer, .btn { display: none !important; } }

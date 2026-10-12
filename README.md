@@ -1,6 +1,6 @@
 # THCS Tự Học – trang web tự học cho học sinh lớp 6–9
 
-Trang web tĩnh giúp học sinh trung học cơ sở tự học các môn **Toán**, **Ngữ văn**, **Khoa học tự nhiên** theo
+Trang web tĩnh giúp học sinh trung học cơ sở tự học các môn **Toán**, **Ngữ văn**, **Khoa học tự nhiên**, **Tin học**, **Giáo dục công dân** và **Lịch sử và Địa lí** theo
 Chương trình giáo dục phổ thông 2018 (Thông tư 32/2018/TT-BGDĐT) và theo thứ tự bài học của bộ sách
 “Kết nối tri thức với cuộc sống”.
 
@@ -26,6 +26,7 @@ thcs-tu-hoc/
 ├── js/core.js              Lõi: danh sách lớp, môn, màu sắc; hàm đăng kí dữ liệu
 ├── js/svg.js               Thư viện nhỏ vẽ hình minh hoạ SVG (trục số, hình phẳng, góc, biểu đồ…)
 ├── js/svg-khtn.js          Bổ sung hàm vẽ hình cho KHTN 6, 7, 8, 9 (tế bào, dụng cụ đo, lực, thiên văn, nguyên tử, âm, ánh sáng, từ, hoá học, áp suất, điện, nhiệt, cơ thể người, sinh thái, quang học thấu kính, cảm ứng điện từ, hoá hữu cơ, di truyền, tiến hoá…)
+├── js/svg-tin.js           Bổ sung hàm vẽ hình cho Tin học (thành phần máy tính, dãy bit, đơn vị dung lượng, mạng, Internet, trang web, thư điện tử, cây thư mục, trang văn bản, bảng, sơ đồ khối, khối lệnh kiểu Scratch)
 ├── js/svg-toan.js          Bổ sung hàm vẽ hình cho Toán 7, 8, 9 (hình học toạ độ, đường tròn, cát tuyến, hình khối, biểu đồ, hình chóp đều, mặt phẳng toạ độ, parabol, đa giác đều, hình trụ – nón – cầu, sơ đồ cây)
 ├── js/app.js               Ứng dụng: định tuyến, trang bài học, kiểm tra, tiến độ, tìm kiếm
 ├── data/courses/           Khung chương trình + bài kiểm tra đầu vào (mỗi môn – lớp một tệp)
@@ -58,13 +59,13 @@ Các địa chỉ trong trang (dùng được nút “Quay lại” của trình
 Khi mở bằng `file://`, trình duyệt chặn việc đọc tệp JSON bằng `fetch()`. Vì vậy mỗi tệp dữ liệu là một đoạn
 JavaScript rất đơn giản, gọi hàm `THCS.registerCourse(...)` hoặc `THCS.registerLesson(...)`, và được nạp bằng thẻ
 `<script>` trong `index.html` (giữa hai dấu mốc `<!-- DATA:BEGIN -->` và `<!-- DATA:END -->`).
-Thứ tự nạp: `js/core.js` → `js/svg.js` → `js/svg-khtn.js` → `js/svg-toan.js` → các tệp trong `data/` → `js/app.js`.
+Thứ tự nạp: `js/core.js` → `js/svg.js` → `js/svg-khtn.js` → `js/svg-toan.js` → `js/svg-tin.js` → các tệp trong `data/` → `js/app.js`.
 
 ## 4. Định dạng khung chương trình (`data/courses/<môn>-<lớp>.js`)
 
 ```js
 THCS.registerCourse({
-  subject: 'toan',              // mã môn: 'toan' | 'ngu-van' | 'khtn' (hoặc môn mới, xem mục 7)
+  subject: 'toan',              // mã môn: 'toan' | 'ngu-van' | 'khtn' | 'tin-hoc' | 'gdcd' | 'lsdl' (hoặc môn mới, xem mục 7)
   grade: 6,                     // lớp: 6 | 7 | 8 | 9
   book: 'Kết nối tri thức với cuộc sống',
   chapters: [
@@ -90,6 +91,11 @@ THCS.registerCourse({
 * Với Ngữ văn, mỗi “Bài” (chủ đề) của sách được coi là một chương; các bài học nhỏ theo kĩ năng có mã như
   `b1-doc` (Đọc hiểu), `b1-tv` (Thực hành tiếng Việt), `b1-viet` (Viết), `b1-noi` (Nói và nghe).
 * Bài nào **chưa có** tệp nội dung trong `data/lessons/` sẽ tự hiển thị thông báo “Bài học đang được biên soạn”.
+* Khung chưa có `diagnostic` (môn đang biên soạn) vẫn hiện đầy đủ danh sách chương, bài; trang môn hiện ghi chú “đang được biên soạn”
+  và ẩn nút Kiểm tra đầu vào.
+* Chương có thể có trường `part` (phân môn). Lịch sử và Địa lí dùng `part: 'Phân môn Lịch sử'`, `'Phân môn Địa lí'`, `'Chủ đề chung'`;
+  trang môn in tiêu đề phân môn trước nhóm chương tương ứng. Vì hai phân môn đều đánh số “Bài 1, Bài 2…”, mã bài có tiền tố:
+  `ls-bai-1`, `dl-bai-1`, `dl-mo-dau`, `cdc-1` (chủ đề chung). Tin học 8, 9 có bài lựa chọn `bai-8a`, `bai-8b`…
 
 ## 5. Định dạng một bài học (`data/lessons/<môn>-<lớp>-<mã bài>.js`)
 
@@ -235,21 +241,24 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
    `python3 tools/cap-nhat-index.py` để công cụ tự thêm.
 3. Chạy `node tools/kiem-tra-dap-an.js toan-6` (thay `toan-6` bằng môn – lớp, hoặc bỏ trống để kiểm tra tất cả):
    công cụ kiểm tra cấu trúc (mục tiêu, 4–5 bước, 3 ví dụ, 3 bài tập có 2 gợi ý, 8 câu kiểm tra…), tính lại các đáp án có `calc`,
-   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8 và KHTN 9 (danh sách `STRICT_CALC` trong công cụ), mọi câu
+   kiểm tra SVG và mã bài của câu hỏi đầu vào, rồi báo số bài đã soạn. Với Toán 7, Toán 8, Toán 9, KHTN 7, KHTN 8, KHTN 9 và Tin học 6 (danh sách `STRICT_CALC` trong công cụ), mọi câu
    `short` có đáp án là số **bắt buộc** có `calc`; công cụ in tỉ lệ câu có `calc` của từng môn – lớp.
 4. Mở lại `index.html` và kiểm tra bài học.
 
-**Thêm một môn mới** (ví dụ Lịch sử và Địa lí)
+**Thêm một môn mới** (ví dụ Công nghệ)
 
-1. Trong một tệp dữ liệu (nên đặt trước các tệp khung chương trình), gọi:
+1. Thêm môn vào `subjects`/`subjectOrder` trong `js/core.js` (như sáu môn hiện có), hoặc trong một tệp dữ liệu gọi:
    ```js
-   THCS.registerSubject('lich-su-dia-li', { name: 'Lịch sử và Địa lí', icon: '🌏', color: '#b45309', light: '#fef3c7', desc: 'Mô tả ngắn' });
+   THCS.registerSubject('cong-nghe', { name: 'Công nghệ', icon: '🛠️', color: '#b45309', light: '#fef3c7', desc: 'Mô tả ngắn' });
    ```
-2. Tạo các tệp `data/courses/lich-su-dia-li-6.js`… và các bài học tương ứng, rồi thêm thẻ `<script>` như trên.
+2. Tạo các tệp `data/courses/cong-nghe-6.js`… và các bài học tương ứng, rồi thêm thẻ `<script>` như trên
+   (nhớ thêm mã môn vào `SUBJ` trong `tools/cap-nhat-index.py` để sắp thứ tự).
 
 ## 8. Phạm vi phiên bản này
 
-* Khung chương trình **đầy đủ** (toàn bộ chương, bài) cho 12 môn – lớp: Toán, Ngữ văn, KHTN lớp 6, 7, 8, 9.
+* Khung chương trình **đầy đủ** (toàn bộ chương, bài) cho **24 môn – lớp**: Toán, Ngữ văn, KHTN, Tin học, Giáo dục công dân,
+  Lịch sử và Địa lí – lớp 6, 7, 8, 9. Mục lục ba môn mới đã đối chiếu với mục lục SGK “Kết nối tri thức với cuộc sống”:
+  Tin học 6/7/8/9: 17/16/20/22 bài; GDCD 6/7/8/9: 12/10/10/10 bài; LS&ĐL 6/7/8/9: 51/39/33/47 mục (Lịch sử + Địa lí + chủ đề chung).
 * **Toán 6: soạn đầy đủ cả 67 mục** (43 bài, 15 “Luyện tập chung”, 9 “Bài tập cuối chương”) của cả hai tập, kèm hình minh hoạ SVG.
 * **Ngữ văn 6: soạn đầy đủ cả 41 mục** (Bài 1 – Bài 10 với Đọc, Thực hành tiếng Việt, Viết, Nói và nghe; 2 bài ôn tập học kì),
   kèm sơ đồ SVG (quy trình, dàn ý, cốt truyện) và bảng so sánh thể loại. **Bản quyền:** văn bản đọc chỉ dùng văn học dân gian
@@ -332,9 +341,16 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
   Trắc nghiệm 408 câu (172 nhiều lựa chọn, 104 đúng/sai, 132 trả lời ngắn – bài nào cũng có đủ ba dạng, câu đầu là đúng/sai).
   Số liệu minh hoạ và số liệu tham khảo đều được ghi rõ. Mọi câu hỏi có đáp án số (132 câu) đều có trường `calc`; KHTN 9 nằm trong `STRICT_CALC`.
   Bài kiểm tra đầu vào 15 câu trải đều Mở đầu và 14 chương.
-* **Trang web đã hoàn chỉnh cho cả 12 môn – lớp** (Toán, Ngữ văn, KHTN lớp 6, 7, 8, 9): tổng cộng **613 bài học** đã soạn đầy đủ.
-* **12 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
-* Không còn bài nào ở trạng thái “Bài học đang được biên soạn” (thông báo này chỉ hiện nếu sau này thêm bài mới vào khung mà chưa có tệp nội dung).
+* **Tin học 6: soạn đầy đủ cả 17 bài** (6 chủ đề), mỗi bài 3–4 mục tiêu, 4–5 bước, 3 ví dụ, 3 bài tập (2 gợi ý + lời giải), 8 câu kiểm tra
+  đủ ba dạng; 34 hình SVG từ `js/svg-tin.js` và `js/svg.js` (thành phần máy tính, dãy bit, bậc đơn vị dung lượng, mạng có dây/không dây,
+  Internet, siêu liên kết, trình duyệt, đường đi và cấu tạo địa chỉ thư điện tử, máy tìm kiếm, cây thư mục, trang văn bản đã định dạng,
+  bảng, hộp thoại Tìm và thay thế, sơ đồ tư duy, sơ đồ khối tuần tự/rẽ nhánh/lặp, khối lệnh kiểu Scratch, hình do nhân vật vẽ).
+  Tên phần mềm, khối lệnh chỉ mang tính minh hoạ; số liệu minh hoạ được ghi rõ. Mọi câu có đáp án số (36 câu) đều có `calc`;
+  Tin học 6 nằm trong `STRICT_CALC`. Bài kiểm tra đầu vào 15 câu trải đủ 6 chủ đề.
+* Các môn Toán, Ngữ văn, KHTN (12 môn – lớp) đã hoàn chỉnh: **613 bài học**. Cùng Tin học 6, trang hiện có **630 bài học** đã soạn
+  và **13 bài kiểm tra đầu vào** (15 câu mỗi bài, mỗi câu gắn với một bài học cụ thể).
+* **Đang biên soạn:** Tin học 7, 8, 9; GDCD 6–9; LS&ĐL 6–9 (270 bài) – đã có khung chương trình đầy đủ để học sinh xem trước,
+  các bài hiện thông báo “Bài học đang được biên soạn”.
 
 ## 9. Căn cứ
 

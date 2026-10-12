@@ -5,7 +5,7 @@
    2) Kiểm tra cấu trúc: mục tiêu, 4–5 bước, 3 ví dụ, 3 bài tập (mỗi bài 2 gợi ý + lời giải), quiz 8 câu,
       chỉ số đáp án mcq hợp lệ, đáp án tf là true/false, bài học khớp với khung chương trình.
    3) Câu short có requireSimplest: true phải có đáp án ở dạng tối giản; đề có chữ “tối giản/rút gọn” mà thiếu cờ sẽ bị báo lỗi.
-   4) Với các khung trong STRICT_CALC (hiện là toan-7, toan-8, toan-9, khtn-7, khtn-8, khtn-9): mọi câu short có đáp án là số (số nguyên, số thập phân, phân số a/b)
+   4) Với các khung trong STRICT_CALC (hiện là toan-7, toan-8, toan-9, khtn-7, khtn-8, khtn-9, tin-hoc-6): mọi câu short có đáp án là số (số nguyên, số thập phân, phân số a/b)
       bắt buộc phải có calc để được tính lại; thiếu calc bị báo lỗi. Cuối báo cáo in tỉ lệ câu số có calc theo khung.
    Trong calc có thể dùng các hàm trợ giúp gcd(a, b), lcm(a, b), divisors(n), round(x, d), sqrt(x), sum(mảng), mean(mảng),
    poly([a0, a1, a2, ...], x) (giá trị đa thức a0 + a1·x + a2·x² + ...) và Math.
@@ -23,7 +23,7 @@ var ctx = { console: console, Math: Math,
   sum: function (a) { return a.reduce(function (s, x) { return s + x; }, 0); },
   mean: function (a) { return ctx.sum(a) / a.length; },
   poly: function (c, x) { return c.reduce(function (s, a, i) { return s + a * Math.pow(x, i); }, 0); } };
-var STRICT_CALC = ['toan-7', 'toan-8', 'toan-9', 'khtn-7', 'khtn-8', 'khtn-9'];
+var STRICT_CALC = ['toan-7', 'toan-8', 'toan-9', 'khtn-7', 'khtn-8', 'khtn-9', 'tin-hoc-6'];
 ctx.window = ctx;
 ctx.THCS = {
   registerSubject: function () {},
@@ -60,7 +60,7 @@ Object.keys(courses).forEach(function (ck) {
   var c = courses[ck], ids = [];
   c.chapters.forEach(function (ch) { ch.lessons.forEach(function (l) { ids.push(lessonId(l)); }); });
   ids.forEach(function (id) { if (!lessons[ck + '/' + id]) missing.push(ck + '/' + id); });
-  (c.diagnostic.questions || []).forEach(function (q, i) { if (ids.indexOf(q.lesson) < 0) errors.push(ck + ' diagnostic #' + (i + 1) + ': thẻ lesson "' + q.lesson + '" không có trong khung'); });
+  ((c.diagnostic || {}).questions || []).forEach(function (q, i) { if (ids.indexOf(q.lesson) < 0) errors.push(ck + ' diagnostic #' + (i + 1) + ': thẻ lesson "' + q.lesson + '" không có trong khung'); });
   console.log(ck + ': ' + ids.filter(function (id) { return lessons[ck + '/' + id]; }).length + '/' + ids.length + ' bài đã soạn');
 });
 Object.keys(lessons).forEach(function (key) {

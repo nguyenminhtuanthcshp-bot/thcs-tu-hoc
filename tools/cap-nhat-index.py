@@ -5,7 +5,7 @@ Công cụ quét data/courses/*.js và data/lessons/*.js rồi ghi lại đoạn
 <!-- DATA:BEGIN --> và <!-- DATA:END --> trong index.html. Thầy cô cũng có thể tự thêm thẻ <script> bằng tay."""
 import os, re, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SUBJ = {'toan': 0, 'ngu-van': 1, 'khtn': 2}
+SUBJ = {'toan': 0, 'ngu-van': 1, 'khtn': 2, 'tin-hoc': 3, 'gdcd': 4, 'lsdl': 5}
 def key(path):
     name = os.path.basename(path)[:-3]
     m = re.match(r'([a-z-]+?)-(\d)(?:-(.*))?$', name)

@@ -46,6 +46,8 @@
     c.chapters.forEach(function (ch) { ch.lessons.forEach(function (l) { out.push({ lesson: l, chapter: ch }); }); });
     return out;
   }
+  function chTitle(ch) { return (ch.part ? ch.part.replace(/^Phân môn /, '') + ' · ' : '') + ch.title; }
+  function hasDiag(c) { return !!(c && c.diagnostic && c.diagnostic.questions && c.diagnostic.questions.length); }
   function lessonKey(c, l) { return c.key + '/' + l.id; }
   function content(c, l) { return T.lessons[lessonKey(c, l)]; }
   function lessonUrl(c, l) { return '#/lop-' + c.grade + '/' + c.subject + '/' + l.id; }
@@ -74,7 +76,7 @@
     setSubjectColor(null);
     var hello = store.name ? 'Chào ' + esc(store.name) + '! 👋' : 'Chào em! 👋';
     var html = '<section class="hero"><div class="hero-art" aria-hidden="true">🎒</div><div>' +
-      '<h1>' + hello + '</h1><p>Cùng tự học các môn <b>Toán</b>, <b>Ngữ văn</b> và <b>Khoa học tự nhiên</b> lớp 6 – 9 theo Chương trình giáo dục phổ thông 2018.</p>' +
+      '<h1>' + hello + '</h1><p>Cùng tự học các môn <b>Toán</b>, <b>Ngữ văn</b>, <b>Khoa học tự nhiên</b>, <b>Tin học</b>, <b>Giáo dục công dân</b>, <b>Lịch sử và Địa lí</b> lớp 6 – 9 theo Chương trình giáo dục phổ thông 2018.</p>' +
       '<p class="muted">Chọn lớp của em để bắt đầu. Mỗi bài học có lí thuyết từng bước, ví dụ mẫu, bài luyện tập có gợi ý và bài kiểm tra tự chấm điểm.</p></div></section>' +
       '<h2>Em đang học lớp mấy?</h2><div class="grid cols-4">';
     T.grades.forEach(function (g) {
@@ -83,7 +85,8 @@
       html += '<a class="grade-card g' + g + '" href="#/lop-' + g + '"><div><div class="g-label">Lớp</div><div class="g-num">' + g + '</div></div>' +
         '<div class="g-meta">' + tot + ' bài học · ' + auth + ' bài đã có nội dung<br>Em đã hoàn thành: ' + done + ' bài</div></a>';
     });
-    html += '</div><h2 style="margin-top:30px">Học thế nào cho hiệu quả?</h2><div class="steps-intro">' +
+    html += '</div><h2 style="margin-top:30px">Các môn học</h2><div class="subject-chips">' + T.subjectOrder.map(function (s) { var m = T.subjects[s]; return '<span class="subject-chip" style="--c:' + m.color + ';--cl:' + m.light + '"><span aria-hidden="true">' + m.icon + '</span> ' + esc(m.name) + '</span>'; }).join('') + '</div>';
+    html += '<h2 style="margin-top:30px">Học thế nào cho hiệu quả?</h2><div class="steps-intro">' +
       '<div><b>1. Kiểm tra đầu vào</b>Làm bài kiểm tra ngắn để biết mình đã vững phần nào.</div>' +
       '<div><b>2. Học từng bước</b>Đọc lí thuyết theo từng bước nhỏ, bấm “Tiếp tục” khi đã hiểu.</div>' +
       '<div><b>3. Luyện tập</b>Tự làm trước, cần thì xem Gợi ý 1, Gợi ý 2 rồi mới xem lời giải.</div>' +
@@ -106,7 +109,7 @@
         progressBar(p) + '<div class="muted" style="font-size:.85rem">Đã hoàn thành ' + st.done + '/' + st.total + ' bài' +
         (d ? ' · Kiểm tra đầu vào: ' + d.score + '/' + d.total : '') + '</div>' +
         '<div class="btn-row"><a class="btn primary" style="background:' + m.color + ';border-color:' + m.color + '" href="#/lop-' + g + '/' + s + '">Vào học</a>' +
-        '<a class="btn" href="#/lop-' + g + '/' + s + '/kiem-tra-dau-vao">📝 Kiểm tra đầu vào</a></div></div>';
+        (hasDiag(c) ? '<a class="btn" href="#/lop-' + g + '/' + s + '/kiem-tra-dau-vao">📝 Kiểm tra đầu vào</a>' : '<span class="muted" style="align-self:center;font-size:.85rem">🕒 Nội dung đang được biên soạn</span>') + '</div></div>';
     });
     html += '</div>';
     return { title: 'Lớp ' + g, html: html };
@@ -122,6 +125,7 @@
       '<section class="subject-head"><div class="s-icon" aria-hidden="true">' + m.icon + '</div><div style="flex:1;min-width:220px"><h1>' + esc(m.name) + ' ' + g + '</h1>' +
       '<div style="opacity:.92">Theo thứ tự bài học của sách giáo khoa bộ “' + esc(c.book || 'Kết nối tri thức với cuộc sống') + '”</div>' +
       '<div style="margin-top:10px">' + progressBar(pct(st.done, st.total)) + '<small>Đã hoàn thành ' + st.done + '/' + st.total + ' bài · ' + st.authored + ' bài đã có nội dung</small></div></div></section>';
+    if (hasDiag(c)) {
     html += '<div class="card diag-banner"><div class="d-ico" aria-hidden="true">📝</div><div class="d-text"><b>Kiểm tra đầu vào</b><br>';
     if (d) {
       html += 'Lần gần nhất (' + fmtDate(d.date) + '): đúng <b>' + d.score + '/' + d.total + '</b> câu (' + pct(d.score, d.total) + '%). ' +
@@ -130,7 +134,12 @@
       html += '<span class="muted">Làm ' + (c.diagnostic ? c.diagnostic.questions.length : 0) + ' câu hỏi ngắn để biết em cần học kĩ những bài nào.</span>';
     }
     html += '</div><a class="btn primary" href="#/lop-' + g + '/' + s + '/kiem-tra-dau-vao">' + (d ? 'Xem / làm lại' : 'Làm bài ngay') + '</a></div>';
+    } else {
+      html += '<div class="card box note">🕒 Các bài học của môn này đang được biên soạn. Em có thể xem trước khung chương trình (danh sách chương, bài) ở dưới đây.</div>';
+    }
+    var lastPart = null;
     c.chapters.forEach(function (ch, ci) {
+      if (ch.part && ch.part !== lastPart) { html += '<h2 class="part-head">' + esc(ch.part) + '</h2>'; lastPart = ch.part; }
       var doneN = 0, authN = 0;
       ch.lessons.forEach(function (l) { if (content(c, l)) authN++; var p = store.lessons[lessonKey(c, l)]; if (p && p.completed) doneN++; });
       html += '<details class="card chapter"' + (ci < 2 || authN ? ' open' : '') + '><summary><span>' + esc(ch.title) + '</span><span class="ch-meta">' + doneN + '/' + ch.lessons.length + ' hoàn thành</span></summary><ul class="lesson-list">';
@@ -264,7 +273,7 @@
     var l = found.item.lesson, ch = found.item.chapter, data = content(c, l), key = lessonKey(c, l), prog = store.lessons[key];
     var prev = found.list[found.index - 1], next = found.list[found.index + 1];
     var html = crumbs([['Trang chủ', '#/'], ['Lớp ' + g, '#/lop-' + g], [m.name, '#/lop-' + g + '/' + s], [l.title]]);
-    html += '<section class="card lesson-head"><div class="muted">' + esc(m.icon + ' ' + m.name + ' ' + g + ' · ' + ch.title) + '</div><h1>' + esc(l.title) + '</h1>' +
+    html += '<section class="card lesson-head"><div class="muted">' + esc(m.icon + ' ' + m.name + ' ' + g + ' · ' + chTitle(ch)) + '</div><h1>' + esc(l.title) + '</h1>' +
       (prog && prog.completed ? '<span class="badge ok">✅ Đã hoàn thành · điểm cao nhất ' + prog.best + '%</span>' : (prog && prog.best != null ? '<span class="badge warn">Điểm cao nhất: ' + prog.best + '%</span>' : ''));
     if (!data) {
       html += '</section><section class="card placeholder"><div class="p-ico" aria-hidden="true">🛠️</div><h2>Bài học đang được biên soạn</h2>' +
@@ -385,7 +394,7 @@
   /* ---------- Kiểm tra đầu vào ---------- */
   function viewDiagnostic(g, s) {
     var c = course(s, g), m = T.subjects[s];
-    if (!c || !c.diagnostic) return viewNotFound();
+    if (!c || !hasDiag(c)) return viewNotFound();
     setSubjectColor(s);
     var qs = c.diagnostic.questions, prev = store.diagnostics[c.key];
     var html = crumbs([['Trang chủ', '#/'], ['Lớp ' + g, '#/lop-' + g], [m.name, '#/lop-' + g + '/' + s], ['Kiểm tra đầu vào']]) +
@@ -395,7 +404,7 @@
       (prev ? '<div class="box note">Lần làm gần nhất: ' + fmtDate(prev.date) + ' – đúng ' + prev.score + '/' + prev.total + ' câu. <a href="#" id="show-prev">Xem lại kết quả</a></div>' : '') + '</section>';
     html += '<div id="prev-result"></div><form id="diag-form" class="card" novalidate>' + qs.map(function (q, i) {
       var f = findLesson(c, q.lesson);
-      return renderQuestion(q, i, 'dq', f ? shortChapter(f.item.chapter.title) : '');
+      return renderQuestion(q, i, 'dq', f ? (f.item.chapter.part ? f.item.chapter.part.replace(/^Phân môn /, '') + ' · ' : '') + shortChapter(f.item.chapter.title) : '');
     }).join('') + '<div class="quiz-warn hidden" id="diag-warn"></div><div class="btn-row"><button type="submit" class="btn primary big">📤 Nộp bài và xem gợi ý</button></div></form><div id="diag-result"></div>';
     return {
       title: 'Kiểm tra đầu vào – ' + m.name + ' ' + g, html: html, mount: function (root) {
@@ -437,7 +446,7 @@
     c.chapters.forEach(function (ch) {
       var b = r.byChapter[ch.id]; if (!b) return;
       var pp = pct(b.c, b.t), lv = levelClass(pp);
-      h += '<tr><td>' + esc(ch.title) + '</td><td>' + progressBar(pp, lv) + '</td><td>' + b.c + '/' + b.t + '</td><td>' + (lv === 'ok' ? '🟢 Đã vững' : (lv === 'warn' ? '🟡 Cần ôn thêm' : '🔴 Cần học lại')) + '</td></tr>';
+      h += '<tr><td>' + esc(chTitle(ch)) + '</td><td>' + progressBar(pp, lv) + '</td><td>' + b.c + '/' + b.t + '</td><td>' + (lv === 'ok' ? '🟢 Đã vững' : (lv === 'warn' ? '🟡 Cần ôn thêm' : '🔴 Cần học lại')) + '</td></tr>';
     });
     h += '</tbody></table></section><section class="card" id="diag-rec"><h2>📚 Bài học em nên học</h2>';
     if (!r.recommended.length) h += '<p>Em đã trả lời đúng tất cả các câu. Hãy chọn bài tiếp theo trong danh sách để học nâng cao nhé! 🎉</p>';
@@ -507,7 +516,7 @@
     T.grades.forEach(function (g) {
       T.subjectOrder.forEach(function (s) {
         var c = course(s, g); if (!c) return;
-        allLessons(c).forEach(function (x) { idx.push({ c: c, l: x.lesson, ch: x.chapter, text: fold(x.lesson.title + ' ' + x.chapter.title + ' ' + (x.lesson.keywords || '')), title: fold(x.lesson.title) }); });
+        allLessons(c).forEach(function (x) { idx.push({ c: c, l: x.lesson, ch: x.chapter, text: fold(x.lesson.title + ' ' + chTitle(x.chapter) + ' ' + (x.lesson.keywords || '')), title: fold(x.lesson.title) }); });
       });
     });
     return idx;
@@ -529,7 +538,7 @@
       html += res.slice(0, 80).map(function (x) {
         var m = T.subjects[x.c.subject], has = !!content(x.c, x.l);
         return '<a class="search-result" href="' + lessonUrl(x.c, x.l) + '"><b>' + m.icon + ' ' + highlight(x.l.title, fq) + '</b> ' + (has ? '<span class="badge" style="--subj:' + m.color + ';--subj-light:' + m.light + '">Có bài học</span>' : '<span class="badge wip">Đang biên soạn</span>') +
-          '<small>' + esc(m.name + ' ' + x.c.grade + ' · ' + x.ch.title) + '</small></a>';
+          '<small>' + esc(m.name + ' ' + x.c.grade + ' · ' + chTitle(x.ch)) + '</small></a>';
       }).join('');
     }
     return {
@@ -551,7 +560,7 @@
     var html = crumbs([['Trang chủ', '#/'], ['Hướng dẫn']]) + '<h1>📘 Hướng dẫn tự học với trang web</h1>' +
       '<section class="card"><h2>1. Bắt đầu từ đâu?</h2><ol><li>Ở <a href="#/">Trang chủ</a>, chọn <b>lớp</b> của em, rồi chọn <b>môn học</b>.</li>' +
       '<li>Nên làm <b>Kiểm tra đầu vào</b> của môn trước. Trang web sẽ cho em biết chương nào đã vững, chương nào cần ôn và gợi ý danh sách bài nên học.</li>' +
-      '<li>Chọn bài học theo đúng thứ tự trong sách giáo khoa (từ trên xuống dưới). Bài có biểu tượng 📘 là bài đã có nội dung; 🕒 là bài đang được biên soạn; ✅ là bài em đã hoàn thành.</li></ol></section>' +
+      '<li>Chọn bài học theo đúng thứ tự trong sách giáo khoa (từ trên xuống dưới). Bài có biểu tượng 📘 là bài đã có nội dung; 🕒 là bài đang được biên soạn; ✅ là bài em đã hoàn thành.</li><li>Môn <b>Lịch sử và Địa lí</b> gồm hai phân môn: danh sách bài được chia thành hai phần <b>Phân môn Lịch sử</b> và <b>Phân môn Địa lí</b> (lớp 7, 8, 9 có thêm phần <b>Chủ đề chung</b>), đúng như trong sách.</li><li>Với môn đang được biên soạn, em vẫn xem được toàn bộ danh sách chương, bài để biết trước cả năm học những gì.</li></ol></section>' +
       '<section class="card"><h2>2. Học một bài như thế nào?</h2><ol><li><b>Mục tiêu bài học:</b> đọc để biết học xong em cần làm được gì.</li>' +
       '<li><b>Học từng bước:</b> lí thuyết được chia nhỏ. Đọc kĩ từng bước, tự nói lại bằng lời của mình, rồi mới bấm <b>“Tiếp tục”</b>. Nên chép các ý chính vào vở.</li>' +
       '<li><b>Ví dụ mẫu:</b> thử tự giải trước, sau đó bấm “Xem lời giải” để so sánh cách làm.</li>' +
@@ -567,12 +576,12 @@
   function viewAbout() {
     setSubjectColor(null);
     var nLessons = Object.keys(T.lessons).length, nTotal = 0, nDiag = 0;
-    Object.keys(T.courses).forEach(function (k) { nTotal += allLessons(T.courses[k]).length; if (T.courses[k].diagnostic) nDiag++; });
+    Object.keys(T.courses).forEach(function (k) { nTotal += allLessons(T.courses[k]).length; if (hasDiag(T.courses[k])) nDiag++; });
     var html = crumbs([['Trang chủ', '#/'], ['Về trang web']]) + '<h1>ℹ️ Về trang web “THCS Tự Học”</h1>' +
-      '<section class="card"><h2>Mục đích</h2><p>Trang web giúp học sinh trung học cơ sở (lớp 6 – 9) tự học ba môn <b>Toán</b>, <b>Ngữ văn</b> và <b>Khoa học tự nhiên</b> theo <b>Chương trình giáo dục phổ thông 2018</b>, ban hành kèm theo <b>Thông tư số 32/2018/TT-BGDĐT</b> ngày 26/12/2018 của Bộ trưởng Bộ Giáo dục và Đào tạo (được sửa đổi, bổ sung bởi Thông tư số 13/2022/TT-BGDĐT).</p>' +
+      '<section class="card"><h2>Mục đích</h2><p>Trang web giúp học sinh trung học cơ sở (lớp 6 – 9) tự học sáu môn <b>Toán</b>, <b>Ngữ văn</b>, <b>Khoa học tự nhiên</b>, <b>Tin học</b>, <b>Giáo dục công dân</b> và <b>Lịch sử và Địa lí</b> theo <b>Chương trình giáo dục phổ thông 2018</b>, ban hành kèm theo <b>Thông tư số 32/2018/TT-BGDĐT</b> ngày 26/12/2018 của Bộ trưởng Bộ Giáo dục và Đào tạo (được sửa đổi, bổ sung bởi Thông tư số 13/2022/TT-BGDĐT).</p>' +
       '<p>Cấu trúc chương, bài được sắp xếp theo thứ tự bài học của bộ sách giáo khoa <b>“Kết nối tri thức với cuộc sống”</b> – bộ sách được lựa chọn sử dụng thống nhất toàn quốc từ năm học 2026 – 2027 theo Quyết định số 3588/QĐ-BGDĐT ngày 26/12/2025 của Bộ Giáo dục và Đào tạo – để các em dễ đối chiếu với bài học trên lớp.</p></section>' +
       '<section class="card"><h2>Về bản quyền nội dung</h2><div class="box key"><b>Toàn bộ lời giảng, ví dụ, bài tập và câu hỏi trên trang web đều do nhóm biên soạn tự viết mới.</b> Nội dung bám sát các <i>yêu cầu cần đạt</i> của Chương trình GDPT 2018 nhưng <b>không sao chép</b> văn bản, bài tập hay hình ảnh của sách giáo khoa (SGK) hoặc của Nhà xuất bản Giáo dục Việt Nam.</div>' +
-      '<p>Tên chương, tên bài chỉ được dùng để các em dễ tìm bài tương ứng trong SGK. Các ngữ liệu văn học được dùng là tác phẩm dân gian (truyện cổ, ca dao, tục ngữ), tác phẩm của tác giả đã mất từ lâu (thuộc phạm vi công cộng) hoặc đoạn văn do nhóm biên soạn tự viết.</p></section>' +
+      '<p>Với Lịch sử và Địa lí, Giáo dục công dân: tư liệu gốc (văn bản cổ, ca dao, tục ngữ) chỉ được trích ngắn khi đã thuộc phạm vi công cộng; mọi nội dung khác được kể lại bằng lời mới.</p><p>Tên chương, tên bài chỉ được dùng để các em dễ tìm bài tương ứng trong SGK. Các ngữ liệu văn học được dùng là tác phẩm dân gian (truyện cổ, ca dao, tục ngữ), tác phẩm của tác giả đã mất từ lâu (thuộc phạm vi công cộng) hoặc đoạn văn do nhóm biên soạn tự viết.</p></section>' +
       '<section class="card"><h2>Phiên bản hiện tại</h2><ul><li>Phiên bản: ' + T.version + ' (bản thử nghiệm đầu tiên – MVP).</li><li>Khung chương trình: ' + Object.keys(T.courses).length + ' môn-lớp với ' + nTotal + ' bài học.</li>' +
       '<li>Bài học đã có đầy đủ nội dung: <b>' + nLessons + '</b> bài; bài kiểm tra đầu vào: <b>' + nDiag + '</b> bài.</li><li>Các bài còn lại hiển thị thông báo “Bài học đang được biên soạn” và sẽ được bổ sung dần.</li></ul></section>' +
       '<section class="card"><h2>Quyền riêng tư</h2><p>Trang web không thu thập dữ liệu. Tên (nếu em nhập) và kết quả học tập chỉ được lưu trong bộ nhớ trình duyệt (localStorage) trên máy của em. Em có thể xoá bất cứ lúc nào ở trang <a href="#/tien-do">Tiến độ của em</a>.</p></section>' +
