@@ -297,4 +297,48 @@
   var add = { ipo: ipo, computerParts: computerParts, bits: bits, unitLadder: unitLadder, network: network, web: web, browser: browser, email: email, emailAddr: emailAddr, searchBox: searchBox,
     folderTree: folderTree, docPage: docPage, table: table, findReplace: findReplace, flowchart: flowchart, blocks: blocks, turtle: turtle, dataInfo: dataInfo };
   Object.keys(add).forEach(function (k) { if (S[k]) throw new Error('Trùng tên hàm SVG: ' + k); S[k] = add[k]; });
+  /* sheet({ cols: ['A','B',…], rows: [[…],[…]], active: 'B2', formula: '=…', title, colW, sel: ['A1','B3'] }) – trang tính */
+  function sheet(o) {
+    o = o || {}; var rows = o.rows || [], nc = (o.cols || []).length, cw = o.colW || Math.min(110, 520 / nc), rh = 26, x0 = 46, top = (o.title ? 34 : 8) + (o.formula != null ? 34 : 0), W = x0 + nc * cw + 14, b = title(W, o.title);
+    function rc(ref) { var m = /^([A-Z])(\d+)$/.exec(ref || ''); return m ? [m[1].charCodeAt(0) - 65, +m[2] - 1] : null; }
+    if (o.formula != null) { var fy = top - 30; b += R(4, fy, W - 8, 24, { fill: '#fff', stroke: '#94a3b8', rx: 3 }) + T(14, fy + 16, o.active || '', { size: 12, anchor: 'start', bold: true }) + T(60, fy + 16, 'fx', { size: 12, anchor: 'start', italic: true, color: C.muted }) + T(84, fy + 16, o.formula, { size: 12.5, anchor: 'start', mono: true }); }
+    b += R(x0, top, nc * cw, rh, { fill: '#e2e8f0', stroke: 'none', rx: 0 }) + R(4, top, x0 - 4, rh * (rows.length + 1), { fill: '#e2e8f0', stroke: 'none', rx: 0 });
+    var s1 = rc((o.sel || [])[0]), s2 = rc((o.sel || [])[1]);
+    if (s1 && s2) b += R(x0 + s1[0] * cw, top + rh * (s1[1] + 1), (s2[0] - s1[0] + 1) * cw, (s2[1] - s1[1] + 1) * rh, { fill: '#dbeafe', stroke: 'none', rx: 0 });
+    var a = rc(o.active);
+    (o.cols || []).forEach(function (c, j) { b += T(x0 + j * cw + cw / 2, top + rh / 2, c, { size: 12, bold: true, vcenter: true, color: '#334155' }); });
+    rows.forEach(function (r, i) { b += T(25, top + (i + 1.5) * rh, String(i + 1), { size: 12, bold: true, vcenter: true, color: '#334155' }); r.forEach(function (v, j) { var num = typeof v === 'number' || /^-?[\d.,]+%?$/.test(String(v)); b += T(num ? x0 + (j + 1) * cw - 6 : x0 + j * cw + 6, top + (i + 1.5) * rh, String(v), { size: 12.5, anchor: num ? 'end' : 'start', vcenter: true, bold: i === 0 && o.header !== false }); }); });
+    for (var i = 0; i <= rows.length + 1; i++) b += L(4, top + i * rh, x0 + nc * cw, top + i * rh, { color: '#cbd5e1', width: 1 });
+    for (var j = 0; j <= nc; j++) b += L(x0 + j * cw, top, x0 + j * cw, top + (rows.length + 1) * rh, { color: '#cbd5e1', width: 1 });
+    if (a) b += R(x0 + a[0] * cw, top + rh * (a[1] + 1), cw, rh, { fill: 'none', stroke: '#16a34a', sw: 2.5, rx: 0 });
+    var H = top + (rows.length + 1) * rh + (o.note ? 30 : 10); if (o.note) b += T(W / 2, H - 10, o.note, { size: 12, color: C.muted });
+    return wrap(W, H, b, o.title || 'Trang tính');
+  }
+  /* slide({ title, bullets, layout: 'title'|'content'|'image', note, theme }) – trang chiếu */
+  function slide(o) {
+    o = o || {}; var W = 480, H = 300, th = o.theme || ['#ede9fe', '#6d28d9'], b = R(10, 10, 460, 260, { fill: '#fff', stroke: '#475569', rx: 6 }) + R(10, 10, 460, 14, { fill: th[1], stroke: 'none', rx: 3 });
+    if (o.layout === 'title') { b += T(240, 120, o.title || 'Tiêu đề', { size: 24, bold: true, color: th[1] }) + T(240, 160, o.sub || 'Tiêu đề phụ', { size: 15, color: '#475569' }); }
+    else {
+      b += R(30, 34, 420, 44, { fill: th[0], stroke: 'none', rx: 6 }) + T(240, 62, o.title || 'Tiêu đề trang', { size: 18, bold: true, color: th[1] });
+      var bw = o.layout === 'image' ? 230 : 400;
+      (o.bullets || []).forEach(function (t, i) { b += Ci(42, 104 + i * 30, 4, { fill: th[1] }) + T(54, 109 + i * 30, t, { size: 14, anchor: 'start' }); });
+      if (o.layout === 'image') b += R(290, 92, 160, 120, { fill: '#e0f2fe', stroke: '#0284c7', rx: 4 }) + P('M300,200 l40,-50 l30,30 l20,-18 l50,38 z', { fill: '#7dd3fc', stroke: 'none' }) + Ci(420, 118, 10, { fill: '#fde047' }) + T(370, 230, 'Hình ảnh', { size: 12, color: '#0369a1' });
+    }
+    b += T(240, 292, o.note || '', { size: 12, color: C.muted });
+    return wrap(W, o.note ? H + 6 : H - 20, b, o.title || 'Trang chiếu');
+  }
+  /* arraySteps({ title, steps: [{ vals: [...], hl: [i…], ok: [i…], dim: [i…], note }], showIdx }) – từng bước tìm kiếm/sắp xếp */
+  function arraySteps(o) {
+    o = o || {}; var st = o.steps || [], n = st.length ? st[0].vals.length : 0, cw = Math.min(46, 340 / Math.max(n, 1)), lw = 70, W = Math.max(520, lw + n * cw + 250), y0 = o.title ? 40 : 14, rh = 46, b = title(W, o.title);
+    if (o.showIdx !== false) for (var j = 0; j < n; j++) b += T(lw + j * cw + cw / 2, y0 + 4, String(j + 1), { size: 11, color: C.muted });
+    st.forEach(function (s, i) {
+      var y = y0 + 12 + i * rh; b += T(lw - 8, y + 20, s.label || ('Bước ' + (i + 1)), { size: 12, bold: true, anchor: 'end', color: '#0e7490' });
+      s.vals.forEach(function (v, j) { var hl = (s.hl || []).indexOf(j) >= 0, ok = (s.ok || []).indexOf(j) >= 0, dim = (s.dim || []).indexOf(j) >= 0;
+        b += R(lw + j * cw, y, cw - 4, 32, { fill: ok ? '#bbf7d0' : (hl ? '#fde68a' : (dim ? '#f1f5f9' : '#ecfeff')), stroke: ok ? '#16a34a' : (hl ? '#d97706' : (dim ? '#cbd5e1' : '#0e7490')), rx: 5 }) + T(lw + j * cw + (cw - 4) / 2, y + 17, String(v), { size: 14, bold: true, vcenter: true, color: dim ? '#94a3b8' : C.ink }); });
+      if (s.note) b += T(lw + n * cw + 10, y + 20, s.note, { size: 12, anchor: 'start' });
+    });
+    var H = y0 + 12 + st.length * rh + (o.legend ? 22 : 4); if (o.legend) b += T(W / 2, H - 8, o.legend, { size: 11.5, color: C.muted });
+    return wrap(W, H, b, o.title || 'Các bước của thuật toán');
+  }
+  S.sheet = sheet; S.slide = slide; S.arraySteps = arraySteps;
 })();
