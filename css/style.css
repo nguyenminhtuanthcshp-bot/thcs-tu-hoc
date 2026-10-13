@@ -277,3 +277,6 @@ table.matrix.hdc td:nth-child(2) { text-align: left; }
 .result-card h2 { color: var(--subj); }
 @media (max-width: 640px) { .exam-timer { top: 56px; } .tf-table { font-size: .88rem; } .tf-table td, .tf-table th { padding: 5px; } }
 @media print { .site-header, .site-footer, .btn, .breadcrumb { display: none !important; } table.matrix { font-size: 9pt; } .card { box-shadow: none; } }
+.exam-sub{margin:18px 0 8px;font-size:1.05rem;color:var(--accent,#1d4ed8)}
+.essay-part.crit{padding:4px 0 4px 10px;border-left:3px solid #cbd5e1;margin:4px 0}
+.exam-reading .box.text{max-height:none}

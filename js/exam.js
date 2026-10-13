@@ -22,7 +22,7 @@
     (ex.mcq || []).forEach(function (q, i) { out.push({ part: 'mcq', no: i + 1, label: 'C' + (i + 1), topic: q.topic, level: q.level, pts: sc.mcq }); });
     (ex.tf || []).forEach(function (q, i) { q.items.forEach(function (it, k) { out.push({ part: 'tf', no: i + 1, label: 'C' + (i + 1) + 'abcd'[k], topic: q.topic, level: it.level, pts: sc.tf / 4 }); }); });
     (ex.short || []).forEach(function (q, i) { out.push({ part: 'short', no: i + 1, label: 'C' + (i + 1), topic: q.topic, level: q.level, pts: sc.short }); });
-    (ex.essay || []).forEach(function (q, i) { q.parts.forEach(function (p, k) { out.push({ part: 'essay', no: i + 1, label: 'C' + (i + 1) + (q.parts.length > 1 ? 'abcdef'[k] : ''), topic: q.topic, level: p.level, pts: p.points }); }); });
+    (ex.essay || []).forEach(function (q, i) { q.parts.forEach(function (p, k) { out.push({ part: 'essay', no: i + 1, label: (q.code || 'C' + (q.no || i + 1)) + (q.parts.length > 1 ? 'abcdef'[k] : ''), topic: q.topic, level: p.level, pts: p.points }); }); });
     return out;
   }
   function partPoints(ex) {
@@ -30,6 +30,7 @@
     (ex.essay || []).forEach(function (q) { q.parts.forEach(function (p) { e += p.points; }); });
     return { mcq: (ex.mcq || []).length * sc.mcq, tf: (ex.tf || []).length * sc.tf, short: (ex.short || []).length * sc.short, essay: e };
   }
+  function ptitle(ex, x) { return ex.partTitles && ex.partTitles[x] ? ex.partTitles[x] : PART_NAME[x]; }
   T.examTools = { units: units, partPoints: partPoints, scheme: scheme, TF_SCALE: TF_SCALE }; // dùng cho công cụ kiểm tra
 
   T.examModule = function (A) {
@@ -106,9 +107,11 @@
         '<input class="short" type="text" inputmode="text" name="short-' + i + '" autocomplete="off" placeholder="Đáp số">' + (q.unit ? ' <span class="muted">' + esc(q.unit) + '</span>' : '') + '<div class="feedback hidden"></div></div>';
     }
     function qEssay(q, i) {
-      var h = '<div class="q eq" data-part="essay" data-i="' + i + '"><div class="q-head"><span class="q-num">Câu ' + (i + 1) + '</span><span class="q-tag">' + vn(q.parts.reduce(function (a, p) { return a + p.points; }, 0)) + ' điểm</span></div><div class="q-text">' + fmt(q.q) + '</div>' + figure(q);
+      var h = (q.heading ? '<h3 class="exam-sub">' + fmt(q.heading) + '</h3>' : '') + '<div class="q eq" data-part="essay" data-i="' + i + '"><div class="q-head"><span class="q-num">' + (q.title ? esc(q.title) : 'Câu ' + (q.no || i + 1)) + '</span><span class="q-tag">' + vn(q.parts.reduce(function (a, p) { return a + p.points; }, 0)) + ' điểm</span></div><div class="q-text">' + fmt(q.q) + '</div>' + figure(q);
       if (q.text) h += A.renderText(q.text);
+      if (q.box) h += '<textarea name="essay-' + i + '-w" rows="' + q.box + '" placeholder="Viết bài làm của em (hoặc làm ra giấy rồi tự chấm)"></textarea>' + (q.critLabel ? '<div class="muted"><b>' + esc(q.critLabel) + '</b></div>' : '');
       q.parts.forEach(function (p, k) {
+        if (p.rows === 0) { h += '<div class="essay-part crit">' + (q.parts.length > 1 ? '<b>' + 'abcdef'[k] + ')</b> ' : '') + fmt(p.q) + ' <span class="muted">(' + vn(p.points) + ' đ)</span></div>'; return; }
         h += '<div class="essay-part">' + (q.parts.length > 1 ? '<b>' + 'abcdef'[k] + ')</b> ' : '') + fmt(p.q) + ' <span class="muted">(' + vn(p.points) + ' đ)</span>' +
           '<textarea name="essay-' + i + '-' + k + '" rows="' + (p.rows || 4) + '" placeholder="Viết bài làm của em (hoặc làm ra giấy rồi tự chấm)"></textarea></div>';
       });
@@ -125,7 +128,7 @@
       var h = A.crumbs([['Trang chủ', '#/'], ['Lớp ' + c.grade, '#/lop-' + c.grade], [m.name + ' ' + c.grade, base(c)], ['Ôn tập', base(c) + '/on-tap'], ['Đề ' + k.name]]) +
         '<h1>⏱️ Đề kiểm tra ' + esc(k.name.toLowerCase()) + ' – ' + esc(m.name) + ' ' + c.grade + '</h1>' +
         '<div class="card"><div><b>Thời gian:</b> ' + mins + ' phút · <b>Phạm vi:</b> ' + fmt(k.scope) + '</div><ul class="exam-parts">' +
-        ['mcq', 'tf', 'short', 'essay'].filter(function (x) { return pp[x] > 0; }).map(function (x) { return '<li>' + PART_NAME[x] + (ex.partNames && ex.partNames[x] ? ' (' + esc(ex.partNames[x]) + ')' : '') + ': <b>' + vn(pp[x]) + ' điểm</b></li>'; }).join('') + '</ul>' +
+        ['mcq', 'tf', 'short', 'essay'].filter(function (x) { return pp[x] > 0; }).map(function (x) { return '<li>' + ptitle(ex, x) + (ex.partNames && ex.partNames[x] ? ' (' + esc(ex.partNames[x]) + ')' : '') + ': <b>' + vn(pp[x]) + ' điểm</b></li>'; }).join('') + '</ul>' +
         (ex.note ? '<div class="muted">' + fmt(ex.note) + '</div>' : '') +
         (list.length ? '<details class="exam-hist"><summary>Kết quả đã lưu (' + list.length + ')</summary><ul>' + list.slice().reverse().map(function (r) { return '<li>' + A.fmtDate(r.date) + ': trắc nghiệm ' + vn(r.obj) + ' đ' + (r.essay != null ? ' + tự luận (tự chấm) ' + vn(r.essay) + ' đ = <b>' + vn(r.total) + '</b>/10' : ' (chưa tự chấm tự luận)') + '</li>'; }).join('') + '</ul></details>' : '') +
         '<div class="btn-row"><button class="btn primary big" id="ex-start">' + (run ? '▶️ Làm tiếp bài đang dở' : '▶️ Bắt đầu làm bài') + '</button>' + (run ? '<button class="btn" id="ex-restart">↺ Làm lại từ đầu</button>' : '') +
@@ -133,8 +136,10 @@
         '<form id="exam-form" class="hidden" autocomplete="off"><div class="exam-timer" id="ex-timer" role="timer" aria-live="off"><span id="ex-clock">' + mins + ':00</span><span id="ex-count" class="muted"></span><button type="button" class="btn primary" id="ex-submit">Nộp bài</button></div>';
       ['mcq', 'tf', 'short', 'essay'].forEach(function (part) {
         var qs = ex[part] || []; if (!qs.length) return;
-        h += '<section class="card exam-part"><h2>' + PART_NAME[part] + ' <small class="muted">(' + vn(pp[part]) + ' điểm)</small></h2>' + (ex.partNotes && ex.partNotes[part] ? '<p class="muted">' + fmt(ex.partNotes[part]) + '</p>' : '');
+        h += '<section class="card exam-part"><h2>' + ptitle(ex, part) + ' <small class="muted">(' + vn(pp[part]) + ' điểm)</small></h2>' + (ex.partNotes && ex.partNotes[part] ? '<p class="muted">' + fmt(ex.partNotes[part]) + '</p>' : '');
         if (part === 'essay' && ex.essayText) h += A.renderText(ex.essayText);
+        if (part === 'mcq' && ex.reading) h += '<div class="exam-reading"><b>Đọc văn bản sau và trả lời các câu hỏi:</b>' + A.renderText(ex.reading) + '</div>';
+        if (part === 'essay' && ex.reading) h += '<details class="reread"><summary>📖 Xem lại văn bản đọc hiểu</summary>' + A.renderText(ex.reading) + '</details>';
         qs.forEach(function (q, i) { h += (part === 'mcq' ? qMCQ : part === 'tf' ? qTF : part === 'short' ? qShort : qEssay)(q, i); });
         h += '</section>';
       });
@@ -247,7 +252,7 @@
       arr.push(rec); if (arr.length > 20) arr.shift(); A.save();
       res.innerHTML = '<div class="card result-card">' + (auto ? '<p class="badge warn">Hết giờ – bài đã được nộp tự động.</p>' : '') +
         '<h2>Kết quả phần trắc nghiệm: ' + vn(obj) + ' / ' + vn(pp.mcq + pp.tf + pp.short) + ' điểm</h2>' +
-        '<ul><li>Phần I: ' + vn(pts.mcq) + '/' + vn(pp.mcq) + '</li><li>Phần II: ' + vn(pts.tf) + '/' + vn(pp.tf) + '</li>' + (pp.short ? '<li>Phần III: ' + vn(pts.short) + '/' + vn(pp.short) + '</li>' : '') + '</ul>' +
+        '<ul><li>' + (ex.partTitles ? 'Trắc nghiệm' : 'Phần I') + ': ' + vn(pts.mcq) + '/' + vn(pp.mcq) + '</li>' + (pp.tf ? '<li>Phần II: ' + vn(pts.tf) + '/' + vn(pp.tf) + '</li>' : '') + (pp.short ? '<li>Phần III: ' + vn(pts.short) + '/' + vn(pp.short) + '</li>' : '') + '</ul>' +
         '<p>Thời gian làm bài: ' + mm + ' phút ' + ss + ' giây.</p>' +
         (pp.essay ? '<p><b>Phần tự luận (' + vn(pp.essay) + ' đ):</b> kéo xuống từng câu, đối chiếu bài giải mẫu và đánh dấu các ý em làm đúng. Điểm tự chấm: <b id="self-pts">0</b> đ → Tổng: <b id="self-total">' + vn(obj) + '</b>/10</p><button class="btn primary" id="save-self">💾 Lưu điểm tự chấm</button>' : '') +
         '<div class="btn-row"><a class="btn" href="' + base(c) + '/on-tap/' + k.id + '">📚 Ôn lại</a><button class="btn" id="ex-again">↺ Làm lại đề</button></div></div>';
@@ -294,18 +299,18 @@
       spec += totRow('Tổng số câu (Đúng – Sai: số ý)', nCau, true) + totRow('Tổng số điểm', function (p) { return '<td colspan="3">' + vn(pp[p]) + '</td>'; }, true) + totRow('Tỉ lệ %', function (p) { return '<td colspan="3">' + Math.round(pp[p] * 10) + '</td>'; }, true) + '</tbody></table>';
       // Đáp án và hướng dẫn chấm
       var sc = scheme(ex), key = '<h2>3. Đáp án và hướng dẫn chấm</h2>';
-      if ((ex.mcq || []).length) key += '<h3>' + PART_NAME.mcq + ' – mỗi câu ' + vn(sc.mcq) + ' đ</h3><div class="table-wrap"><table class="matrix"><tr>' + ex.mcq.map(function (q, i) { return '<th>C' + (i + 1) + '</th>'; }).join('') + '</tr><tr>' + ex.mcq.map(function (q) { return '<td><b>' + 'ABCD'[q.answer] + '</b></td>'; }).join('') + '</tr></table></div>';
+      if ((ex.mcq || []).length) key += '<h3>' + ptitle(ex, 'mcq') + ' – mỗi câu ' + vn(sc.mcq) + ' đ</h3><div class="table-wrap"><table class="matrix"><tr>' + ex.mcq.map(function (q, i) { return '<th>C' + (i + 1) + '</th>'; }).join('') + '</tr><tr>' + ex.mcq.map(function (q) { return '<td><b>' + 'ABCD'[q.answer] + '</b></td>'; }).join('') + '</tr></table></div>';
       if ((ex.tf || []).length) key += '<h3>' + PART_NAME.tf + ' – mỗi câu ' + vn(sc.tf) + ' đ (đúng 1 ý: ' + vn(0.1 * sc.tf) + '; 2 ý: ' + vn(0.25 * sc.tf) + '; 3 ý: ' + vn(0.5 * sc.tf) + '; 4 ý: ' + vn(sc.tf) + ')</h3><div class="table-wrap"><table class="matrix"><tr><th>Câu</th><th>a)</th><th>b)</th><th>c)</th><th>d)</th></tr>' + ex.tf.map(function (q, i) { return '<tr><td>C' + (i + 1) + '</td>' + q.items.map(function (it) { return '<td>' + (it.answer ? 'Đ' : 'S') + '</td>'; }).join('') + '</tr>'; }).join('') + '</table></div>';
       if ((ex.short || []).length) key += '<h3>' + PART_NAME.short + ' – mỗi câu ' + vn(sc.short) + ' đ</h3><div class="table-wrap"><table class="matrix"><tr>' + ex.short.map(function (q, i) { return '<th>C' + (i + 1) + '</th>'; }).join('') + '</tr><tr>' + ex.short.map(function (q) { return '<td><b>' + fmt(q.answerText || (Array.isArray(q.answer) ? q.answer[0] : q.answer)) + '</b></td>'; }).join('') + '</tr></table></div>';
       (ex.essay || []).forEach(function (q, i) {
-        key += '<h3>' + PART_NAME.essay + ' – Câu ' + (i + 1) + '</h3><div class="table-wrap"><table class="matrix hdc"><tr><th>Ý</th><th>Nội dung</th><th>Điểm</th></tr>';
+        key += '<h3>' + ptitle(ex, 'essay') + ' – ' + esc(q.title || 'Câu ' + (q.no || i + 1)) + '</h3><div class="table-wrap"><table class="matrix hdc"><tr><th>Ý</th><th>Nội dung</th><th>Điểm</th></tr>';
         q.parts.forEach(function (p, k2) { p.rubric.forEach(function (r, j) { key += '<tr>' + (j === 0 ? '<td rowspan="' + p.rubric.length + '">' + (q.parts.length > 1 ? 'abcdef'[k2] + ')' : '') + '</td>' : '') + '<td>' + fmt(r[0]) + '</td><td>' + vn(r[1]) + '</td></tr>'; }); });
         key += '</table></div>';
       });
       var h = A.crumbs([['Trang chủ', '#/'], ['Lớp ' + c.grade, '#/lop-' + c.grade], [m.name + ' ' + c.grade, base(c)], ['Ôn tập', base(c) + '/on-tap'], ['Đề ' + k.name, base(c) + '/de-thi/' + k.id], ['Ma trận · đặc tả']]) +
         '<h1>🧑‍🏫 Ma trận, bản đặc tả, đáp án – đề ' + esc(k.name.toLowerCase()) + ' ' + esc(m.name) + ' ' + c.grade + '</h1>' +
         '<div class="card box note">Trang dành cho thầy cô và phụ huynh. Mẫu bảng theo Phụ lục Công văn 7991/BGDĐT-GDTrH; ô ghi số câu và số thứ tự câu (C1, C2…; câu đúng – sai ghi theo ý: C1a, C1b…). Thời gian ' + (ex.minutes || 45) + ' phút. <button class="btn" onclick="window.print()">🖨️ In</button></div>' +
-        '<h2>1. Ma trận đề kiểm tra</h2><div class="table-wrap">' + mat + '</div><h2>2. Bản đặc tả đề kiểm tra</h2><div class="table-wrap">' + spec + '</div>' + key;
+        (ex.reading ? '<details class="reread"><summary>📖 Ngữ liệu đọc hiểu của đề</summary>' + A.renderText(ex.reading) + '</details>' : '') + '<h2>1. Ma trận đề kiểm tra</h2><div class="table-wrap">' + mat + '</div><h2>2. Bản đặc tả đề kiểm tra</h2><div class="table-wrap">' + spec + '</div>' + key;
       return { title: 'Ma trận đề ' + k.name + ' – ' + m.name + ' ' + c.grade, html: h };
     }
 

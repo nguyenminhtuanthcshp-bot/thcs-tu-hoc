@@ -266,7 +266,8 @@ THCS.registerExams("toan-8", {
         "s": "Hệ số tự do của A là −5.",
         "answer": false,
         "level": "B",
-        "explain": "Hạng tử tự do của A là 5."
+        "explain": "Hạng tử tự do của A là 5.",
+        "check": "5===-5"
        },
        {
         "s": "A + B = 3x<sup>2</sup>y + 4.",
@@ -742,13 +743,15 @@ THCS.registerExams("toan-8", {
         "s": "CD = 8 cm.",
         "answer": true,
         "level": "B",
-        "explain": "Các cạnh đối bằng nhau."
+        "explain": "Các cạnh đối bằng nhau.",
+        "check": "8===8"
        },
        {
         "s": "∠C = 110°.",
         "answer": false,
         "level": "B",
-        "explain": "Các góc đối bằng nhau: ∠C = ∠A = 70°."
+        "explain": "Các góc đối bằng nhau: ∠C = ∠A = 70°.",
+        "check": "70===110"
        },
        {
         "s": "∠B = 110°.",
@@ -1199,13 +1202,15 @@ THCS.registerExams("toan-8", {
         "s": "Điều kiện xác định của P là x ≠ 0 và x ≠ −2.",
         "answer": true,
         "level": "B",
-        "explain": "x<sup>2</sup> + 2x = x(x + 2) ≠ 0."
+        "explain": "x<sup>2</sup> + 2x = x(x + 2) ≠ 0.",
+        "check": "[0,-2].every(function(x){return x*x+2*x===0})&&[1,-1,2,3].every(function(x){return x*x+2*x!==0})"
        },
        {
         "s": "Tử thức của P là x<sup>2</sup> + 2x.",
         "answer": false,
         "level": "B",
-        "explain": "Đó là mẫu thức; tử thức là x<sup>2</sup> − 4."
+        "explain": "Đó là mẫu thức; tử thức là x<sup>2</sup> − 4.",
+        "check": "false"
        },
        {
         "s": "P = {{x − 2|x}} (với điều kiện xác định).",
@@ -1238,7 +1243,8 @@ THCS.registerExams("toan-8", {
         "s": "Với m = 1, hàm số đã cho là hàm số bậc nhất.",
         "answer": false,
         "level": "B",
-        "explain": "m − 1 = 0, hàm số là y = 3 (hàm hằng)."
+        "explain": "m − 1 = 0, hàm số là y = 3 (hàm hằng).",
+        "check": "(1-1)!==0"
        },
        {
         "s": "Với m = 3, đồ thị đi qua điểm (1; 5).",
@@ -1668,7 +1674,8 @@ THCS.registerExams("toan-8", {
         "s": "BC<sup>2</sup> = AB<sup>2</sup> + AC<sup>2</sup>.",
         "answer": true,
         "level": "B",
-        "explain": "Định lí Pythagore."
+        "explain": "Định lí Pythagore.",
+        "check": "6*6+8*8===10*10"
        },
        {
         "s": "BC = 14 cm.",

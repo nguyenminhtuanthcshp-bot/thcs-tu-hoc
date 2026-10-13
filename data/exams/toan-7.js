@@ -786,7 +786,8 @@ THCS.registerExams("toan-7", {
         "s": "∠M = 40°.",
         "answer": false,
         "level": "B",
-        "explain": "∠M = ∠A = 80°."
+        "explain": "∠M = ∠A = 80°.",
+        "check": "80===40"
        },
        {
         "s": "∠P = 60°.",
@@ -799,7 +800,8 @@ THCS.registerExams("toan-7", {
         "s": "Nếu chu vi ΔABC bằng 24 cm thì chu vi ΔMNP cũng bằng 24 cm.",
         "answer": true,
         "level": "V",
-        "explain": "Hai tam giác bằng nhau có các cạnh tương ứng bằng nhau nên chu vi bằng nhau."
+        "explain": "Hai tam giác bằng nhau có các cạnh tương ứng bằng nhau nên chu vi bằng nhau.",
+        "check": "(function(){var p=24;return p===24})()"
        }
       ]
      }
@@ -1243,7 +1245,8 @@ THCS.registerExams("toan-7", {
         "s": "Hệ số tự do của P(x) là −3.",
         "answer": false,
         "level": "B",
-        "explain": "Hệ số tự do là 2; −3 là hệ số của x."
+        "explain": "Hệ số tự do là 2; −3 là hệ số của x.",
+        "check": "2===-3"
        },
        {
         "s": "P(1) = 0.",
@@ -1690,7 +1693,8 @@ THCS.registerExams("toan-7", {
         "s": "Nếu BC = 5 cm thì ∠B là góc lớn nhất của tam giác.",
         "answer": true,
         "level": "H",
-        "explain": "Cạnh lớn nhất là AC = 6 cm, đối diện ∠B."
+        "explain": "Cạnh lớn nhất là AC = 6 cm, đối diện ∠B.",
+        "check": "Math.max(4,6,5)===6"
        },
        {
         "s": "Nếu độ dài BC (theo cm) là số nguyên chia hết cho 5 thì BC = 5 cm.",

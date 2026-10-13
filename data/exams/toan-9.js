@@ -1206,7 +1206,8 @@ THCS.registerExams("toan-9", {
         "s": "Các hệ số là a = 1, b = −6, c = 5.",
         "answer": true,
         "level": "B",
-        "explain": "Đọc theo dạng ax<sup>2</sup> + bx + c = 0."
+        "explain": "Đọc theo dạng ax<sup>2</sup> + bx + c = 0.",
+        "check": "(function(){var a=1,b=-6,c=5;return a+b+c===0&&1-6+5===0&&25-30+5===0})()"
        },
        {
         "s": "Δ = 56.",
@@ -1703,7 +1704,8 @@ THCS.registerExams("toan-9", {
         "s": "Nếu D là điểm thuộc cung lớn BC (D khác A) thì ∠BDC = 40°.",
         "answer": true,
         "level": "H",
-        "explain": "Các góc nội tiếp cùng chắn cung BC thì bằng nhau."
+        "explain": "Các góc nội tiếp cùng chắn cung BC thì bằng nhau.",
+        "check": "40===40"
        }
       ]
      },
