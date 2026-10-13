@@ -408,3 +408,9 @@ Trong tệp bài học nên bọc bằng `(function () { var S = THCS.svg; … }
   (được sửa đổi, bổ sung bởi Thông tư 13/2022/TT-BGDĐT).
 * Thứ tự chương, bài theo bộ sách “Kết nối tri thức với cuộc sống” (Nhà xuất bản Giáo dục Việt Nam).
   Tên chương, tên bài chỉ được dùng để định vị kiến thức; nội dung bài học là nội dung biên soạn độc lập.
+
+## Ôn tập & đề kiểm tra định kì (CV 7991/BGDĐT-GDTrH)
+- Mỗi môn – lớp có tệp `data/exams/<môn>-<lớp>.js` (đăng kí bằng `THCS.registerExams`): 4 bài ôn tập (giữa kì 1, cuối kì 1, giữa kì 2, cuối kì 2) và 4 đề 45 phút.
+- Cấu trúc đề theo Phụ lục CV 7991: Phần I nhiều lựa chọn 3,0 đ; Phần II đúng/sai (4 ý/câu) 2,0 đ; Phần III trả lời ngắn 2,0 đ; Phần IV tự luận 3,0 đ; mức độ Biết 4,0 – Hiểu 3,0 – Vận dụng 3,0. Câu đúng/sai chấm theo QĐ 764/QĐ-BGDĐT: đúng 1/2/3/4 ý được 0,1/0,25/0,5/1 điểm.
+- Đường dẫn: `#/lop-6/toan/on-tap`, `#/lop-6/toan/on-tap/giua-ki-1`, `#/lop-6/toan/de-thi/giua-ki-1`, `#/lop-6/toan/de-thi/giua-ki-1/giao-vien` (ma trận, bản đặc tả, đáp án, hướng dẫn chấm).
+- Kiểm tra dữ liệu đề: `node tools/kiem-tra-de.js [toan-6]`.

@@ -125,6 +125,7 @@
       '<section class="subject-head"><div class="s-icon" aria-hidden="true">' + m.icon + '</div><div style="flex:1;min-width:220px"><h1>' + esc(m.name) + ' ' + g + '</h1>' +
       '<div style="opacity:.92">Theo thứ tự bài học của sách giáo khoa bộ “' + esc(c.book || 'Kết nối tri thức với cuộc sống') + '”</div>' +
       '<div style="margin-top:10px">' + progressBar(pct(st.done, st.total)) + '<small>Đã hoàn thành ' + st.done + '/' + st.total + ' bài · ' + st.authored + ' bài đã có nội dung</small></div></div></section>';
+    if (EX && EX.has(c)) html += EX.banner(c);
     if (hasDiag(c)) {
     html += '<div class="card diag-banner"><div class="d-ico" aria-hidden="true">📝</div><div class="d-text"><b>Kiểm tra đầu vào</b><br>';
     if (d) {
@@ -597,6 +598,7 @@
   function parts() { return location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(function (p) { try { return decodeURIComponent(p); } catch (e) { return p; } }); }
   function route() {
     var p = parts(), v, navKey = '';
+    if (EX) EX.stop();
     if (!p.length) { v = viewHome(); navKey = 'home'; }
     else if (p[0] === 'tien-do') { v = viewProgress(); navKey = 'tien-do'; }
     else if (p[0] === 'huong-dan') { v = viewGuide(); navKey = 'huong-dan'; }
@@ -608,6 +610,7 @@
       else if (!T.subjects[p[1]]) v = viewNotFound();
       else if (!p[2]) v = viewSubject(g, p[1]);
       else if (p[2] === 'kiem-tra-dau-vao') v = viewDiagnostic(g, p[1]);
+      else if ((p[2] === 'on-tap' || p[2] === 'de-thi') && EX && course(p[1], g)) v = EX.route(course(p[1], g), p.slice(2)) || viewNotFound();
       else v = viewLesson(g, p[1], p[2]);
     } else v = viewNotFound();
     app.innerHTML = v.html;
@@ -639,6 +642,11 @@
     back.querySelector('#welcome-skip').addEventListener('click', function () { close(''); });
     inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') close(inp.value.trim()); });
   }
+
+  /* ---------- Ôn tập & đề kiểm tra định kì (js/exam.js) ---------- */
+  var EX = T.examModule ? T.examModule({ esc: esc, fmt: fmt, crumbs: crumbs, figure: figure, renderText: renderText, checkAnswer: checkAnswer,
+    lessonKey: lessonKey, lessonUrl: lessonUrl, fmtDate: fmtDate, toast: toast, save: save, route: function () { route(); },
+    store: function () { return store; } }) : null;
 
   /* ---------- Khởi động ---------- */
   function init() {

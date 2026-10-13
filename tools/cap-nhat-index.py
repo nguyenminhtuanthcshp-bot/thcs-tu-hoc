@@ -19,8 +19,12 @@ lines = ['  <!-- Khung chương trình (mỗi môn – lớp một tệp) -->']
 lines += ['  <script src="%s"></script>' % os.path.relpath(p, ROOT).replace(os.sep, '/') for p in courses]
 lines += ['  <!-- Nội dung bài học (mỗi bài một tệp) -->']
 lines += ['  <script src="%s"></script>' % os.path.relpath(p, ROOT).replace(os.sep, '/') for p in lessons]
+exams = sorted(glob.glob(os.path.join(ROOT, 'data/exams/*.js')), key=key)
+if exams:
+    lines += ['  <!-- Ôn tập và đề kiểm tra định kì (mỗi môn – lớp một tệp) -->']
+    lines += ['  <script src="%s"></script>' % os.path.relpath(p, ROOT).replace(os.sep, '/') for p in exams]
 idx = os.path.join(ROOT, 'index.html')
 html = open(idx, encoding='utf-8').read()
 new = re.sub(r'<!-- DATA:BEGIN -->.*?<!-- DATA:END -->', lambda m: '<!-- DATA:BEGIN -->\n' + '\n'.join(lines) + '\n  <!-- DATA:END -->', html, flags=re.S)
 open(idx, 'w', encoding='utf-8').write(new)
-print('Đã cập nhật index.html: %d khung chương trình, %d bài học.' % (len(courses), len(lessons)))
+print('Đã cập nhật index.html: %d khung chương trình, %d bài học, %d gói đề.' % (len(courses), len(lessons), len(exams)))

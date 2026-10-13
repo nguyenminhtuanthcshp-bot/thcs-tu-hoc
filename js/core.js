@@ -19,6 +19,7 @@
     },
     courses: {},   // khoá: "<môn>-<lớp>", ví dụ "toan-6"
     lessons: {},   // khoá: "<môn>-<lớp>/<mã bài>", ví dụ "toan-6/bai-1"
+    exams: {},     // khoá: "<môn>-<lớp>" – ôn tập và đề kiểm tra định kì (CV 7991/BGDĐT-GDTrH)
     errors: [],
     registerSubject: function (key, meta) {
       this.subjects[key] = meta;
@@ -39,6 +40,10 @@
         });
       });
       this.courses[key] = c;
+    },
+    registerExams: function (key, pack) {
+      if (!key || !pack || !Array.isArray(pack.checkpoints)) { this.errors.push('Gói đề không hợp lệ: ' + key); return; }
+      this.exams[key] = pack;
     },
     registerLesson: function (key, content) {
       if (!key || !content) { this.errors.push('Bài học không hợp lệ: ' + key); return; }

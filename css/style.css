@@ -242,3 +242,38 @@ figure.fig figcaption { font-size: .9em; color: #6b7280; margin-top: 6px; font-s
 
 /* Công thức dài trong <code> được xuống dòng trên màn hình hẹp */
 .lesson code, .step code, .box code { overflow-wrap: anywhere; word-break: break-word; }
+/* ---------- Ôn tập & đề kiểm tra định kì ---------- */
+.exam-card h2 { margin: 0 0 4px; color: var(--subj); }
+.exam-parts { margin: 8px 0; padding-left: 20px; }
+.exam-timer { position: sticky; top: 64px; z-index: 15; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: #fff; border: 2px solid var(--subj); border-radius: 14px; padding: 8px 14px; margin-bottom: 14px; box-shadow: var(--shadow); }
+.exam-timer #ex-clock { font-size: 1.35rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.exam-timer #ex-count { flex: 1; font-size: .85rem; }
+.exam-timer.low { border-color: var(--bad); }
+.exam-timer.low #ex-clock { color: var(--bad); }
+.q.eq { margin-bottom: 16px; }
+.tf-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: .95rem; }
+.tf-table th, .tf-table td { border: 1px solid var(--line); padding: 6px 8px; vertical-align: top; text-align: left; }
+.tf-table td:nth-child(3), .tf-table td:nth-child(4), .tf-table th:nth-child(3), .tf-table th:nth-child(4) { text-align: center; width: 54px; }
+.tf-cell { display: block; cursor: pointer; padding: 4px 0; }
+.tf-cell input { width: 22px; height: 22px; cursor: pointer; }
+.tf-table tr.right td { background: var(--ok-bg); }
+.tf-table tr.wrong td { background: #fee2e2; }
+.tf-key { font-size: .85rem; margin-top: 4px; color: #374151; }
+.essay-part { margin: 10px 0; }
+.essay-part textarea { display: block; width: 100%; box-sizing: border-box; margin-top: 6px; font: inherit; font-size: .95rem; border: 2px solid var(--line); border-radius: 10px; padding: 8px; }
+.hdc-part { margin: 10px 0; }
+.rubric { list-style: none; padding-left: 0; }
+.rubric li { margin: 6px 0; }
+.rubric input { width: 20px; height: 20px; vertical-align: middle; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 18px; }
+table.matrix { border-collapse: collapse; font-size: .82rem; background: #fff; min-width: 100%; }
+table.matrix th, table.matrix td { border: 1px solid #9ca3af; padding: 4px 6px; text-align: center; vertical-align: middle; }
+table.matrix td:nth-child(2), table.matrix td:nth-child(3), table.matrix td.yccd { text-align: left; }
+table.matrix td.yccd { min-width: 260px; }
+table.matrix tr.tot td { background: #f3f4f6; font-weight: 700; }
+table.matrix.hdc td:nth-child(2) { text-align: left; }
+.review-pts li { margin: 6px 0; }
+.review-links { font-size: .9rem; margin-top: 8px; }
+.result-card h2 { color: var(--subj); }
+@media (max-width: 640px) { .exam-timer { top: 56px; } .tf-table { font-size: .88rem; } .tf-table td, .tf-table th { padding: 5px; } }
+@media print { .site-header, .site-footer, .btn, .breadcrumb { display: none !important; } table.matrix { font-size: 9pt; } .card { box-shadow: none; } }
