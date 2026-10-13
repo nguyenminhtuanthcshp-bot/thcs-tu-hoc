@@ -5,16 +5,17 @@ THCS.registerExams("toan-8", {
   {
    "id": "giua-ki-1",
    "name": "Giữa học kì 1",
-   "scope": "Chương I – II (Bài 1 – Bài 9): đa thức, hằng đẳng thức đáng nhớ.",
+   "scope": "Chương I – II (Bài 1 – Bài 9): đa thức, hằng đẳng thức, phân tích thành nhân tử.",
    "review": {
     "sections": [
      {
       "chapter": "c1",
       "title": "Chương I. Đa thức",
       "points": [
-       "Đơn thức: số, biến hoặc tích của số và biến; bậc là tổng số mũ các biến. Đơn thức đồng dạng có cùng phần biến.",
-       "Đa thức: tổng các đơn thức; bậc là bậc của hạng tử bậc cao nhất (sau khi thu gọn).",
-       "Cộng, trừ: cộng/trừ các hạng tử đồng dạng. Nhân: nhân từng hạng tử. Chia đa thức cho đơn thức: chia từng hạng tử."
+       "Đơn thức: tích của số và các biến; bậc là tổng số mũ các biến. Đơn thức đồng dạng có cùng phần biến.",
+       "Đa thức: tổng các đơn thức; bậc là bậc của hạng tử bậc cao nhất trong dạng thu gọn.",
+       "Cộng, trừ đa thức: cộng/trừ các đơn thức đồng dạng. Nhân: nhân mỗi hạng tử của đa thức này với từng hạng tử của đa thức kia.",
+       "Chia đa thức cho đơn thức: chia từng hạng tử."
       ]
      },
      {
@@ -26,18 +27,19 @@ THCS.registerExams("toan-8", {
        "A<sup>3</sup> + B<sup>3</sup> = (A + B)(A<sup>2</sup> − AB + B<sup>2</sup>); A<sup>3</sup> − B<sup>3</sup> = (A − B)(A<sup>2</sup> + AB + B<sup>2</sup>).",
        "Phân tích thành nhân tử: đặt nhân tử chung, dùng hằng đẳng thức, nhóm hạng tử."
       ],
-      "example": "x<sup>2</sup> − 2xy + y<sup>2</sup> − 9 = (x − y)<sup>2</sup> − 3<sup>2</sup> = (x − y − 3)(x − y + 3)."
+      "example": "4x<sup>2</sup> − 12x + 9 = (2x − 3)<sup>2</sup>."
      }
     ],
     "mistakes": [
-     "Khai triển (a − b)<sup>2</sup> thành a<sup>2</sup> − b<sup>2</sup>.",
+     "Viết (a + b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup>.",
      "Quên đổi dấu khi bỏ ngoặc có dấu trừ.",
-     "Đặt nhân tử chung chưa triệt để."
+     "Phân tích nhân tử chưa triệt để."
     ],
     "forms": [
-     "Thu gọn, cộng, trừ, nhân, chia đa thức.",
-     "Tính nhanh, tính giá trị biểu thức bằng hằng đẳng thức.",
-     "Phân tích thành nhân tử; tìm x."
+     "Thu gọn, nhân, chia đa thức.",
+     "Tính nhanh bằng hằng đẳng thức.",
+     "Phân tích thành nhân tử; tìm x.",
+     "Chứng minh biểu thức luôn dương."
     ]
    },
    "exam": {
@@ -50,7 +52,7 @@ THCS.registerExams("toan-8", {
       "content": "Đơn thức; đa thức",
       "yccd": {
        "B": "Nhận biết đơn thức, bậc, đơn thức đồng dạng.",
-       "H": "",
+       "H": "Tính bậc, hệ số của đa thức.",
        "V": ""
       },
       "nl": "TD, GQVĐ"
@@ -62,18 +64,18 @@ THCS.registerExams("toan-8", {
       "yccd": {
        "B": "Nhân hai luỹ thừa.",
        "H": "Thu gọn, nhân, chia đa thức.",
-       "V": "Biểu diễn đại lượng thực tế bằng đa thức."
+       "V": "Lập biểu thức đa thức từ bài toán thực tế."
       },
       "nl": "TD, GQVĐ"
      },
      {
       "id": "t3",
       "chapter": "c2",
-      "content": "Hằng đẳng thức đáng nhớ",
+      "content": "Bảy hằng đẳng thức đáng nhớ",
       "yccd": {
-       "B": "Nhận biết bảy hằng đẳng thức.",
-       "H": "Tính nhanh bằng hằng đẳng thức.",
-       "V": "Tính giá trị biểu thức, chứng minh bất đẳng thức đơn giản."
+       "B": "Nhận biết các hằng đẳng thức.",
+       "H": "Dùng hằng đẳng thức tính nhanh.",
+       "V": "Tính giá trị biểu thức; chứng minh bất đẳng thức đơn giản."
       },
       "nl": "TD, GQVĐ"
      },
@@ -83,7 +85,7 @@ THCS.registerExams("toan-8", {
       "content": "Phân tích đa thức thành nhân tử",
       "yccd": {
        "B": "",
-       "H": "Đặt nhân tử chung; dùng hằng đẳng thức.",
+       "H": "Đặt nhân tử chung, dùng hằng đẳng thức.",
        "V": "Giải bài toán tìm x bằng phân tích nhân tử."
       },
       "nl": "TD, GQVĐ"
@@ -101,7 +103,7 @@ THCS.registerExams("toan-8", {
        "3x<sup>2</sup>y"
       ],
       "answer": 3,
-      "explain": "Đơn thức là một số, một biến hoặc tích của số và các biến."
+      "explain": "Đơn thức là tích của số và các biến (không có phép cộng, trừ, chia cho biến)."
      },
      {
       "level": "B",
@@ -128,17 +130,17 @@ THCS.registerExams("toan-8", {
        "2xy"
       ],
       "answer": 2,
-      "explain": "Hai đơn thức đồng dạng có cùng phần biến xy<sup>2</sup>."
+      "explain": "Cùng phần biến xy<sup>2</sup>."
      },
      {
       "level": "B",
       "topic": "t2",
-      "q": "Kết quả của x<sup>2</sup> · x<sup>3</sup> là:",
+      "q": "x<sup>2</sup> · x<sup>3</sup> bằng:",
       "options": [
        "x<sup>5</sup>",
        "x<sup>6</sup>",
-       "x<sup>1</sup>",
-       "2x<sup>5</sup>"
+       "2x<sup>5</sup>",
+       "x<sup>1</sup>"
       ],
       "answer": 0,
       "explain": "Cộng số mũ: 2 + 3 = 5."
@@ -149,8 +151,8 @@ THCS.registerExams("toan-8", {
       "q": "(a + b)<sup>2</sup> bằng:",
       "options": [
        "a<sup>2</sup> + b<sup>2</sup>",
-       "a<sup>2</sup> − 2ab + b<sup>2</sup>",
        "a<sup>2</sup> + ab + b<sup>2</sup>",
+       "a<sup>2</sup> − 2ab + b<sup>2</sup>",
        "a<sup>2</sup> + 2ab + b<sup>2</sup>"
       ],
       "answer": 3,
@@ -188,9 +190,9 @@ THCS.registerExams("toan-8", {
       "q": "a<sup>3</sup> + b<sup>3</sup> bằng:",
       "options": [
        "(a + b)<sup>3</sup>",
-       "(a − b)(a<sup>2</sup> + ab + b<sup>2</sup>)",
+       "(a + b)(a<sup>2</sup> + ab + b<sup>2</sup>)",
        "(a + b)(a<sup>2</sup> − ab + b<sup>2</sup>)",
-       "(a + b)(a<sup>2</sup> + b<sup>2</sup>)"
+       "(a − b)(a<sup>2</sup> + ab + b<sup>2</sup>)"
       ],
       "answer": 2,
       "explain": "Tổng hai lập phương."
@@ -198,7 +200,7 @@ THCS.registerExams("toan-8", {
      {
       "level": "H",
       "topic": "t2",
-      "q": "Thu gọn 3x(x − 2) − 3x<sup>2</sup> được:",
+      "q": "Thu gọn 3x(x − 2) − 3x<sup>2</sup> ta được:",
       "options": [
        "6x",
        "6x<sup>2</sup> − 6x",
@@ -211,7 +213,7 @@ THCS.registerExams("toan-8", {
      {
       "level": "H",
       "topic": "t3",
-      "q": "Tính nhanh 101<sup>2</sup> − 1 được:",
+      "q": "Tính nhanh: 101<sup>2</sup> − 1.",
       "options": [
        "10 000",
        "10 200",
@@ -225,9 +227,9 @@ THCS.registerExams("toan-8", {
      {
       "level": "H",
       "topic": "t2",
-      "q": "Kết quả phép chia 6x<sup>3</sup>y<sup>2</sup> : 2xy là:",
+      "q": "(6x<sup>3</sup>y<sup>2</sup>) : (2xy) bằng:",
       "options": [
-       "3x<sup>3</sup>y",
+       "3x<sup>2</sup>y<sup>2</sup>",
        "4x<sup>2</sup>y",
        "3x<sup>2</sup>y",
        "3xy"
@@ -238,12 +240,12 @@ THCS.registerExams("toan-8", {
      {
       "level": "H",
       "topic": "t4",
-      "q": "Phân tích x<sup>2</sup> − 4x thành nhân tử được:",
+      "q": "Phân tích x<sup>2</sup> − 4x thành nhân tử:",
       "options": [
        "x(x − 4)",
        "x(x + 4)",
        "(x − 2)<sup>2</sup>",
-       "4x(x − 1)"
+       "(x − 2)(x + 2)"
       ],
       "answer": 0,
       "explain": "Đặt nhân tử chung x."
@@ -255,13 +257,13 @@ THCS.registerExams("toan-8", {
       "q": "Cho A = 2x<sup>2</sup>y − 3xy + 5 và B = x<sup>2</sup>y + 3xy − 1.",
       "items": [
        {
-        "s": "Bậc của đa thức A là 3.",
+        "s": "A là đa thức bậc 3.",
         "answer": true,
         "level": "B",
-        "explain": "Hạng tử 2x<sup>2</sup>y có bậc 3."
+        "explain": "Hạng tử 2x<sup>2</sup>y có bậc 3 cao nhất."
        },
        {
-        "s": "Hạng tử tự do (hạng tử không chứa biến) của A là −5.",
+        "s": "Hệ số tự do của A là −5.",
         "answer": false,
         "level": "B",
         "explain": "Hạng tử tự do của A là 5."
@@ -271,14 +273,14 @@ THCS.registerExams("toan-8", {
         "answer": true,
         "level": "H",
         "explain": "−3xy + 3xy = 0; 5 − 1 = 4.",
-        "check": "(function(x,y){return 2*x*x*y-3*x*y+5+(x*x*y+3*x*y-1)===3*x*x*y+4})(2,3)"
+        "check": "(function(x,y){return (2*x*x*y-3*x*y+5)+(x*x*y+3*x*y-1)===3*x*x*y+4})(2,3)"
        },
        {
         "s": "A − B = x<sup>2</sup>y − 6xy + 4.",
         "answer": false,
         "level": "H",
         "explain": "A − B = x<sup>2</sup>y − 6xy + 6.",
-        "check": "(function(x,y){return 2*x*x*y-3*x*y+5-(x*x*y+3*x*y-1)===x*x*y-6*x*y+4})(2,3)"
+        "check": "(function(x,y){return (2*x*x*y-3*x*y+5)-(x*x*y+3*x*y-1)===x*x*y-6*x*y+4})(2,3)"
        }
       ]
      },
@@ -291,21 +293,21 @@ THCS.registerExams("toan-8", {
         "answer": true,
         "level": "B",
         "explain": "Bình phương của một tổng.",
-        "check": "(function(x){return (x+3)*(x+3)===x*x+6*x+9})(5)"
+        "check": "(function(x,y){return (x+3)*(x+3)===x*x+6*x+9})(2,0)"
        },
        {
         "s": "(2x − 1)<sup>2</sup> = 4x<sup>2</sup> − 1.",
         "answer": false,
         "level": "B",
         "explain": "(2x − 1)<sup>2</sup> = 4x<sup>2</sup> − 4x + 1.",
-        "check": "(function(x){return (2*x-1)*(2*x-1)===4*x*x-1})(5)"
+        "check": "(function(x,y){return (2*x-1)*(2*x-1)===4*x*x-1})(2,0)"
        },
        {
         "s": "x<sup>2</sup> − 9 = (x − 3)(x + 3).",
         "answer": true,
         "level": "H",
         "explain": "Hiệu hai bình phương.",
-        "check": "(function(x){return x*x-9===(x-3)*(x+3)})(7)"
+        "check": "(function(x,y){return x*x-9===(x-3)*(x+3)})(5,0)"
        },
        {
         "s": "Giá trị của x<sup>2</sup> − 6x + 9 tại x = 103 bằng 10 000.",
@@ -329,7 +331,7 @@ THCS.registerExams("toan-8", {
      {
       "level": "H",
       "topic": "t2",
-      "q": "Tìm hệ số của x trong khai triển (x + 2)(x − 5).",
+      "q": "Tìm hệ số của x trong tích (x + 2)(x − 5).",
       "answer": "-3",
       "explain": "x<sup>2</sup> − 5x + 2x − 10 = x<sup>2</sup> − 3x − 10.",
       "calc": "-5+2",
@@ -338,9 +340,9 @@ THCS.registerExams("toan-8", {
      {
       "level": "V",
       "topic": "t4",
-      "q": "Tìm x âm thoả mãn x<sup>2</sup> − 25 = 0.",
+      "q": "Tìm x, biết x<sup>2</sup> − 25 = 0 và x < 0.",
       "answer": "-5",
-      "explain": "(x − 5)(x + 5) = 0 ⇒ x = 5 hoặc x = −5; chọn x = −5.",
+      "explain": "(x − 5)(x + 5) = 0 ⇒ x = 5 hoặc x = −5; x < 0 nên x = −5.",
       "calc": "-5",
       "answerText": "−5"
      },
@@ -361,15 +363,15 @@ THCS.registerExams("toan-8", {
        {
         "level": "B",
         "points": 0.5,
-        "q": "Thực hiện phép nhân: (2x + 1)(x − 3).",
+        "q": "Thu gọn: (2x + 1)(x − 3).",
         "answer": "2x<sup>2</sup> − 6x + x − 3 = 2x<sup>2</sup> − 5x − 3.",
         "rubric": [
          [
-          "Nhân từng hạng tử",
+          "Nhân đa thức đúng",
           0.25
          ],
          [
-          "Thu gọn đúng",
+          "Kết quả 2x<sup>2</sup> − 5x − 3",
           0.25
          ]
         ]
@@ -377,15 +379,15 @@ THCS.registerExams("toan-8", {
        {
         "level": "H",
         "points": 0.75,
-        "q": "Phân tích đa thức x<sup>3</sup> − 4x thành nhân tử.",
-        "answer": "x<sup>3</sup> − 4x = x(x<sup>2</sup> − 4) = x(x − 2)(x + 2).",
+        "q": "Phân tích đa thức thành nhân tử: x<sup>3</sup> − 4x.",
+        "answer": "x(x<sup>2</sup> − 4) = x(x − 2)(x + 2).",
         "rubric": [
          [
           "Đặt nhân tử chung x",
           0.25
          ],
          [
-          "Nhận ra x<sup>2</sup> − 4 là hiệu hai bình phương",
+          "Nhận ra hiệu hai bình phương",
           0.25
          ],
          [
@@ -398,12 +400,12 @@ THCS.registerExams("toan-8", {
      },
      {
       "topic": "t3",
-      "q": "Một mảnh vườn hình vuông cạnh x mét. Người ta mở rộng mỗi cạnh thêm 3 m để được mảnh vườn hình vuông mới.",
+      "q": "Một mảnh vườn hình vuông cạnh x mét. Người ta mở rộng mảnh vườn bằng cách tăng mỗi cạnh thêm 3 m.",
       "parts": [
        {
         "level": "V",
         "points": 0.75,
-        "q": "Viết đa thức biểu thị phần diện tích tăng thêm và thu gọn.",
+        "q": "Viết biểu thức (thu gọn) biểu thị phần diện tích tăng thêm.",
         "answer": "(x + 3)<sup>2</sup> − x<sup>2</sup> = x<sup>2</sup> + 6x + 9 − x<sup>2</sup> = 6x + 9 (m²).",
         "rubric": [
          [
@@ -411,7 +413,7 @@ THCS.registerExams("toan-8", {
           0.25
          ],
          [
-          "Khai triển hằng đẳng thức",
+          "Khai triển bình phương đúng",
           0.25
          ],
          [
@@ -447,10 +449,10 @@ THCS.registerExams("toan-8", {
         "level": "V",
         "points": 0.5,
         "q": "Chứng minh x<sup>2</sup> − 2x + 2 > 0 với mọi x.",
-        "answer": "x<sup>2</sup> − 2x + 2 = (x − 1)<sup>2</sup> + 1 ≥ 1 > 0.",
+        "answer": "x<sup>2</sup> − 2x + 2 = (x − 1)<sup>2</sup> + 1 ≥ 1 > 0 với mọi x.",
         "rubric": [
          [
-          "Viết được (x − 1)<sup>2</sup> + 1",
+          "Biến đổi thành (x − 1)<sup>2</sup> + 1",
           0.25
          ],
          [
@@ -474,46 +476,49 @@ THCS.registerExams("toan-8", {
       "chapter": "c2",
       "title": "Ôn nhanh Chương I – II",
       "points": [
-       "Phép tính với đa thức; bảy hằng đẳng thức đáng nhớ; phân tích thành nhân tử.",
-       "Tính nhanh bằng hằng đẳng thức: 99 · 101 = 100<sup>2</sup> − 1."
+       "Phép tính đa thức; bảy hằng đẳng thức đáng nhớ; phân tích thành nhân tử.",
+       "Tính nhanh bằng hằng đẳng thức: 99<sup>2</sup> = (100 − 1)<sup>2</sup> = 9 801."
       ]
      },
      {
       "chapter": "c3",
       "title": "Chương III. Tứ giác",
       "points": [
-       "Tổng bốn góc của tứ giác bằng 360°.",
+       "Tổng các góc của tứ giác bằng 360°.",
        "Hình thang cân: hai góc kề một đáy bằng nhau, hai đường chéo bằng nhau.",
        "Hình bình hành: cạnh đối song song và bằng nhau, góc đối bằng nhau, đường chéo cắt nhau tại trung điểm mỗi đường.",
-       "Hình chữ nhật: hình bình hành có một góc vuông hoặc hai đường chéo bằng nhau. Hình thoi: bốn cạnh bằng nhau, đường chéo vuông góc và là phân giác. Hình vuông: vừa là hình chữ nhật vừa là hình thoi."
+       "Hình chữ nhật: hình bình hành có một góc vuông hoặc hai đường chéo bằng nhau. Hình thoi: bốn cạnh bằng nhau; đường chéo vuông góc, là phân giác. Hình vuông: vừa là hình chữ nhật vừa là hình thoi."
       ]
      },
      {
       "chapter": "c4",
       "title": "Chương IV. Định lí Thalès",
       "points": [
-       "MN ∥ BC ⇒ {{AM|AB}} = {{AN|AC}}; định lí đảo.",
+       "Định lí Thalès và định lí đảo trong tam giác.",
        "Đường trung bình của tam giác song song với cạnh thứ ba và bằng nửa cạnh ấy.",
-       "Đường phân giác AD: {{DB|DC}} = {{AB|AC}}."
+       "Đường phân giác AD của ΔABC: {{DB|DC}} = {{AB|AC}}."
       ]
      },
      {
       "chapter": "c5",
       "title": "Chương V. Dữ liệu và biểu đồ",
       "points": [
-       "Dữ liệu định tính, định lượng; tính hợp lí của dữ liệu.",
-       "Chọn biểu đồ phù hợp: cột, cột kép, quạt tròn, đoạn thẳng; phân tích số liệu dựa vào biểu đồ."
+       "Dữ liệu định lượng (số) và định tính; tính hợp lí của dữ liệu.",
+       "Chọn biểu đồ phù hợp: cột, cột kép, đoạn thẳng, hình quạt tròn.",
+       "Phân tích số liệu: so sánh, tính tỉ lệ phần trăm, nhận xét xu hướng."
       ]
      }
     ],
     "mistakes": [
-     "Nhầm tính chất đường chéo của hình thoi và hình chữ nhật.",
-     "Lập sai tỉ số trong định lí Thalès (lấy đoạn của cạnh này chia đoạn của cạnh kia không tương ứng)."
+     "Nhầm tính chất hình thoi với hình chữ nhật.",
+     "Áp dụng định lí Thalès khi chưa có hai đường thẳng song song.",
+     "Lập sai tỉ số đường phân giác."
     ],
     "forms": [
-     "Tính góc, cạnh của tứ giác đặc biệt.",
+     "Tính góc, cạnh trong các tứ giác đặc biệt.",
      "Chứng minh tứ giác là hình bình hành, chữ nhật, thoi, vuông.",
-     "Định lí Thalès, đường trung bình, đường phân giác; đo gián tiếp."
+     "Dùng định lí Thalès, đường trung bình, đường phân giác.",
+     "Phân tích số liệu thống kê."
     ]
    },
    "exam": {
@@ -523,7 +528,7 @@ THCS.registerExams("toan-8", {
      {
       "id": "t1",
       "chapter": "c2",
-      "content": "Đa thức; hằng đẳng thức; phân tích thành nhân tử",
+      "content": "Đa thức; hằng đẳng thức; phân tích nhân tử",
       "yccd": {
        "B": "Nhận biết hằng đẳng thức.",
        "H": "Tính nhanh, phân tích thành nhân tử.",
@@ -536,8 +541,8 @@ THCS.registerExams("toan-8", {
       "chapter": "c3",
       "content": "Tứ giác; hình thang cân, hình bình hành, hình chữ nhật, hình thoi, hình vuông",
       "yccd": {
-       "B": "Nhận biết tính chất các tứ giác đặc biệt.",
-       "H": "Tính góc, độ dài trong tứ giác.",
+       "B": "Nhận biết tính chất, dấu hiệu nhận biết các tứ giác.",
+       "H": "Tính góc, cạnh, đường chéo.",
        "V": "Chứng minh tứ giác là hình đặc biệt."
       },
       "nl": "TD, GQVĐ"
@@ -549,7 +554,7 @@ THCS.registerExams("toan-8", {
       "yccd": {
        "B": "Nhận biết định lí Thalès, đường trung bình.",
        "H": "Tính độ dài đoạn thẳng.",
-       "V": "Đo gián tiếp chiều cao, khoảng cách."
+       "V": "Giải bài toán đo đạc thực tế."
       },
       "nl": "TD, GQVĐ"
      },
@@ -560,7 +565,7 @@ THCS.registerExams("toan-8", {
       "yccd": {
        "B": "Nhận biết dữ liệu định lượng, định tính.",
        "H": "",
-       "V": "Phân tích số liệu từ bảng, biểu đồ."
+       "V": "Phân tích số liệu từ bảng."
       },
       "nl": "TD, GQVĐ"
      }
@@ -573,11 +578,11 @@ THCS.registerExams("toan-8", {
       "options": [
        "180°",
        "270°",
-       "90°",
+       "540°",
        "360°"
       ],
       "answer": 3,
-      "explain": "Tứ giác chia được thành hai tam giác.",
+      "explain": "Tứ giác chia được thành hai tam giác: 2 · 180°.",
       "calc": "360"
      },
      {
@@ -588,23 +593,23 @@ THCS.registerExams("toan-8", {
        "luôn bằng nhau",
        "cắt nhau tại trung điểm của mỗi đường",
        "luôn vuông góc",
-       "song song với nhau"
+       "luôn là phân giác các góc"
       ],
       "answer": 1,
-      "explain": "Tính chất đường chéo của hình bình hành."
+      "explain": "Tính chất đường chéo hình bình hành."
      },
      {
       "level": "B",
       "topic": "t2",
-      "q": "Hình chữ nhật có:",
+      "q": "Hình chữ nhật có tính chất nào sau đây?",
       "options": [
-       "hai đường chéo vuông góc",
-       "bốn cạnh bằng nhau",
-       "hai cạnh kề bằng nhau",
-       "bốn góc vuông"
+       "Hai đường chéo vuông góc",
+       "Bốn cạnh bằng nhau",
+       "Hai cạnh kề bằng nhau",
+       "Bốn góc vuông"
       ],
       "answer": 3,
-      "explain": "Định nghĩa hình chữ nhật."
+      "explain": "Hình chữ nhật có bốn góc vuông; các tính chất khác chỉ đúng với hình vuông."
      },
      {
       "level": "B",
@@ -614,15 +619,15 @@ THCS.registerExams("toan-8", {
        "hình chữ nhật",
        "hình thoi",
        "hình thang cân",
-       "hình bình hành có một góc vuông"
+       "hình bình hành bất kì"
       ],
       "answer": 1,
-      "explain": "Định nghĩa hình thoi."
+      "explain": "Dấu hiệu nhận biết hình thoi."
      },
      {
       "level": "B",
       "topic": "t3",
-      "q": "Đường trung bình của tam giác:",
+      "q": "Đường trung bình của tam giác thì:",
       "options": [
        "vuông góc với cạnh thứ ba",
        "bằng cạnh thứ ba",
@@ -635,11 +640,11 @@ THCS.registerExams("toan-8", {
      {
       "level": "B",
       "topic": "t3",
-      "q": "Cho tam giác ABC, M ∈ AB, N ∈ AC và MN ∥ BC. Khẳng định đúng là:",
+      "q": "Cho tam giác ABC, M ∈ AB, N ∈ AC và MN ∥ BC. Khi đó:",
       "options": [
        "{{AM|AB}} = {{AC|AN}}",
-       "{{AM|MB}} = {{AC|NC}}",
        "AM = AN",
+       "MN = BC",
        "{{AM|AB}} = {{AN|AC}}"
       ],
       "answer": 3,
@@ -651,12 +656,12 @@ THCS.registerExams("toan-8", {
       "q": "Dữ liệu nào sau đây là dữ liệu định lượng?",
       "options": [
        "Màu áo yêu thích",
-       "Tên các tỉnh",
-       "Chiều cao (cm) của học sinh",
-       "Loại phương tiện đến trường"
+       "Nơi sinh",
+       "Chiều cao (cm) của các bạn trong lớp",
+       "Môn học yêu thích"
       ],
       "answer": 2,
-      "explain": "Dữ liệu định lượng là số đo, số đếm."
+      "explain": "Chiều cao biểu diễn bằng số."
      },
      {
       "level": "B",
@@ -676,10 +681,10 @@ THCS.registerExams("toan-8", {
       "topic": "t2",
       "q": "Tứ giác ABCD có ∠A = 80°, ∠B = 100°, ∠C = 70°. Số đo ∠D là:",
       "options": [
-       "70°",
        "100°",
+       "90°",
        "110°",
-       "120°"
+       "70°"
       ],
       "answer": 2,
       "explain": "360° − 250° = 110°.",
@@ -702,7 +707,7 @@ THCS.registerExams("toan-8", {
      {
       "level": "H",
       "topic": "t3",
-      "q": "AD là đường phân giác của tam giác ABC (D ∈ BC), AB = 6 cm, AC = 9 cm. Tỉ số {{DB|DC}} bằng:",
+      "q": "Tam giác ABC có AD là phân giác (D ∈ BC), AB = 6 cm, AC = 9 cm. Tỉ số {{DB|DC}} bằng:",
       "options": [
        "{{2|3}}",
        "{{3|2}}",
@@ -724,7 +729,7 @@ THCS.registerExams("toan-8", {
        "2,5 cm"
       ],
       "answer": 0,
-      "explain": "Hai đường chéo bằng nhau và cắt nhau tại trung điểm mỗi đường: OB = BD : 2 = 5 cm.",
+      "explain": "Hai đường chéo bằng nhau và cắt nhau tại trung điểm: OB = BD : 2 = 5 cm.",
       "calc": "10/2"
      }
     ],
@@ -776,20 +781,20 @@ THCS.registerExams("toan-8", {
         "answer": false,
         "level": "B",
         "explain": "MN = BC : 2 = 5 cm.",
-        "check": "10/2===10"
+        "check": "10===10/2"
        },
        {
         "s": "MN = 5 cm.",
         "answer": true,
         "level": "H",
-        "explain": "Tính chất đường trung bình.",
+        "explain": "MN = {{1|2}}BC.",
         "check": "10/2===5"
        },
        {
         "s": "Chu vi tam giác AMN bằng 12 cm.",
         "answer": true,
         "level": "V",
-        "explain": "AM + AN + MN = 3 + 4 + 5 = 12 (cm).",
+        "explain": "AM = 3, AN = 4, MN = 5 ⇒ 12 cm.",
         "check": "3+4+5===12"
        }
       ]
@@ -816,19 +821,19 @@ THCS.registerExams("toan-8", {
      {
       "level": "V",
       "topic": "t3",
-      "q": "Một cọc cao 1,5 m có bóng dài 2 m trên mặt đất; cùng lúc đó bóng của một cái cây dài 12 m. Tính chiều cao của cây (m).",
+      "q": "Một cọc cao 1,5 m có bóng trên mặt đất dài 2 m. Cùng lúc đó, bóng của một cái cây dài 12 m. Cây cao bao nhiêu mét?",
       "answer": "9",
-      "explain": "Các tia nắng song song nên tỉ số chiều cao và bóng bằng nhau: h = 1,5 · 12 : 2 = 9.",
+      "explain": "Tia nắng song song, theo định lí Thalès: chiều cao cây = 1,5 · 12 : 2 = 9 (m).",
       "calc": "1.5*12/2",
       "unit": "m"
      },
      {
       "level": "V",
       "topic": "t4",
-      "q": "Doanh thu bốn quý của một cửa hàng lần lượt là 120; 150; 180; 150 triệu đồng. Doanh thu quý III chiếm bao nhiêu phần trăm doanh thu cả năm?",
+      "q": "Doanh thu bốn quý của một cửa hàng lần lượt là 120; 150; 180; 150 (triệu đồng). Doanh thu quý III chiếm bao nhiêu phần trăm doanh thu cả năm?",
       "answer": "30",
       "explain": "Cả năm 600 triệu; 180 : 600 = 30%.",
-      "calc": "180/600*100",
+      "calc": "180/(120+150+180+150)*100",
       "unit": "%"
      }
     ],
@@ -844,7 +849,7 @@ THCS.registerExams("toan-8", {
         "answer": "(75 − 25)(75 + 25) = 50 · 100 = 5 000.",
         "rubric": [
          [
-          "Áp dụng hiệu hai bình phương",
+          "Dùng hiệu hai bình phương",
           0.25
          ],
          [
@@ -858,18 +863,18 @@ THCS.registerExams("toan-8", {
         "level": "H",
         "points": 0.75,
         "q": "Phân tích thành nhân tử: x<sup>2</sup> − 2xy + y<sup>2</sup> − 9.",
-        "answer": "(x − y)<sup>2</sup> − 9 = (x − y − 3)(x − y + 3).",
+        "answer": "(x − y)<sup>2</sup> − 3<sup>2</sup> = (x − y − 3)(x − y + 3).",
         "rubric": [
          [
-          "Nhóm (x − y)<sup>2</sup>",
+          "Nhóm thành (x − y)<sup>2</sup>",
           0.25
          ],
          [
-          "Nhận ra hiệu hai bình phương",
+          "Viết dạng hiệu hai bình phương",
           0.25
          ],
          [
-          "Kết quả",
+          "Kết quả (x − y − 3)(x − y + 3)",
           0.25
          ]
         ]
@@ -877,25 +882,25 @@ THCS.registerExams("toan-8", {
       ]
      },
      {
-      "topic": "t2",
+      "topic": "t3",
       "q": "Cho tam giác ABC. Gọi M, N, P lần lượt là trung điểm của AB, AC, BC.",
       "parts": [
        {
         "level": "V",
         "points": 1.25,
         "q": "Chứng minh tứ giác BMNP là hình bình hành.",
-        "answer": "MN là đường trung bình của tam giác ABC nên MN ∥ BC và MN = {{BC|2}}. P là trung điểm BC nên BP = {{BC|2}}. Do đó MN ∥ BP và MN = BP, tứ giác BMNP có một cặp cạnh đối song song và bằng nhau nên là hình bình hành.",
+        "answer": "MN là đường trung bình của ΔABC nên MN ∥ BC và MN = {{1|2}}BC. P là trung điểm BC nên BP = {{1|2}}BC. Do đó MN ∥ BP và MN = BP. Tứ giác BMNP có một cặp cạnh đối song song và bằng nhau nên là hình bình hành.",
         "rubric": [
          [
           "MN ∥ BC",
           0.25
          ],
          [
-          "MN = BC : 2",
+          "MN = {{1|2}}BC",
           0.25
          ],
          [
-          "BP = BC : 2",
+          "BP = {{1|2}}BC",
           0.25
          ],
          [
@@ -912,13 +917,13 @@ THCS.registerExams("toan-8", {
      },
      {
       "topic": "t2",
-      "q": "Bài toán nhận biết.",
+      "q": "Bài toán lập luận.",
       "parts": [
        {
         "level": "V",
         "points": 0.5,
-        "q": "Tứ giác có hai đường chéo bằng nhau và cắt nhau tại trung điểm của mỗi đường là hình gì? Vì sao?",
-        "answer": "Hai đường chéo cắt nhau tại trung điểm mỗi đường ⇒ hình bình hành; hình bình hành có hai đường chéo bằng nhau ⇒ hình chữ nhật.",
+        "q": "Một tứ giác có hai đường chéo bằng nhau và cắt nhau tại trung điểm của mỗi đường. Tứ giác đó là hình gì? Vì sao?",
+        "answer": "Hai đường chéo cắt nhau tại trung điểm mỗi đường nên là hình bình hành; hình bình hành có hai đường chéo bằng nhau là hình chữ nhật.",
         "rubric": [
          [
           "Lập luận là hình bình hành",
@@ -938,15 +943,15 @@ THCS.registerExams("toan-8", {
   {
    "id": "giua-ki-2",
    "name": "Giữa học kì 2",
-   "scope": "Chương VI – VII (Bài 21 – Bài 29): phân thức, phương trình bậc nhất, hàm số bậc nhất.",
+   "scope": "Chương VI – VII (Bài 21 – Bài 29): phân thức đại số, phương trình và hàm số bậc nhất.",
    "review": {
     "sections": [
      {
       "chapter": "c6",
       "title": "Chương VI. Phân thức đại số",
       "points": [
-       "Phân thức {{A|B}} (B ≠ 0); điều kiện xác định: mẫu khác 0.",
-       "Tính chất cơ bản: nhân/chia cả tử và mẫu cho cùng một đa thức khác 0. Rút gọn: phân tích tử, mẫu thành nhân tử rồi chia cho nhân tử chung.",
+       "Phân thức {{A|B}} (B ≠ 0); {{A|B}} = {{C|D}} khi A · D = B · C.",
+       "Tính chất cơ bản: nhân/chia cả tử và mẫu với cùng một đa thức khác 0. Rút gọn: phân tích tử, mẫu thành nhân tử rồi chia cho nhân tử chung.",
        "Cộng, trừ: quy đồng mẫu. Nhân: tử nhân tử, mẫu nhân mẫu. Chia: nhân với phân thức nghịch đảo."
       ]
      },
@@ -955,21 +960,22 @@ THCS.registerExams("toan-8", {
       "title": "Chương VII. Phương trình bậc nhất và hàm số bậc nhất",
       "points": [
        "Phương trình ax + b = 0 (a ≠ 0) có nghiệm x = −{{b|a}}.",
-       "Giải bài toán bằng cách lập phương trình: chọn ẩn, đặt điều kiện, lập phương trình, giải, đối chiếu, kết luận.",
-       "Hàm số bậc nhất y = ax + b (a ≠ 0): đồ thị là đường thẳng cắt trục tung tại (0; b); a là hệ số góc.",
-       "Hai đường thẳng song song khi a = a′ và b ≠ b′; cắt nhau khi a ≠ a′."
+       "Giải bài toán bằng cách lập phương trình: chọn ẩn, đặt điều kiện, lập phương trình, giải, đối chiếu và kết luận.",
+       "Hàm số bậc nhất y = ax + b (a ≠ 0); đồ thị là đường thẳng cắt trục tung tại (0; b). a là hệ số góc.",
+       "Hai đường thẳng y = ax + b và y = a'x + b' song song khi a = a' và b ≠ b'; cắt nhau khi a ≠ a'."
       ]
      }
     ],
     "mistakes": [
-     "Quên điều kiện xác định của phân thức.",
-     "Không đối chiếu điều kiện của ẩn khi giải bài toán.",
-     "Nhầm điều kiện song song (cần b ≠ b′)."
+     "Quên đặt điều kiện xác định của phân thức.",
+     "Rút gọn từng hạng tử thay vì nhân tử.",
+     "Quên đối chiếu điều kiện của ẩn trong bài toán lập phương trình."
     ],
     "forms": [
-     "Rút gọn, tính toán phân thức.",
-     "Giải phương trình bậc nhất; bài toán chuyển động, năng suất, tuổi.",
-     "Hàm số bậc nhất: giá trị, đồ thị, song song, cắt nhau."
+     "Rút gọn, tính giá trị phân thức.",
+     "Cộng, trừ, nhân, chia phân thức.",
+     "Giải phương trình bậc nhất; giải bài toán bằng cách lập phương trình.",
+     "Hàm số bậc nhất: đồ thị, song song, đi qua điểm."
     ]
    },
    "exam": {
@@ -979,7 +985,7 @@ THCS.registerExams("toan-8", {
      {
       "id": "t1",
       "chapter": "c6",
-      "content": "Phân thức đại số; tính chất cơ bản",
+      "content": "Phân thức đại số; tính chất cơ bản; rút gọn",
       "yccd": {
        "B": "Nhận biết điều kiện xác định, phân thức bằng nhau.",
        "H": "Rút gọn phân thức.",
@@ -993,7 +999,7 @@ THCS.registerExams("toan-8", {
       "content": "Cộng, trừ, nhân, chia phân thức",
       "yccd": {
        "B": "Cộng phân thức cùng mẫu.",
-       "H": "Thực hiện phép tính với phân thức.",
+       "H": "Cộng, trừ phân thức khác mẫu; tính giá trị.",
        "V": ""
       },
       "nl": "TD, GQVĐ"
@@ -1014,9 +1020,9 @@ THCS.registerExams("toan-8", {
       "chapter": "c7",
       "content": "Hàm số; hàm số bậc nhất và đồ thị; hệ số góc",
       "yccd": {
-       "B": "Nhận biết hàm số bậc nhất, hệ số góc, tính giá trị.",
+       "B": "Nhận biết hàm số bậc nhất, hệ số góc, tính giá trị hàm số.",
        "H": "Tìm giao điểm với trục, điều kiện song song.",
-       "V": "Xác định hàm số từ điều kiện cho trước."
+       "V": "Xác định hàm số thoả điều kiện."
       },
       "nl": "TD, GQVĐ"
      }
@@ -1025,12 +1031,12 @@ THCS.registerExams("toan-8", {
      {
       "level": "B",
       "topic": "t1",
-      "q": "Điều kiện xác định của phân thức {{3|x − 2}} là:",
+      "q": "Phân thức {{3|x − 2}} xác định khi:",
       "options": [
+       "x ≠ 0",
        "x ≠ −2",
-       "x ≠ 3",
        "x ≠ 2",
-       "x ≠ 0"
+       "x ≠ 3"
       ],
       "answer": 2,
       "explain": "Mẫu khác 0: x − 2 ≠ 0."
@@ -1038,7 +1044,7 @@ THCS.registerExams("toan-8", {
      {
       "level": "B",
       "topic": "t1",
-      "q": "Phân thức {{2x|2x + 2}} (x ≠ −1) bằng phân thức:",
+      "q": "Phân thức {{2x|2x + 2}} (x ≠ −1) bằng phân thức nào?",
       "options": [
        "{{x|x + 2}}",
        "{{1|2}}",
@@ -1072,7 +1078,7 @@ THCS.registerExams("toan-8", {
        "2"
       ],
       "answer": 3,
-      "explain": "3x = 6 ⇒ x = 2.",
+      "explain": "x = 6 : 3 = 2.",
       "calc": "6/3"
      },
      {
@@ -1099,13 +1105,13 @@ THCS.registerExams("toan-8", {
        "−5"
       ],
       "answer": 0,
-      "explain": "Hệ số góc là a = −3.",
+      "explain": "Hệ số góc là a.",
       "calc": "-3"
      },
      {
       "level": "B",
       "topic": "t4",
-      "q": "Cho f(x) = 2x + 1. Giá trị f(3) là:",
+      "q": "Cho f(x) = 2x + 1. Giá trị f(3) bằng:",
       "options": [
        "6",
        "5",
@@ -1119,10 +1125,10 @@ THCS.registerExams("toan-8", {
      {
       "level": "B",
       "topic": "t2",
-      "q": "Kết quả của {{x|3}} + {{2x|3}} là:",
+      "q": "{{x|3}} + {{2x|3}} bằng:",
       "options": [
        "{{3x|6}}",
-       "{{2x|3}}",
+       "{{x<sup>2</sup>|3}}",
        "x",
        "3x"
       ],
@@ -1131,16 +1137,16 @@ THCS.registerExams("toan-8", {
      },
      {
       "level": "H",
-      "topic": "t2",
+      "topic": "t1",
       "q": "Rút gọn {{x<sup>2</sup> − 1|x + 1}} (x ≠ −1) được:",
       "options": [
        "x − 1",
        "x + 1",
-       "x",
+       "x<sup>2</sup>",
        "1"
       ],
       "answer": 0,
-      "explain": "x<sup>2</sup> − 1 = (x − 1)(x + 1)."
+      "explain": "{{(x − 1)(x + 1)|x + 1}} = x − 1."
      },
      {
       "level": "H",
@@ -1149,8 +1155,8 @@ THCS.registerExams("toan-8", {
       "options": [
        "5",
        "1",
-       "2",
-       "−5"
+       "−5",
+       "4"
       ],
       "answer": 0,
       "explain": "2x − 2 = x + 3 ⇒ x = 5.",
@@ -1173,16 +1179,15 @@ THCS.registerExams("toan-8", {
      {
       "level": "H",
       "topic": "t4",
-      "q": "Đường thẳng y = ax − 2 song song với đường thẳng y = 3x + 1 khi a bằng:",
+      "q": "Hai đường thẳng y = 3x + 1 và y = ax − 2 song song với nhau khi:",
       "options": [
-       "−3",
-       "3",
-       "1",
-       "−2"
+       "a = −3",
+       "a = 3",
+       "a = 1",
+       "a = −2"
       ],
       "answer": 1,
-      "explain": "Hai đường thẳng song song khi cùng hệ số góc và tung độ gốc khác nhau (−2 ≠ 1).",
-      "calc": "3"
+      "explain": "Cùng hệ số góc và tung độ gốc khác nhau (1 ≠ −2)."
      }
     ],
     "tf": [
@@ -1200,14 +1205,14 @@ THCS.registerExams("toan-8", {
         "s": "Tử thức của P là x<sup>2</sup> + 2x.",
         "answer": false,
         "level": "B",
-        "explain": "Tử thức là x<sup>2</sup> − 4."
+        "explain": "Đó là mẫu thức; tử thức là x<sup>2</sup> − 4."
        },
        {
-        "s": "P = {{x − 2|x}} với mọi x thuộc điều kiện xác định.",
+        "s": "P = {{x − 2|x}} (với điều kiện xác định).",
         "answer": true,
         "level": "H",
-        "explain": "P = {{(x − 2)(x + 2)|x(x + 2)}}.",
-        "check": "(function(x){return Math.abs((x*x-4)/(x*x+2*x)-(x-2)/x)<1e-12})(3)"
+        "explain": "{{(x − 2)(x + 2)|x(x + 2)}}.",
+        "check": "Math.abs((9-4)/(9+6)-(3-2)/3)<1e-9"
        },
        {
         "s": "Tại x = 4, P = {{1|2}}.",
@@ -1220,19 +1225,20 @@ THCS.registerExams("toan-8", {
      },
      {
       "topic": "t4",
-      "q": "Cho hàm số y = (m − 1)x + 3.",
+      "q": "Cho hàm số y = (m − 1)x + 3 (m là tham số).",
       "items": [
        {
         "s": "Với m = 2, hàm số là y = x + 3.",
         "answer": true,
         "level": "B",
-        "explain": "m − 1 = 1."
+        "explain": "m − 1 = 1.",
+        "check": "2-1===1"
        },
        {
-        "s": "Với m = 1, hàm số là hàm số bậc nhất.",
+        "s": "Với m = 1, hàm số đã cho là hàm số bậc nhất.",
         "answer": false,
         "level": "B",
-        "explain": "m = 1 thì a = 0, y = 3 không phải hàm bậc nhất."
+        "explain": "m − 1 = 0, hàm số là y = 3 (hàm hằng)."
        },
        {
         "s": "Với m = 3, đồ thị đi qua điểm (1; 5).",
@@ -1258,20 +1264,20 @@ THCS.registerExams("toan-8", {
       "q": "Giải phương trình 5x + 4 = 19.",
       "answer": "3",
       "explain": "5x = 15 ⇒ x = 3.",
-      "calc": "15/5"
+      "calc": "(19-4)/5"
      },
      {
       "level": "H",
       "topic": "t2",
       "q": "Tính giá trị của phân thức {{x<sup>2</sup> − 9|x − 3}} tại x = 7.",
       "answer": "10",
-      "explain": "Rút gọn được x + 3 = 10.",
+      "explain": "Rút gọn được x + 3; tại x = 7 bằng 10.",
       "calc": "(49-9)/(7-3)"
      },
      {
       "level": "V",
       "topic": "t3",
-      "q": "Tổng số tuổi của bố và con là 48; tuổi bố gấp 3 lần tuổi con. Tính tuổi con.",
+      "q": "Tổng số tuổi của bố và con là 48. Tuổi bố gấp 3 lần tuổi con. Con bao nhiêu tuổi?",
       "answer": "12",
       "explain": "x + 3x = 48 ⇒ x = 12.",
       "calc": "48/4",
@@ -1294,11 +1300,11 @@ THCS.registerExams("toan-8", {
        {
         "level": "B",
         "points": 0.5,
-        "q": "Giải phương trình: 3(x − 2) = x + 4.",
+        "q": "Giải phương trình 3(x − 2) = x + 4.",
         "answer": "3x − 6 = x + 4 ⇒ 2x = 10 ⇒ x = 5.",
         "rubric": [
          [
-          "Khai triển, chuyển vế",
+          "Khai triển, chuyển vế 2x = 10",
           0.25
          ],
          [
@@ -1310,15 +1316,15 @@ THCS.registerExams("toan-8", {
        {
         "level": "H",
         "points": 0.75,
-        "q": "Rút gọn: {{1|x − 2}} + {{1|x + 2}} (x ≠ ±2).",
-        "answer": "Mẫu chung (x − 2)(x + 2): {{x + 2 + x − 2|x<sup>2</sup> − 4}} = {{2x|x<sup>2</sup> − 4}}.",
+        "q": "Tính: {{1|x − 2}} + {{1|x + 2}} (x ≠ ±2).",
+        "answer": "Mẫu chung (x − 2)(x + 2) = x<sup>2</sup> − 4. Tổng = {{x + 2 + x − 2|x<sup>2</sup> − 4}} = {{2x|x<sup>2</sup> − 4}}.",
         "rubric": [
          [
-          "Quy đồng mẫu chung",
+          "Tìm mẫu chung",
           0.25
          ],
          [
-          "Cộng tử được 2x",
+          "Quy đồng và cộng tử",
           0.25
          ],
          [
@@ -1337,49 +1343,45 @@ THCS.registerExams("toan-8", {
         "level": "V",
         "points": 1.25,
         "q": "Tính quãng đường AB.",
-        "answer": "Gọi AB = x (km), x > 0. Thời gian đi {{x|50}}, về {{x|40}}. Ta có {{x|50}} + {{x|40}} = 9 ⇔ 4x + 5x = 1 800 ⇔ x = 200 (thoả mãn). Quãng đường AB dài 200 km.",
+        "answer": "Gọi quãng đường là x (km), x > 0. Thời gian đi {{x|50}}, về {{x|40}}. Ta có {{x|50}} + {{x|40}} = 9 ⇔ {{9x|200}} = 9 ⇔ x = 200 (thoả mãn). Quãng đường AB dài 200 km.",
         "rubric": [
          [
-          "Chọn ẩn và điều kiện",
-          0.25
-         ],
-         [
-          "Biểu diễn thời gian đi, về",
+          "Gọi ẩn, đặt điều kiện",
           0.25
          ],
          [
           "Lập phương trình",
+          0.5
+         ],
+         [
+          "Giải x = 200",
           0.25
          ],
          [
-          "Giải được x = 200",
-          0.25
-         ],
-         [
-          "Kết luận",
+          "Đối chiếu điều kiện, kết luận",
           0.25
          ]
         ],
-        "calc": "1800/9"
+        "calc": "200/50+200/40"
        }
       ]
      },
      {
       "topic": "t4",
-      "q": "Bài toán hàm số.",
+      "q": "Bài toán về hàm số.",
       "parts": [
        {
         "level": "V",
         "points": 0.5,
         "q": "Tìm m để đồ thị hàm số y = (2m − 1)x + m đi qua điểm A(1; 5).",
-        "answer": "Thay x = 1, y = 5: 2m − 1 + m = 5 ⇒ m = 2; khi đó a = 3 ≠ 0 (hàm bậc nhất).",
+        "answer": "Thay x = 1, y = 5: 2m − 1 + m = 5 ⇒ m = 2. Khi đó 2m − 1 = 3 ≠ 0 (hàm số bậc nhất).",
         "rubric": [
          [
-          "Thay toạ độ, lập phương trình theo m",
+          "Thay toạ độ lập phương trình",
           0.25
          ],
          [
-          "m = 2 và kiểm tra a ≠ 0",
+          "m = 2",
           0.25
          ]
         ]
@@ -1399,45 +1401,47 @@ THCS.registerExams("toan-8", {
       "chapter": "c7",
       "title": "Ôn nhanh Chương VI – VII",
       "points": [
-       "Phân thức: điều kiện xác định, rút gọn, phép tính.",
-       "Phương trình bậc nhất, bài toán lập phương trình; hàm số bậc nhất và đồ thị."
+       "Phân thức đại số và các phép tính.",
+       "Phương trình bậc nhất, giải bài toán bằng cách lập phương trình, hàm số bậc nhất."
       ]
      },
      {
       "chapter": "c8",
       "title": "Chương VIII. Mở đầu về tính xác suất của biến cố",
       "points": [
-       "Kết quả có thể; kết quả thuận lợi cho biến cố.",
-       "Khi các kết quả đồng khả năng: P(A) = {{số kết quả thuận lợi|số kết quả có thể}}.",
-       "Xác suất thực nghiệm gần với xác suất lí thuyết khi số lần thử lớn."
+       "Kết quả có thể, kết quả thuận lợi cho biến cố.",
+       "Khi các kết quả đồng khả năng: P(E) = số kết quả thuận lợi : số kết quả có thể.",
+       "Xác suất thực nghiệm xấp xỉ xác suất khi số lần thử đủ lớn."
       ]
      },
      {
       "chapter": "c9",
       "title": "Chương IX. Tam giác đồng dạng",
       "points": [
-       "Ba trường hợp đồng dạng: c.c.c, c.g.c, g.g; với tam giác vuông: một góc nhọn bằng nhau, hai cạnh góc vuông tỉ lệ, cạnh huyền – cạnh góc vuông tỉ lệ.",
-       "Định lí Pythagore và định lí đảo.",
-       "Hình đồng dạng, ứng dụng đo gián tiếp."
-      ]
+       "Hai tam giác đồng dạng: góc tương ứng bằng nhau, cạnh tương ứng tỉ lệ (tỉ số k).",
+       "Các trường hợp đồng dạng: c.c.c, c.g.c, g.g; tam giác vuông: một góc nhọn bằng nhau, hai cạnh góc vuông tỉ lệ, cạnh huyền – cạnh góc vuông tỉ lệ.",
+       "Định lí Pythagore và định lí đảo."
+      ],
+      "example": "Tam giác vuông có cạnh huyền 13, một cạnh góc vuông 5 ⇒ cạnh còn lại √(169 − 25) = 12."
      },
      {
       "chapter": "c10",
       "title": "Chương X. Một số hình khối trong thực tiễn",
       "points": [
-       "Hình chóp tam giác đều, tứ giác đều: đáy là đa giác đều, các mặt bên là tam giác cân bằng nhau.",
+       "Hình chóp tam giác đều, tứ giác đều: đỉnh, mặt bên, mặt đáy, chiều cao, trung đoạn.",
        "S<sub>xq</sub> = {{1|2}} · chu vi đáy · trung đoạn; V = {{1|3}} · S<sub>đáy</sub> · h."
       ]
      }
     ],
     "mistakes": [
-     "Viết sai thứ tự đỉnh khi lập tỉ số của tam giác đồng dạng.",
+     "Viết sai thứ tự đỉnh tương ứng khi đồng dạng.",
      "Dùng Pythagore cho tam giác không vuông.",
-     "Quên hệ số {{1|3}} trong công thức thể tích hình chóp."
+     "Quên hệ số {{1|3}} khi tính thể tích hình chóp."
     ],
     "forms": [
-     "Tính xác suất bằng tỉ số.",
-     "Chứng minh tam giác đồng dạng, suy ra hệ thức; Pythagore.",
+     "Tính xác suất.",
+     "Chứng minh tam giác đồng dạng, suy ra hệ thức.",
+     "Pythagore trong bài toán thực tế.",
      "Diện tích xung quanh, thể tích hình chóp đều."
     ]
    },
@@ -1450,8 +1454,8 @@ THCS.registerExams("toan-8", {
       "chapter": "c7",
       "content": "Phương trình bậc nhất một ẩn",
       "yccd": {
-       "B": "Nhận biết nghiệm của phương trình.",
-       "H": "Giải phương trình đưa về bậc nhất.",
+       "B": "Nhận biết nghiệm.",
+       "H": "Giải phương trình đưa về dạng bậc nhất.",
        "V": ""
       },
       "nl": "TD, GQVĐ"
@@ -1463,7 +1467,7 @@ THCS.registerExams("toan-8", {
       "yccd": {
        "B": "Nhận biết số kết quả có thể, công thức xác suất.",
        "H": "Tính xác suất.",
-       "V": "Tính xác suất khi điều kiện thay đổi."
+       "V": "Bài toán xác suất trong thực tế."
       },
       "nl": "TD, GQVĐ"
      },
@@ -1472,9 +1476,9 @@ THCS.registerExams("toan-8", {
       "chapter": "c9",
       "content": "Tam giác đồng dạng; định lí Pythagore",
       "yccd": {
-       "B": "Nhận biết tam giác đồng dạng, định lí Pythagore.",
-       "H": "Tính cạnh, nhận biết tam giác vuông.",
-       "V": "Bài toán thực tế; chứng minh hệ thức."
+       "B": "Nhận biết tỉ số đồng dạng, định lí Pythagore.",
+       "H": "Tính cạnh bằng Pythagore, tam giác đồng dạng.",
+       "V": "Chứng minh đồng dạng, hệ thức; bài toán thực tế."
       },
       "nl": "TD, GQVĐ"
      },
@@ -1483,9 +1487,9 @@ THCS.registerExams("toan-8", {
       "chapter": "c10",
       "content": "Hình chóp tam giác đều, hình chóp tứ giác đều",
       "yccd": {
-       "B": "Nhận biết các yếu tố của hình chóp đều.",
-       "H": "Tính thể tích hình chóp đều.",
-       "V": "Tính diện tích xung quanh trong thực tế."
+       "B": "Nhận biết mặt đáy, mặt bên.",
+       "H": "Tính thể tích hình chóp.",
+       "V": "Tính diện tích xung quanh."
       },
       "nl": "TD, GQVĐ"
      }
@@ -1508,20 +1512,20 @@ THCS.registerExams("toan-8", {
      {
       "level": "B",
       "topic": "t2",
-      "q": "Khi các kết quả có thể đồng khả năng, xác suất của biến cố A bằng:",
+      "q": "Khi các kết quả có thể là đồng khả năng, xác suất của biến cố E bằng:",
       "options": [
-       "số kết quả thuận lợi cho A chia cho số kết quả có thể",
-       "số kết quả có thể chia cho số kết quả thuận lợi",
-       "số kết quả thuận lợi cho A",
-       "số kết quả không thuận lợi"
+       "số kết quả thuận lợi cho E : số kết quả có thể",
+       "số kết quả có thể : số kết quả thuận lợi cho E",
+       "số kết quả thuận lợi cho E",
+       "1 − số kết quả có thể"
       ],
       "answer": 0,
-      "explain": "Công thức tính xác suất bằng tỉ số."
+      "explain": "Định nghĩa xác suất theo tỉ số."
      },
      {
       "level": "B",
       "topic": "t3",
-      "q": "ΔABC ∽ ΔDEF thì:",
+      "q": "Nếu ΔABC ∽ ΔDEF thì:",
       "options": [
        "{{AB|EF}} = {{BC|DE}}",
        "AB = DE",
@@ -1534,7 +1538,7 @@ THCS.registerExams("toan-8", {
      {
       "level": "B",
       "topic": "t3",
-      "q": "Tam giác vuông có hai cạnh góc vuông 3 cm và 4 cm. Cạnh huyền dài:",
+      "q": "Tam giác vuông có hai cạnh góc vuông 3 cm và 4 cm thì cạnh huyền dài:",
       "options": [
        "7 cm",
        "5 cm",
@@ -1542,21 +1546,21 @@ THCS.registerExams("toan-8", {
        "12 cm"
       ],
       "answer": 1,
-      "explain": "3<sup>2</sup> + 4<sup>2</sup> = 25 ⇒ cạnh huyền 5 cm.",
+      "explain": "√(9 + 16) = 5.",
       "calc": "Math.sqrt(9+16)"
      },
      {
       "level": "B",
       "topic": "t3",
-      "q": "Tam giác ABC vuông tại A thì:",
+      "q": "Tam giác ABC vuông tại A. Theo định lí Pythagore:",
       "options": [
        "AB<sup>2</sup> = BC<sup>2</sup> + AC<sup>2</sup>",
-       "BC = AB + AC",
+       "AC<sup>2</sup> = AB<sup>2</sup> + BC<sup>2</sup>",
        "BC<sup>2</sup> = AB<sup>2</sup> + AC<sup>2</sup>",
-       "AC<sup>2</sup> = AB<sup>2</sup> + BC<sup>2</sup>"
+       "BC = AB + AC"
       ],
       "answer": 2,
-      "explain": "Định lí Pythagore."
+      "explain": "Bình phương cạnh huyền bằng tổng bình phương hai cạnh góc vuông."
      },
      {
       "level": "B",
@@ -1569,7 +1573,7 @@ THCS.registerExams("toan-8", {
        "tam giác cân bất kì"
       ],
       "answer": 0,
-      "explain": "Định nghĩa hình chóp tam giác đều."
+      "explain": "Đáy là tam giác đều, các mặt bên là tam giác cân bằng nhau."
      },
      {
       "level": "B",
@@ -1577,12 +1581,12 @@ THCS.registerExams("toan-8", {
       "q": "Hình chóp tứ giác đều có bao nhiêu mặt bên?",
       "options": [
        "5",
-       "3",
+       "8",
        "4",
-       "8"
+       "6"
       ],
       "answer": 2,
-      "explain": "Bốn mặt bên là các tam giác cân bằng nhau.",
+      "explain": "4 mặt bên và 1 mặt đáy hình vuông.",
       "calc": "4"
      },
      {
@@ -1602,7 +1606,7 @@ THCS.registerExams("toan-8", {
      {
       "level": "H",
       "topic": "t2",
-      "q": "Hộp có 4 bi đỏ và 6 bi vàng. Lấy ngẫu nhiên một viên, xác suất lấy được bi vàng là:",
+      "q": "Hộp có 4 bi đỏ và 6 bi vàng. Lấy ngẫu nhiên một viên. Xác suất lấy được bi vàng là:",
       "options": [
        "{{2|5}}",
        "{{3|5}}",
@@ -1610,21 +1614,21 @@ THCS.registerExams("toan-8", {
        "{{1|6}}"
       ],
       "answer": 1,
-      "explain": "{{6|10}} = {{3|5}}.",
+      "explain": "6 : 10 = {{3|5}}.",
       "calc": "6/10"
      },
      {
       "level": "H",
       "topic": "t3",
-      "q": "ΔABC ∽ ΔDEF với tỉ số đồng dạng {{AB|DE}} = 2 và DE = 3 cm. Độ dài AB là:",
+      "q": "ΔABC ∽ ΔDEF theo tỉ số k = 2, DE = 3 cm. Độ dài AB là:",
       "options": [
        "1,5 cm",
        "5 cm",
        "6 cm",
-       "9 cm"
+       "3 cm"
       ],
       "answer": 2,
-      "explain": "AB = 2 · DE.",
+      "explain": "AB = k · DE = 6 cm.",
       "calc": "2*3"
      },
      {
@@ -1646,8 +1650,8 @@ THCS.registerExams("toan-8", {
       "q": "Hình chóp tứ giác đều có cạnh đáy 6 cm, chiều cao 5 cm. Thể tích là:",
       "options": [
        "180 cm³",
-       "30 cm³",
        "90 cm³",
+       "30 cm³",
        "60 cm³"
       ],
       "answer": 3,
@@ -1670,28 +1674,28 @@ THCS.registerExams("toan-8", {
         "s": "BC = 14 cm.",
         "answer": false,
         "level": "B",
-        "explain": "BC = 10 cm.",
+        "explain": "BC = √100 = 10 cm, không phải 6 + 8.",
         "check": "Math.sqrt(36+64)===14"
        },
        {
         "s": "BC = 10 cm.",
         "answer": true,
         "level": "H",
-        "explain": "BC<sup>2</sup> = 36 + 64 = 100.",
+        "explain": "√(36 + 64) = 10.",
         "check": "Math.sqrt(36+64)===10"
        },
        {
-        "s": "Nếu ΔMNP ∽ ΔABC với MN = 3 cm (MN tương ứng với AB) thì NP = 5 cm.",
+        "s": "Nếu ΔMNP ∽ ΔABC và MN = 3 cm (MN tương ứng AB) thì NP = 5 cm.",
         "answer": true,
         "level": "H",
-        "explain": "Tỉ số {{3|6}} = {{1|2}} nên NP = 10 : 2 = 5 cm.",
+        "explain": "Tỉ số {{1|2}} ⇒ NP = BC : 2 = 5.",
         "check": "10*3/6===5"
        }
       ]
      },
      {
       "topic": "t2",
-      "q": "Lớp 8A có 40 học sinh, trong đó 16 bạn đăng kí câu lạc bộ bóng rổ. Chọn ngẫu nhiên một bạn.",
+      "q": "Lớp 8A có 40 học sinh, trong đó 16 bạn đăng kí câu lạc bộ bóng rổ. Chọn ngẫu nhiên một bạn của lớp.",
       "items": [
        {
         "s": "Số kết quả có thể là 40.",
@@ -1714,10 +1718,10 @@ THCS.registerExams("toan-8", {
         "check": "24/40===0.6"
        },
        {
-        "s": "Nếu lớp có thêm 4 bạn mới và cả 4 bạn đều đăng kí bóng rổ thì xác suất chọn được bạn đăng kí bóng rổ là {{5|11}}.",
+        "s": "Nếu lớp nhận thêm 4 bạn mới và cả 4 bạn đều đăng kí bóng rổ thì xác suất chọn được bạn đăng kí bóng rổ là {{5|11}}.",
         "answer": true,
         "level": "V",
-        "explain": "{{20|44}} = {{5|11}}.",
+        "explain": "20 : 44 = {{5|11}}.",
         "check": "Math.abs(20/44-5/11)<1e-12"
        }
       ]
@@ -1727,9 +1731,9 @@ THCS.registerExams("toan-8", {
      {
       "level": "B",
       "topic": "t3",
-      "q": "Tam giác vuông có hai cạnh góc vuông 5 cm và 12 cm. Tính cạnh huyền (cm).",
+      "q": "Tam giác vuông có hai cạnh góc vuông 5 cm và 12 cm. Cạnh huyền dài bao nhiêu xăng-ti-mét?",
       "answer": "13",
-      "explain": "25 + 144 = 169 = 13<sup>2</sup>.",
+      "explain": "√(25 + 144) = 13.",
       "calc": "Math.sqrt(25+144)",
       "unit": "cm"
      },
@@ -1744,9 +1748,9 @@ THCS.registerExams("toan-8", {
      {
       "level": "V",
       "topic": "t3",
-      "q": "Một chiếc thang dài 5 m dựa vào tường, chân thang cách chân tường 3 m. Hỏi đầu thang chạm tường ở độ cao bao nhiêu mét?",
+      "q": "Một chiếc thang dài 5 m dựa vào tường, chân thang cách chân tường 3 m. Đỉnh thang cao bao nhiêu mét so với mặt đất?",
       "answer": "4",
-      "explain": "h<sup>2</sup> = 5<sup>2</sup> − 3<sup>2</sup> = 16 ⇒ h = 4 (m).",
+      "explain": "√(25 − 9) = 4.",
       "calc": "Math.sqrt(25-9)",
       "unit": "m"
      },
@@ -1811,10 +1815,10 @@ THCS.registerExams("toan-8", {
         "level": "V",
         "points": 0.75,
         "q": "Chứng minh ΔHBA ∽ ΔABC.",
-        "answer": "Xét ΔHBA và ΔABC: ∠AHB = ∠BAC = 90°, ∠B chung ⇒ ΔHBA ∽ ΔABC (g.g).",
+        "answer": "Xét ΔHBA và ΔABC: ∠BHA = ∠BAC = 90°; ∠B chung. Vậy ΔHBA ∽ ΔABC (g.g).",
         "rubric": [
          [
-          "∠AHB = ∠BAC = 90°",
+          "∠BHA = ∠BAC = 90°",
           0.25
          ],
          [
@@ -1831,7 +1835,7 @@ THCS.registerExams("toan-8", {
         "level": "V",
         "points": 0.5,
         "q": "Chứng minh AB<sup>2</sup> = BH · BC.",
-        "answer": "Từ ΔHBA ∽ ΔABC: {{HB|AB}} = {{AB|BC}} ⇒ AB<sup>2</sup> = BH · BC.",
+        "answer": "Từ ΔHBA ∽ ΔABC suy ra {{BH|AB}} = {{AB|BC}}, do đó AB<sup>2</sup> = BH · BC.",
         "rubric": [
          [
           "Lập tỉ số cạnh tương ứng",
@@ -1852,8 +1856,8 @@ THCS.registerExams("toan-8", {
        {
         "level": "V",
         "points": 0.5,
-        "q": "Chọn ngẫu nhiên một số tự nhiên có hai chữ số. Tính xác suất để số đó chia hết cho 9.",
-        "answer": "Có 90 số có hai chữ số. Các số chia hết cho 9: 18; 27; …; 99 (10 số). Xác suất {{10|90}} = {{1|9}}.",
+        "q": "Chọn ngẫu nhiên một số tự nhiên có hai chữ số. Tính xác suất số được chọn chia hết cho 9.",
+        "answer": "Có 90 số có hai chữ số (10 → 99). Các số chia hết cho 9: 18; 27; …; 99, gồm 10 số. Xác suất = {{10|90}} = {{1|9}}.",
         "rubric": [
          [
           "Đếm 90 kết quả và 10 kết quả thuận lợi",
@@ -1864,7 +1868,7 @@ THCS.registerExams("toan-8", {
           0.25
          ]
         ],
-        "calc": "(function(){var n=0;for(var i=10;i<100;i++)if(i%9===0)n++;return n/90})()"
+        "calc": "(function(){var c=0;for(var n=10;n<100;n++)if(n%9===0)c++;return c})()"
        }
       ]
      }
